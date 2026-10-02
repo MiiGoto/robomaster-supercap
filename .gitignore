@@ -1,0 +1,30 @@
+# Local secrets and tooling
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.local/
+.venv/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+build/
+dist/
+# KiCad generated / local files
+*-backups/
+*.kicad_prl
+*.bak
+*.bck
+*.lck
+*.lock
+~*.lck
+_autosave-*
+*-cache.lib
+*.kicad_sch-bak
+*.kicad_pcb-bak
+fp-info-cache
+# OS
+Thumbs.db
+.DS_Store
