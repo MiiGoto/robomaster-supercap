@@ -1,0 +1,4 @@
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "e2d63a8f-95e5-42a4-a0fb-ce4d75b96c92") (paper "A4") (title_block (title "SENSING - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "SENSING\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "959f6ae7-4ca0-45bf-8e46-d59cfd0d612f"))
+(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "94cbf933-1263-4226-b580-f06a71241d53"))
+)

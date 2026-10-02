@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "filename": "robomaster_supercap.kicad_pro",
+    "version": 1
+  },
+  "board": {},
+  "schematic": {},
+  "net_settings": {
+    "classes": [],
+    "meta": {
+      "version": 3
+    }
+  }
+}

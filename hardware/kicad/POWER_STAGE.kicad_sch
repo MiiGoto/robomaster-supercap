@@ -1,0 +1,4 @@
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "369192b5-d0c6-44d5-9354-704156d1bb09") (paper "A4") (title_block (title "POWER_STAGE - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "POWER_STAGE\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "87eae940-3ce2-4be8-83f4-cfcc453880ed"))
+(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "684a8983-1d27-45d3-b398-6bea36f511ec"))
+)

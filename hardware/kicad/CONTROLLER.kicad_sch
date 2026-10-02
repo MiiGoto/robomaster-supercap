@@ -1,0 +1,4 @@
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "360b944d-7632-4839-8cb2-e048e379fec5") (paper "A4") (title_block (title "CONTROLLER - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "CONTROLLER\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "27543598-453c-4cb4-a7bd-caa6856e9656"))
+(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "33a1a65c-5778-42f0-8860-fe48c29b89b3"))
+)

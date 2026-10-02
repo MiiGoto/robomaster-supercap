@@ -1,0 +1,4 @@
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "68367fbf-a771-4387-8f63-9ea84ee7c1a7") (paper "A4") (title_block (title "POWER_INPUT - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "POWER_INPUT\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "66582ef1-bfa4-4463-9e27-df258b42295c"))
+(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "252b8e6d-bbeb-41e4-aee9-cc1e327117e0"))
+)

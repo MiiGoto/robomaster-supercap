@@ -1,0 +1,4 @@
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "57d01bf8-04c3-421c-ba54-1a03a8cb7feb") (paper "A4") (title_block (title "SUPERCAP_BANK - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "SUPERCAP_BANK\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "0d17c4cb-fa12-48ae-96ae-368b8ab1c33c"))
+(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "11c893cf-3dbf-4ee8-a85e-d232d3fcab0b"))
+)
