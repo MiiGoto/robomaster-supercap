@@ -1,4 +1,4 @@
-# Task 3 review gate — architecture approved, physical envelope pending
+# Task 3 review gate — architecture approved, physical envelope unknown
 
 2026-10-03 JST。ユーザー回答「Task 2案を採用。実機条件は自由入力で指定する」を受領。9S・50 F/cell、Ceq=5.5556 F、Vcap=12–22.05 V、4-switch双方向buck-boost、STM32G474RE/LQFP64、high-side shunt、抵抗precharge、充電入力40 W、assist要求80/120 W、cap平均電流normal8 A/peak12 Aを**承認済み設計目標**とする。承認は部品の熱定格・実装・安全検証を意味しない。Task 2の「人間承認待ち」はこの範囲に限り本記録で置き換える。
 
@@ -12,7 +12,7 @@
 | service-safe V/energy、放電完了時間、local link容量・許容起動時間 | bleed/dump/precharge抵抗・pulse energy・検査との共存 | 比較はRC式で行い、値はTBD |
 | fault source impedance、遮断時間、capport ripple/測定誤差 | fuse/DC interrupt、OC threshold、15 A瞬時制約 | 平均12 Aの承認を瞬時15 A適合と解釈しない |
 
-添付Task 3 §1の「重要な項目がTBDのままで、power-stage ratingへ直接影響する場合は勝手に仮定して詳細回路を完成させない」に従う。上記条件が届くまで部品比較・計算・保護要求は進めるが、詳細switching回路の完成、部品定格freeze、通電可能という表示は保留。
+添付Task 3 §1の「重要な項目がTBDのままで、power-stage ratingへ直接影響する場合は勝手に仮定して詳細回路を完成させない」に従う。実機条件についてユーザー回答「不明」を受領。上記条件が確認できるまで部品比較・計算・保護要求は進めるが、詳細switching回路の完成、部品定格freeze、通電可能という表示は保留。
 
 ## Current deliverables and resumption
 

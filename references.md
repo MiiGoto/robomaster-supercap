@@ -1,5 +1,20 @@
 # References and provenance
 
+## Task 3 manufacturer shortlist (2026-10-03 JST)
+
+全てメーカー著作物、転載許諾は仮定せずURLと自作の比較・数値だけを記録。PDF/画像/schematic/PCBの公開repositoryコピーなし。利用目的は候補比較・計算で、メーカーreference回路の複製やvalidated設計の主張は行わない。
+
+| Source / author | Revision / access | Use / difference from own design |
+|---|---|---|
+| [CSD18540Q5B / TI](https://www.ti.com/lit/ds/symlink/csd18540q5b.pdf) | SLPS488B Apr2017;2026-10-03 | RDS/Qg/Qrr/thermal候補根拠、own designのsurge/熱/PWM未確定 |
+| [CSD18563Q5A / TI](https://www.ti.com/lit/ds/symlink/csd18563q5a.pdf) | SLPS444C Jan2016;2026-10-03 | 低Qg代替比較、同じdatasheet test条件を実動作としない |
+| [UCC27282 / TI](https://www.ti.com/lit/ds/symlink/ucc27282.pdf) | SNVSAQ5B May2022;2026-10-03 | DRC EN/interlock/UVLO、独立HI/LI kill/disconnectが別途必要 |
+| [UCC27211A / TI](https://www.ti.com/lit/ds/symlink/ucc27211a.pdf) | SLUSBL4D Jul2024;2026-10-03 | driver代替、外部EN/interlock要求はown design |
+| [XAL1510 / Coilcraft](https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf) | Document947 revised05/04/26;2026-10-03 | 15/22µH DCR/Isat/Irms、DC bias/thermal適合は未確定 |
+| [INA240 / TI](https://www.ti.com/lit/ds/symlink/ina240.pdf) | SBOS662C Dec2021;2026-10-03 | signed shunt amp、own designは別fast comparatorを要求 |
+| [INA241A / TI product](https://www.ti.com/product/INA241A) | product page2026-10-03;datasheet版TBD | 高速代替比較のみ、PDF取得失敗につきpin/settling未照合 |
+
+
 Accessed: **2026-10-03 JST**。外部ファイルのコピーなし。README/公開記事の限定的な調査で、schematic netlist/PCBを監査したものではない。
 UnknownはTBD。以下のlicenseは対象sourceに限り、関連hardwareへの包括許諾とはしない。
 

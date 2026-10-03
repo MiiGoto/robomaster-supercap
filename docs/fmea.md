@@ -1,3 +1,20 @@
+# Task 3 candidate review FMEA additions
+
+Protection列は未実装要求。各故障はTask 2表と併せて扱い、回路ERCや保護検証の完了を意味しない。
+
+| Failure mode | Cause | Effect | Detection | Protection | Residual risk |
+|---|---|---|---|---|---|
+| slow OC clearing | EN-only kill/amp settling/blanking | I上昇、15 A port超過/半導体stress | measured end-to-end delay/current | independent comparator→latch→input clamp+timer fault、EN backup | maxdelay/source impedance/Ttrip未確定 |
+| shunt open / short | solder/crack/bridge | power interruption/amp overstress or hidden current | redundant port/IL consistency、diagnostic range | no rearm、independent source interruption | 共用shuntのsingle-point blind fault |
+| sense amplifier stuck / rail | aux/reference/CM transient | false current limit | range/command consistency/reference check | separate fast front-end要求 | amp共用ならOCも失敗 |
+| divider open / short | resistor/ADC clamp damage | false lowV/ADC overvoltage | independent OV/cell sum/range | charge inhibit/ADC injection protection | divider/OV共通reference |
+| precharge bypass stuck ON | FETshort/contact weld | insertion inrush | isolation/ΔV/current feedback | separate disconnect、arm interlock | unexpected bank/bodydiode backfeed |
+| dump switch stuck ON / OFF | gate/solder/short | resistor overheat / stored energy | V decay/temperature/current | thermal cutoff、independent meter/service path | auxOFF/indicatorOFFでもenergy残留 |
+| aux regulator fail | surge/short/startup | unsafe driver or MCU state | rail supervisor/UVLO | default OFF、independent kill、reverse blocking | common supply lossで保護も停止 |
+| L saturation | tolerance/bias/hot | ripple/di-dt増大 | external fast OC + validated L curve | threshold/latency/Isat coordination | typ25°C Isatでは保証不能 |
+
+---
+
 # Task 2 FMEA update
 
 qualitative、未実装、RPN/Ttrip/clear energyはTBD。Protectionは要求。各faultはfault latch→killと必要な両側disconnectを使う。normal recoverableでもautomatic rearm禁止。

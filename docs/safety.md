@@ -1,3 +1,15 @@
+# Task 3 safety review — circuit unimplemented
+
+[採用承認と未確定条件](task3_review_gate.md)・[部品比較](task3_component_review.md)を優先する。Task 2の8/12 A平均目標承認は瞬時current・熱・保護性能の確認ではない。
+
+- OCはcomparator/front-end maximum delay、latch、input clamp、driver propagation、gate turnoff、寄生Lとfault voltageを合計し、I_peak + V_fault/L_min × t_clearが部品・module制約内か評価。典型値だけでtripを確定しない。
+- UCC27282 EN停止typ1.5µsだけを高速tripとしない。HI/LI clamp + timer faultと独立EN inhibitを候補にする。signal/supplyの共通故障とstuck driverにはsource/bank DC interruptが必要。
+- L toleranceとbias低下でripple目標を超え得る。cap平均12 A、ILpeak、module端瞬時15 Aは別量で、DC-linkのripple吸収とerror/latencyを含むcoordinationが未完了。
+- bank ESR初期12 A時25.92 W、aging2倍時51.84 W。120 W要求の計算runtimeをpeak許可秒数として使用しない。actual pulse/interval/ambient/cooling・cell熱定格の確認まで実機運転禁止。
+- precharge/dumpはRC感度計算だけ。抵抗製品のpulse overload、bypass weld、thermal fault時dump inhibit、single-port適合、安全閾値/時間はTBD。
+
+---
+
 # Task 2 safety architecture (unimplemented)
 
 [architecture proposal](task2_decisions.md)のexternal OC/OV/cell monitoring、watchdog/latch、normally-OFF isolation、default OFF、precharge feedback、bleed/controlled/service dischargeを基準とする。software-only高速保護は禁止。gate killとsource/bank disconnectは別action、PWM OFFはshort FETやbody diodeを遮断できない。
