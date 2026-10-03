@@ -1,4 +1,23 @@
-(kicad_sch (version 20250114) (generator "eeschema") (uuid "e2d63a8f-95e5-42a4-a0fb-ce4d75b96c92") (paper "A4") (title_block (title "SENSING - Task 2 Proposal") (date "2026-10-03") (rev "0.2-proposal") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
-(text "Bus V / bank V / 9 cell monitor with open-wire diagnosis\nBus + cap high-side shunts; separate inductor current\nMOSFET / inductor / bank temperature -> MCU" (at 145 70 0) (effects (font (size 1.7 1.7))) (uuid "237292eb-30d5-45f1-b071-e913d013bd88"))
-(text "See docs/task2_decisions.md and docs/interfaces.md\nNo electrical connectivity; no validated circuit" (at 145 110 0) (effects (font (size 1.4 1.4))) (uuid "4a66cd2f-bebf-4c76-a7b4-0ed5da300125"))
+(kicad_sch
+  (version 20250114)
+  (generator "eeschema")
+  (uuid "fc970ec3-fedb-52d7-90b2-3a61e72753fe")
+  (paper "User" 1189 841)
+  (title_block (title "SENSING / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement"))
+  (lib_symbols)
+  (text "Electrical sensing now on CURRENT_SENSING, VOLTAGE_SENSING and TEMPERATURE_SENSING."
+    (at 530 776 0)
+    (effects (font (size 1.3 1.3)))
+    (uuid "a187e03d-e88d-5cca-a6e5-4bd2db11a01b")
+  )
+  (text "Global labels connect actual package pins and wires across hierarchy. No firmware or PCB placement."
+    (at 530 781 0)
+    (effects (font (size 1.3 1.3)))
+    (uuid "0ef8879e-3939-5238-95f7-ea849ba3b981")
+  )
+  (text "Review all external assemblies, source-side tap protection and provisional ratings before energizing."
+    (at 530 786 0)
+    (effects (font (size 1.3 1.3)))
+    (uuid "603fcf4e-0c79-5570-aa9b-b692486d0354")
+  )
 )
