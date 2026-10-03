@@ -1,5 +1,13 @@
 # References and provenance
 
+## Task 4 layout principles (access2026-10-03 JST)
+
+| Source / author | Rights / use / difference |
+|---|---|
+| [SSZTAE5 Feb2017 / Vijay Choudhary, TI](https://www.ti.com/document-viewer/lit/html/SSZTAE5/GUID-1402DA8B-73DB-44B4-B203-A3AF307A6C45) | TI著作物、linkのみ。両port hotloop/dvdt/sense隔離の原理を参照。自作MCU/driver構成、layout未実装 |
+| [SSZT533 Feb2019 / Youhao Xi, TI](https://www.ti.com/document-viewer/lit/html/SSZT533/GUID-8E8A4702-76CD-495F-A121-6F12027C6292) | TI著作物、linkのみ。gateとreturnの閉loop面積を参照。第三者画像/PCBデータをコピーしない |
+
+
 ## Task 3 manufacturer shortlist (2026-10-03 JST)
 
 全てメーカー著作物、転載許諾は仮定せずURLと自作の比較・数値だけを記録。PDF/画像/schematic/PCBの公開repositoryコピーなし。利用目的は候補比較・計算で、メーカーreference回路の複製やvalidated設計の主張は行わない。

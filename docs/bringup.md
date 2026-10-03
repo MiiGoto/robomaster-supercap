@@ -1,3 +1,11 @@
+# Task 4 measurement access plan — no energization
+
+scope protective-earth ground clipをhigh-side gate/source、SW_NODE、bankのfloating pointへ無確認で接続しない。scopeのearthを外してfloating測定しない。rated differential probeまたは適切にisolatedされたmeasurement systemを使用し、differential/common-mode電圧、transient、bandwidth、probe spacingを確認する。VGSはgateとそのsource間で測定する。
+
+bank未接続・低energyでfixture/ground/probe接続を確認し、原則deenergized状態でprobeを固定、独立meterで残留電圧とreboundを確認する。loopを短くするためのprobe padも指やground clipでshortしにくくする。[PCB方針](task4_pcb_strategy.md)のtestpointは未配置。現在回路/placement gate未通過につき通電許可ではない。
+
+---
+
 # Task 2 validation plan
 
 今回通電なし。Task3承認後、current-limited/low-energy sourceでsensor calibration、ADC/PWM窓/latency、external comparator/kill、reset/boot/debug halt、cell OV/open-wire、precharge welded/open、referee cutoff、CAN stale、dump thermal/断線/reboundを段階検証する。

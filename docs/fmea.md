@@ -1,3 +1,20 @@
+# Task 4 prospective PCB risks — no placement yet
+
+次表は配置前のrisk register。Protectionは未実装要求、配置によって実際に発生した不具合ではない。
+
+| Failure mode | Cause | Effect | Detection | Protection | Residual risk |
+|---|---|---|---|---|---|
+| MOSFET overheating | narrow thermal path/airflow loss | short/fire | hot junction estimate + thermal validation | copper/thermal strategy + derate/trip | boardtemp≠junction |
+| inductor overheating | core/Cu loss/hotbias | L低下→OC | winding/core temperature/ripple | Lhot margin/airflow/OC | coreloss未算入 |
+| shunt local heating | pulse/RMS/bottleneck | drift/open | Kelvin error/temp | ratedpulse/thermalspread | nearbyamp tempdrift |
+| connector heating | contact/cable/retention | arc/melt | temperature/drop/inspection | keying/retention/derating | vibration/aging |
+| copper bottleneck | neck/via/pad current crowding | localburn | rule/thermal/currentpath review | area/return/via sharing検証 | RMS/peak不明 |
+| misleading NTC position | heat lag/remote sensor | delayedtrip | thermal mapping/fault tests | representative hotspot placement | unmonitored hotspot |
+| sensing noise | SW/L/return coupling | control/fault誤動作 | synchronized sample/noise test | Kelvin/analog zone/reference continuity | common reference fault |
+| gate ringing | long gate/return loop | falseON/shootthrough | differentialVGS measurement | drivernearFET/localreturn/deadtime | parasitic transient未検証 |
+
+---
+
 # Task 3 candidate review FMEA additions
 
 Protection列は未実装要求。各故障はTask 2表と併せて扱い、回路ERCや保護検証の完了を意味しない。

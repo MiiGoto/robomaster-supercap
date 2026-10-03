@@ -1,3 +1,9 @@
+# Task 4 design notes — placement deferred
+
+[独立レビュー](task4_review.md)、[PCB strategy proposal](task4_pcb_strategy.md)、[baseline results](task4_baseline.md)を参照。4-layer第一案、hot/gate loop、continuous reference、Kelvin、high-current rule register、thermal/connector/debug方針は提案。実netclass/footprint/outline/placementは未実装。Task 4 §1の重大TBD gateは未通過。
+
+---
+
 # Task 2 design notes
 
 選定・計算・balancing比較・L/ripple・semiconductor/driver要求・sensor/marginは[task2_decisions.md](task2_decisions.md)。再計算は[power_budget.py](../simulation/power_budget.py)。
