@@ -1,3 +1,45 @@
+# Task 2 requirements freeze — proposal, not construction approval
+
+2026-10-03 JST。[採用理由・一次根拠・margin](docs/task2_decisions.md)、[計算](simulation/results.md)。Confirmedは実装完了を意味しない。Assumptionは人間レビュー待ち。
+
+| Item | Current value / decision | Status | Remaining evidence |
+|---|---|---|---|
+| Ruleset | 2026 RMUL、哨兵/歩兵/英雄/エンジニアの要求 | Confirmed | 開催地/種目/補足TBD |
+| Rule editions | RMUL CN V1.2.0 / 制作CN V1.3.0、公式RMULアーカイブ掲載最新版 | Confirmed | 会場答疑確認 |
+| Eligibility | 底盤assist bankは英雄/歩兵/哨兵のみ、Engineer対象外(S5) | Confirmed | Engineerへの別用途は許可を推測しない |
+| Supply maximum | 対象4種30 V、power management input22–26 V | Confirmed | converter実端のdroop/surgeはTBD |
+| Vbus range | 計算22/24/26 V; 実operating min/nom/max | Assumption / TBD | battery型番、Chassis端波形、regen |
+| Rule energy | nominal2000 J / measured2200 J | Confirmed | capacityはrated voltageで計算、実測検査 |
+| Power constraint | 3V3 Hero/Sentry100 W, Infantry90/75 W; Infantry Match120 W | Confirmed | 種目/型選択、referee計測点の統合 |
+| Cell count / product | SCCV40B506SRB、9S第一案; alternatives7S HV60 /4S HV100 | Assumption | thermal/stock/mount/人間承認 |
+| Capacitance | cell50 F, Ceq5.5556 F nominal、tol−10/+30% | Assumption | 製品採用・実測・aging |
+| Vcap range | useful12..22.05 V; nominal比較18 V; cell normal2.45 V | Assumption | 精度/balance/overshoot配賦の実証 |
+| Cell rating | 選定候補datasheet2.7 V/cell, rated sum24.3 V | Confirmed (candidate) | normal定格と混同しない |
+| Energy | A usable950.5625 J nominal; rated1640.25 J; +30%2132.325 J | Confirmed calculation under Assumption | 実効C/セル差/検査測定 |
+| Charge current / power | bus input40 W scenario、normal cap clamp8 A | Assumption | 実charge max/TBD、referee負荷budget |
+| Discharge current | normal8 A / peak12 A scenario; module peak/continuous15 A rule | Assumption / Confirmed rule | ripple/error/trip overshoot、熱定格TBD |
+| Nominal / peak power | request80 /120 W、current/thermal/UVでderate | Assumption | 実max、peak duration、robot要求TBD |
+| Converter | 4-switch non-inverting bidirectional synchronous buck-boost | Assumption selected proposal | 重なり電圧・制御・loss・人間承認 |
+| Switching / L | 100–200 kHz; exploration11–22 µH, ΔI3 A p-p | Assumption | 全corner/duty/部品/温度で再算出 |
+| MCU | STM32G474RE LQFP64; alternative G431RB | Assumption selected proposal | package AF conflict、errata、承認 |
+| Current sensing | bus/cap high-side signed shunts + separate inductor sense | Assumption selected proposal | amplifier settling/共通故障/承認 |
+| Voltage sensing | bus/bank ADC + differential per-cell monitor、独立OV | Confirmed requirement / Assumption method | tap protection/range/error |
+| Temperature | MOSFET群/inductor/bank各代表1点NTC | Assumption | hotspot測定、thresholdsTBD |
+| Balancing | IC-based switched passive、MCU非依存OV inhibit | Assumption selected proposal | IC/精度/損失/供給断時動作 |
+| Precharge | resistor path + normally-OFF bypass、ΔV/current/time確認 | Assumption selected proposal | R/Clink/energy/start time/approval |
+| Discharge | permanent bleed + controlled dump + service tool +独立表示 | Assumption selected proposal | Vsafe/Esafe/time/公式検査との共存TBD |
+| Hardware protection | external OC/OV/latch/watchdog/kill、reset/float OFF | Confirmed requirement | clearing時間/回路/故障遮断能力TBD |
+| CAN | telemetry使用、official module→CAN1、Classic CAN互換を想定 | Confirmed requirement / Assumption format | bitrate/ID/period/timeout/TBD |
+| Mechanical / cooling | port1つ、検査lead≥100 mm、mount/冷却/絶縁 | Confirmed rule / TBD dimensions | robot envelope/thermal approval |
+| Debug / test / firmware | SWD/UART、ADC同期、state machine、fault injection計画 | Confirmed requirement | implementation、試験は今回なし |
+| Expansion | spare GPIO4、cell monitor interface | Assumption | pin plan/area |
+
+Task 3へ進む前のhuman review: cell数/Vcap、max current/peak power、topology、MCU、sensing、prechargeと全power component定格。実robot仕様不明のため最終数値freezeではなく、証拠付きproposal freeze。Task 3自動開始禁止。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # Requirements register
 
 2026-10-03 JST。Confirmed = 依頼から確定した要求または直接確認した資料の内容。

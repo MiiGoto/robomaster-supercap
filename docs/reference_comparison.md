@@ -1,3 +1,11 @@
+# Task 2 interpretation
+
+Task1の4独立OSS比較を継続利用、外部assetはコピーしない。HKUSTの4-switch/control分離は構成理解の参考だが、今回4-switch提案はbus/cap overlap・charge ESR上昇・droop不明という電圧条件から選択。[task2_decisions.md](task2_decisions.md)に採用/代替の理由を記録。既存OSSの定格/効率/部品は本projectの保証値にしない。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # Public design comparison
 
 2026-10-03。R1–R4のURL・author・license・参照policyは [references](../references.md)。

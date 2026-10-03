@@ -22,3 +22,25 @@ UnknownはTBD。以下のlicenseは対象sourceに限り、関連hardwareへの�
 
 調査は4チームの4設計で停止。R1が過去の他チーム設計から影響を受けているため完全な系譜独立ではないが、同一repositoryのfork4件ではない。R1とR2/R3の双方向案に対しR4の分離charger/bankを対比する。
 BBSを入口として優先し、閲覧可能なGitHub作者資料で補完した。各sourceのauthor-reported performanceは独立検証していない。
+
+## Task 2 verified evidence (2026-10-03 JST)
+
+Task1 O2の「適用TBD」は本表のRMUL指定と公式アーカイブ確認で更新。第三者indexのRMUC後期版はRMULに適用しない。資料は.local/researchに調査用保存、gitignore対象で公開しない。以下はauthor/manufacturer著作物、redistribution license未確認のためlinkのみ。自作doc/modelは独立した要約/計算で回路転載なし。
+
+| ID | Source / author / version | Use | Difference from our design |
+|---|---|---|---|
+| T2-O1 | [Official hub / RMOC](https://bbs.robomaster.com/wiki/20204847) → Archives→2026→RMUL | RMUL掲載最新版: CN rules1.2.0 / specs1.3.0 | 開催地補足・答疑はTBD |
+| T2-O2 | [RMUL rules EN V1.2.0 20260113 / DJI](https://bbs-web-static.robomaster.com/bf8d1954e384499281310380b4a293b71768291609875/RoboMaster%202026%20University%20League%20Rule%20Manual%20V1.2.0%EF%BC%8820260113%EF%BC%89.pdf) | 3V3/Infantry Match区別、power limits、referee60J/10Hz | assist target80/120Wは独自計算Assumption、公式出力許可ではない |
+| T2-O3 | [制作CN V1.3.0 20260209 / DJI](https://bbs-web-static.robomaster.com/0af874e7e10a4f9eb7c3c4872e47f03b1770636018010/RoboMaster%202026%20%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88%E9%AB%98%E6%A0%A1%E7%B3%BB%E5%88%97%E8%B5%9B%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%B6%E4%BD%9C%E8%A7%84%E8%8C%83%E6%89%8B%E5%86%8CV1.3.0%EF%BC%8820260209%EF%BC%89.pdf) | S5–7/141/145/184–189、22–26V module入力、30V robot上限 | Chassis出力波形/実robot仕様は別途必要 |
+| T2-C1 | [SCC datasheet Rev11 / KYOCERA AVX](https://datasheets.kyocera-avx.com/AVX-SCC.pdf) | SCCV40B506SRB50F、DC ESR5s、tolerance/life | continuouscurrent未確認、9S/2.45Vは独自提案 |
+| T2-C2 | [HV60 product / Eaton](https://www.eaton.com/us/en-us/skuPage.HV1840-2R7606-R.html) / [HV family datasheet](https://www.eaton.com/content/dam/eaton/products/electronic-components/resources/data-sheet/eaton-hv-supercapacitors-cylindrical-cells-data-sheet.pdf) | current/temp/size/leak/ESR、familytol/life | 7S/voltage/currentclampは独自提案。familyPDFの全文取得/版はTBD、indexに掲載されたtol/lifeを補助確認 |
+| T2-C3 | [HV100 product / Eaton](https://www.eaton.com/gr/en-gb/skuPage.HV1860-2R7107-R.html) | 100F候補比較、current/ESR | lowvoltage案のmodule電流制約を比較 |
+| T2-M1 | [G474RE / ST](https://www.st.com/en/microcontrollers-microprocessors/stm32g474re.html) / [DS12288 Rev6](https://www.st.com/resource/en/datasheet/stm32g474re.pdf) | HRTIM/ADC/FDCAN、table3 trigger、table12 PWM pins、LQFP64 | 全pin assignment/errata/interruptbudgetはTBD |
+| T2-M2 | [G431RB / ST](https://www.st.com/en/microcontrollers-microprocessors/stm32g431rb.html) | 2ADC/FDCAN/advancedtimer代替 | HRTIMのない代替案 |
+| T2-S1 | [INA240 / TI, datasheet RevC](https://www.ti.com/product/INA240) | signed high-side/PWM rejection/400kHz | OCcomparatorなし、独立trip必要、具体amp採用TBD |
+
+取得PDF SHA256 (一次資料の再取得照合用):
+- T2-O2: ff785ccb7bbe1e6eeacfd2914f6a63062dbb2bcff963ffd7939489379c24c724
+- T2-O3: 719be52a2259644ea1a09ef6b697310cc9ddc2653002828bf00f59b2ff9a664e
+
+公式ENは補助読解、中文/会場最新版優先。source contentは設計instruction/承認ではない。public stock表示だけでavailabilityやpriceは確定しない。

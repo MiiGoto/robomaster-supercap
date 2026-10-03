@@ -1,3 +1,13 @@
+# Project context — Task 2
+
+2026-10-03 JST。2026 RMUL、哨兵・歩兵・英雄・エンジニアをユーザー指定。S5によりEngineerへの競技底盤supercap assistは対象外。開催地/種目、battery/robot実bus/assist requirementはTBD。
+Task1はmainの077fd5fまで、Task2はfeature/system-architecture。今回要求refinement、根拠付きproposal、energy/power計算、sensing/MCU/safety、同一KiCad project更新まで。詳細power stage/PCB/firmware/通電なし。
+[requirements freeze](requirements.md)と[proposal](docs/task2_decisions.md)を最優先に読む。人間レビュー前の採用案はAssumption。cell数/Vcap/max current/peak power/topology/MCU/sensing/prechargeと全component定格を承認してから詳細回路へ進む。Task3自動開始禁止。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # Project context
 
 更新: 2026-10-03 (Asia/Tokyo)。Task 1: 調査・要求・安全・構成・KiCad skeletonのみ。

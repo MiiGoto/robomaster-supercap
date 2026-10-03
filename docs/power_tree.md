@@ -1,3 +1,25 @@
+# Task 2 power tree
+
+```mermaid
+flowchart TD
+ R[Referee Chassis bus] --> P[Polarity / input disconnect]
+ P --> AUX[Aux supply separate from switching power stage]
+ AUX --> MCU[3.3 V MCU / analog proposal]
+ AUX --> DR[Driver bias voltage TBD / UVLO / kill]
+ P <--> LINK[Precharge / local DC link]
+ LINK <--> DC[Bidirectional converter concept]
+ DC <--> OFFICIAL[Official management module]
+ OFFICIAL <--> BANK[Single bank port / isolation / capacitor bank]
+ BANK --> PASSIVE[Bank-powered OV / bleed / voltage indication concept]
+```
+
+Auxのpower/current/hold-upはTBD。Chassis系はgimbal/Ammo等から給電しない(S145)。bank由来powerでreferee断電を回避しない。shutdown logging hold-upはgate killを継続する範囲のみ。bank monitorの接続/tapはS189適合レビューを要す。
+3.3 VはMCU domain提案、driver railはpart決定後。OFFでもbankとlinkにenergyあり。aux lossでtransfer enable OFF、permanent bleed/independent indication/service dischargeはMCU不要の経路を要求。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # Power tree and energy boundary
 
 | Domain | Source / sink | Safety requirement | TBD |

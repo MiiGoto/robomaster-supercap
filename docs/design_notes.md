@@ -1,3 +1,17 @@
+# Task 2 design notes
+
+選定・計算・balancing比較・L/ripple・semiconductor/driver要求・sensor/marginは[task2_decisions.md](task2_decisions.md)。再計算は[power_budget.py](../simulation/power_budget.py)。
+
+Ceq=(Σ1/Ci)^−1、同一cellならCcell/N。ESRbank=ΣESRi。E=1/2 Ceq V²、Eusable=1/2 Ceq(Vmax²−Vmin²)。ΔQi一定でもVi=Qi/Ciはばらつき、sum電圧で個別OVを保証しない。usable energyはセルUV/OV・aging/温度・ESR terminal drop・power clampでさらに減る。
+
+Precharge R/t/熱はClinkとΔVから、dumpは全stored energyと放電時間から算出。connectorは実RMS/peak・接触劣化・周囲温度・DC遮断と公式15 A制限を確認。current sensor rangeはerror/ripple/trip marginを残すがADC resolutionと両立。thermal marginは最悪ambient/hotspot/lagに基づく、根拠のない一律倍率なし。
+
+PCB方針: short high-current paths、最小switching/gate loops、power/signal returnを経路として管理、shunt Kelvin、thermal copper、FET/L冷却、connector contact/via/bank cell path温度検証。routing/銅厚/部品定格は未設計。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # Design notes — no final component values
 
 以下は一般原理に基づく候補分析。採用・定格・loop設計はTBD。source固有の構成は [comparison](reference_comparison.md) と [references](../references.md)。

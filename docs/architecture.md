@@ -1,3 +1,57 @@
+# Task 2 system architecture
+
+[選択理由とbudget](task2_decisions.md)。以下はAssumption、保護要求はConfirmed、回路未実装。
+
+```mermaid
+flowchart LR
+ R[Referee Chassis bus] <--> I[Input protection and independent disconnect]
+ I <--> P[Resistor precharge and bypass / local DC link]
+ P <--> D[Four-switch bidirectional converter concept]
+ D <--> O[Official supercap management module]
+ O <--> K[Bank-side isolation / single bank power port]
+ K <--> C[9S bank proposal / cell monitoring]
+ I --> A[Control auxiliary supply]
+ A --> M[Controller G474RE proposal]
+ S[Bus / bank / inductor current and voltage / temperature] --> M
+ M -->|PWM and enable request| D
+ M <--> CAN[Robot CAN transceiver]
+ O --> RCAN[Referee CAN1]
+ H[Independent OC / OV / watchdog / supervisor latch] -->|kill / disconnect| D
+ H --> I
+ H --> K
+ H -->|HRTIM fault / break| M
+ C --> B[Bleed / controlled and service discharge / voltage indication]
+```
+
+referee断電時assistも止める。disconnect配置と公式single port/検査path適合はTBD。graphは電気的導通の実装ではない。
+
+## Operating modes
+
+B=bus main isolation、C=bank transfer isolation。O=open、X=closed、P=limited precharge path。bank bleed/monitorはtransfer isolationと別に残る。
+
+| Mode | Bus / capacitor connection | Converter | Current direction | MCU | Safety state |
+|---|---|---|---|---|---|
+| OFF | B O / C O | inhibited | transfer none | off or inhibited | 残留energyあり得る、Safe表示禁止 |
+| Safe / discharged | B O / C O | inhibited | bleed only | off/monitor | 全domain voltage/energy・reboundを確認済み |
+| Startup | B O / C O | inhibited | aux only | reset→self-test | external kill保持 |
+| Precharge | B P / C O→P | inhibited; bank soft-chargeは次mode | bus→DC link limited | ΔV/I/time監視 | bypass条件確認、timeout latch |
+| Charge | B X / C X | buck/boost current control | Bus→Cap | current inner / power outer | cell OV/current/thermal監視 |
+| Standby | B X / C X or O | zero current/inhibited | none allowed | monitor | body diode防止、arm条件保持 |
+| Assist / discharge | B X / C X | buck/boost current control | Cap→Bus | inner current / bus & power supervisor | referee cut/UV/thermal優先 |
+| Regenerative / reverse-power | B/C opening request | inhibited | unsolicited current prohibited | detect/log | 初号機regen吸収未許可、isolation要求 |
+| Fault | B/C O requested, feedback確認 | hardware inhibited | transfer prohibited; safe bleed conditional | log/latched | open失敗はCritical |
+| Controlled shutdown | zero-current→B O / C O | ramp→inhibited | approved thermal dump only | discharge/voltage確認 | Safe移行は測定後 |
+| Emergency shutdown | B/C emergency open requested | independent kill | fault energy remains until interrupted | optional logging | latch/lockout、OFFでもSafeではない |
+
+allowed: OFF→Startup→Precharge→Standby→Charge/Assist。Charge/Assist→Standbyはzero確認。全active→Fault/Emergencyは無条件優先。Controlled shutdown→Safeは全domain検証後。Safe→Startupは再arm/self-testから。
+prohibited: OFF/Startup→Assist直行、Precharge未完了→bypass閉、Charge↔Assist直接反転、Fault→自動復帰、referee cutoff中assist、regen→自動Charge、測定なしOFF→Safe。正常でもzero currentの確認不能ならFault。
+
+Control: signed inductor-current inner loop、referee input power/energy/bus/thermal outer loop、external fault latchが全制御をoverride。ADCはPWM同期しquiet windowを確保。firmware未実装。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # System architecture
 
 Concept / Assumption。最終topology、定格、pin、保護回路はTBD。

@@ -1,3 +1,20 @@
+# robomaster-supercap — Task 2
+
+2026 RMUL用energy bufferの設計検討。英雄・歩兵・哨兵の競技assistが対象、EngineerはS5搭載許可対象外。Task1成果を保ち、Task2 architecture proposal・simulation・9-page KiCad conceptを追加。完成/検証済み回路ではない。
+
+- [Requirements/status](requirements.md)
+- [Architecture and 11 modes](docs/architecture.md)
+- [Evidence and selected proposals](docs/task2_decisions.md)
+- [Calculation results](simulation/results.md)
+- [Safety](docs/safety.md) / [FMEA](docs/fmea.md)
+
+第一案は9S 50F、4-switch bidirectional buck-boost、G474RE/LQFP64、signed high-side shunts、independent fault latch。全選定案はAssumptionとしてhuman review待ち、robot実bus/power/thermalはTBD。stored energyはOFF後も残る。
+Roadmap: Task1完了→Task2 reviewable proposal→人間承認→別途Task3 component selection。mainへ自動mergeしない。詳細回路・routing・firmware・hardware testingなし。第三者PDF等は公開対象外、引用linkと出典のみ。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # robomaster-supercap
 
 RoboMaster向けスーパーキャパシタ電源システムの要求・安全設計と開発基盤。
