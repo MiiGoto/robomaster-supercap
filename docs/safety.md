@@ -1,3 +1,22 @@
+# Task 2 safety architecture (unimplemented)
+
+[architecture proposal](task2_decisions.md)のexternal OC/OV/cell monitoring、watchdog/latch、normally-OFF isolation、default OFF、precharge feedback、bleed/controlled/service dischargeを基準とする。software-only高速保護は禁止。gate killとsource/bank disconnectは別action、PWM OFFはshort FETやbody diodeを遮断できない。
+
+- ref Chassis cut→assist即inhibit。bank/aux/通信線から監視・遮断を迂回しない。
+- cell OVはbank sum正常でもcharge停止。per-cell UVは最弱cell逆転防止、balancingは保護代用不可。
+- current clamp8/12 A、cell2.45 V、FS±20 A等はAssumption。15 A rule以下を瞬時ripple/誤差/latency込みで検証。
+- external supervisor/latched faultはreset/crash/debug/aux loss/floatでOFF。driver supply UVLO、GPIO bias、power sequence、fault-input lossを検証。
+- short/MOSFET stuck-highには独立DC interruptとfault energy coordinationが必要、実装/定格TBD。
+- no hot unplug、reverse polarity/connector arc/PCB hotspot/temperature sensor lagをFMEA対象とする。
+- permanent bleed + controlled dump + service tool + independent voltage indicationを提案。熱fault時dump禁止。single-port/検査energy測定との共存を人間確認。
+- OFFはSafeではない。Vsafe/Esafe/rebound/timeがTBDの間はSafe確認を宣言しない。
+
+安全marginの配賦はtask2_decisions参照。保護threshold/error/response time/common cause/残留energyをTask3前に承認し、後日低energy fault injectionで検証する。今回実機試験なし。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # Safety concept and unresolved risks
 
 Task 1のConfirmed要求。保護回路・閾値・遮断能力・試験はTBD。安全性検証完了ではない。

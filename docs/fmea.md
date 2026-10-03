@@ -1,3 +1,31 @@
+# Task 2 FMEA update
+
+qualitative、未実装、RPN/Ttrip/clear energyはTBD。Protectionは要求。各faultはfault latch→killと必要な両側disconnectを使う。normal recoverableでもautomatic rearm禁止。
+
+| Failure mode | Cause | Effect | Detection | Protection | Residual risk |
+|---|---|---|---|---|---|
+| capacitor overvoltage [LATCHED] | control/regen/divider fault | cell vent | bank independent OV + cell monitor | charge inhibit / isolate | threshold/latency、dump thermal |
+| cell imbalance [WARNING→LATCHED] | C/leak/temp/shunt fault | cell OV/UV/reversal | per-cell min/max/open-wire | switched passive balance、OV kill/UV stop | tap/monitor common failure |
+| overcurrent [LATCHED→CRITICAL] | short/control/lowV | energy into PCB/FET | external fast comparator + port sensing | latch/kill、DC disconnect/fuse coordination | clearing前stress、same shunt fault |
+| MOSFET short [CRITICAL] | thermal/avalanche/shootthrough | bus-bank uncontrolled conduction | current/ΔV abnormal、isolation feedback | both-source independent interrupt | failed disconnect/body diode/internal bank short |
+| MOSFET open [LATCHED] | bond/driver/solder | diode overload/no transfer | command-current mismatch | kill/log/inspect | local hotspot before detection |
+| gate driver failure [LATCHED→CRITICAL] | UVLO/stuck output | shootthrough/unwanted gate | rail/fault/current | EN default OFF + independent disconnect | stuck-high not solved by PWM OFF |
+| inductor saturation [CRITICAL] | overload/hot/dc bias | rapidly rising current | fast OC / current slope | kill and latch、Isat/Ttrip coordination | delay di/dt、core damage |
+| sensor failure [LATCHED] | amp/reference/tap/open/stuck | false safe feedback | rails/range/cell sum/reference/open-wire | no arm、external protection | common reference/shunt/supply failure |
+| MCU crash [LATCHED] | clock/hardfault/debug/watchdog | retained PWM | external heartbeat supervisor | hardware kill + timer fault | reaction time/clock shared causes |
+| CAN loss [RECOVERABLE] | cable/busoff/stale | stale power request | counter/timeout/busoff | inhibit + explicit rearm | timeout energy、official module offline |
+| thermal fault [WARNING→LATCHED/CRITICAL] | ESR/airflow/contact/core | degradation/fire | 3 representative NTC + validation thermography | derate/trip、no hot dump | unmonitored hotspot/lag |
+| precharge failure [LATCHED] | resistor open/bypass welded | inrush/no startup | ΔV/I/time/feedback | bypass interlock/isolation | contact feedback ambiguous |
+| discharge-path failure [LATCHED] | bleed open/dump fail/aux loss | residual bank energy | independent meter/rebound/indicator selfcheck | lockout + service discharge | service error/indicator failure |
+| input loss [RECOVERABLE→LATCHED] | ref cutoff/battery disconnect | cap backfeed/reboot | bus UV/ref enable/supervisor | assist inhibit / source isolation | diode conduction、aux collapse |
+| disconnect failure [CRITICAL] | welded/short switch | continuing fault current | feedback/current after kill | alternate interrupt/fuse | DC arc、fault coordinationTBD |
+
+Fault thresholds、latency、primary/secondary sensor独立性、pulse熱、single bank port合規、Safe判定は未解決。詳細回路へ進む前にレビューする。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # Preliminary FMEA
 
 2026-10-03。定性分析のみ。Protectionは要求/候補で、実装済みではない。
