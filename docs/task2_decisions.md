@@ -62,7 +62,7 @@ primary cap current clampはnormal8 A / peak12 AのAssumption。peak/continuous1
 
 discharge: Pbus=η Icap(Vopen−Icap Rbank)、Ibus=Pbus/Vbus。
 charge: η Pbus=Icap(Vopen+Icap Rbank)。converter損失はdischarge Pbus(1/η−1)、charge Pbus(1−η)。bank ESR損失I²Rは別に加算。
-80 W assistは12 Vでnormal8 A制限により76.032 Wへderate。120 W要求は12 Vで必要14.088 A、peak12 A制限では106.272 Wに制限。22.05 Vの120 Wは約6.38 A。120 W bus currentは26 Vで4.615 A /22 Vで5.455 A。charge40 W bus currentは1.538..1.818 A、cap current約1.61..2.88 A。詳細は再生成可能な[model](../simulation/power_budget.py)と[results](../simulation/results.md)。4 cornersと両方向を出力する。
+80 W assistは12 Vでnormal8 A制限により76.032 Wへderate。120 W要求は12 Vで必要14.088 A、peak12 A制限では106.272 Wに制限。22.05 Vの120 Wは約6.38 A。120 W bus currentは26 Vで4.615 A /22 Vで5.455 A。充電中40 W bus currentは1.538..1.818 A、低端cap current約2.88 A。高端22.05 Vではbank/cell terminal ceilingによりtaper→OFF。詳細は再生成可能な[model](../simulation/power_budget.py)と[results](../simulation/results.md)。4 cornersと両方向を出力する。
 
 converterだけでも80 W出力時8.889 W、120 W時13.333 W、40 W充電時4 Wの損失を仮定。cap12 Aで25.92 W ESR熱、EOL ESR2倍なら51.84 Wとなり同電力継続は不可。semiconductor conduction/switching、L copper/core、shunt I²R、connector/contact I²R、auxを別途配賦し、合計の重複計上を避ける。暫定cooling評価budget:converter peak15 W + cap peak26 W + aux/connection未算出、steady-state許容値ではない。ambient/airflow/温度上昇/ピーク時間/thermal tripはTBD。機器定格からhotspot限界を逆算する。
 
@@ -89,9 +89,9 @@ outer supervisorはreferee input budget / bus voltage / cap energy / thermal lim
 
 currentは**high-side bidirectional shunt + amplifier**をbusとcap portに採用提案。ground returnを持ち上げずsigned powerを測れる。別のinductor shunt + PWM耐性front-endをinner loop用に用意。low-sideは安価だがreturn共通impedance/迂回問題、Hallは絶縁/低損失だがoffset・帯域・面積/cost、magnetic integratedはthermal drift/範囲が要確認。候補INA240の−4..80 V common-mode/400 kHzは十分条件ではなく、edge後settling・gain・phaseを確認する。fast tripはADC/INA240だけに依存せず別高速comparator path。shared shunt断線は残留共通故障。
 
-measurement初期full-scale bus±8 A、cap/inductor±20 A (Assumption)。normal bus≈3.64 A/80W22V、cap≤8 A、peak≤12 A、fault current/latencyはTBD。rail saturationをfault扱い、fault thresholdはfull-scaleから決めない。12-bit理想LSBはbus3.91 mA/cap9.77 mA、精度ではない。ADC3.3 V referenceを提案し有効analog0.2..3.1 Vへheadroom、抵抗/gainは未決。
+measurement初期full-scale bus±8 A、cap/inductor±20 A (Assumption)。normal bus≈3.64 A/80W22V、cap≤8 A、peak≤12 A、fault current/latencyはTBD。rail saturationをfault扱い、fault thresholdはfull-scaleから決めない。12-bit理想LSBはbus3.91 mA/cap9.77 mA、精度ではなく全ADC codes使用時の値。0.2..3.1 V headroomで有効codesが減るため実LSBはさらに粗くなる。ADC3.3 V referenceを提案し有効analog0.2..3.1 Vへheadroom、抵抗/gainは未決。
 
-Vbus/capはdivider+RC+series protection+clamp、range0..36 V/0..27 Vを仮定、ADC fault/transient許容は別設計。理想LSB8.79/6.59 mV、精度budgetは≤0.5%reading目標Assumption、calibration/error/sampling loadで検証。cellは9ch differential monitorを要求、0..2.7 V正常/OVも計測できるrangeはTBD、error目標≤10 mV Assumption、open-wire診断/independent OVを必須。累積tapを直接MCU ADCへ入れない。
+Vbus/capはdivider+RC+series protection+clamp、range0..36 V/0..27 Vを仮定、ADC fault/transient許容は別設計。全ADC codes使用時の理想LSB8.79/6.59 mV (headroom込みの有効resolutionは再計算)、精度budgetは≤0.5%reading目標Assumption、calibration/error/sampling loadで検証。cellは9ch differential monitorを要求、0..2.7 V正常/OVも計測できるrangeはTBD、error目標≤10 mV Assumption、open-wire診断/independent OVを必須。累積tapを直接MCU ADCへ入れない。
 
 温度はMOSFET群の最大hotspot代表1点、inductor1点、bank代表1点の3 NTC提案。全cellに付けずcell差/熱試験で増設判断。open/shortをfault、sensor lag/位置からtrip margin設定、温度値未確定。connectorはbringup熱測定し常設sensor必要性を再評価。
 
@@ -115,3 +115,5 @@ Task3前に人間が確認:大会会場/種目、Engineer対象外、battery型�
 Cell monitorとbalancingはbank内部blockに置く。追加tap/monitor通信をrobotへ出す可否はS189に照らし公式確認TBD、許可を推測しない。
 
 Energy tolerance: primary usableは−10%新品で855.5063 J、+30%で1235.7313 J。同じ電圧域でも個別cell制約で到達できない場合がある。current reserve15−12=3 Aはport ripple/誤差/latencyに使う暫定余裕、これを検証せずpeak12 Aを許可しない。
+
+Vcap energyのVはresting/ESR補正後のopen-circuit estimate。充電中は各cell terminal voltage ceilingを優先しtaperし、22.05 Vに達した時点でcharge禁止。40 W一定をmax voltageで続ける意味ではない。
