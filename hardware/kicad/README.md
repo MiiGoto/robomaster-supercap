@@ -1,3 +1,12 @@
+# Task 2 same-project update
+
+robomaster_supercap.kicad_proを継続使用。root UUIDと既存sheet UUIDを維持しPRECHARGEを追加、9 concept pages。各sheetにblock interfaceの説明を更新。POWER_STAGEは四switch概念textのみでMOSFET/driver/L部品・netsなし、electrical connectivity未実装。PCB/project設定はTask1から変更なし。
+ERC成功はhierarchy読み込み確認のみ。部品ratings/pin/機能/safety検証ではない。
+
+---
+
+## Task 1 record (historical; Task 2 above takes precedence)
+
 # KiCad skeleton
 
 Open `robomaster_supercap.kicad_pro` with KiCad 10.0.6。

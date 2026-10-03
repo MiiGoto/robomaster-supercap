@@ -1,0 +1,4 @@
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "bd767865-63a3-4dc4-8f35-ecfdb1f211bb") (paper "A4") (title_block (title "PRECHARGE - Task 2 Proposal") (date "2026-10-03") (rev "0.2-proposal") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "BUS -> resistor path -> local DC link\nNormally OFF bypass; delta-V / current / timeout feedback\nBank link equalization via SINGLE official power port" (at 145 70 0) (effects (font (size 1.7 1.7))) (uuid "f47a5ef0-398d-4ad4-b9ad-c222abc08531"))
+(text "See docs/task2_decisions.md and docs/interfaces.md\nNo electrical connectivity; no validated circuit" (at 145 110 0) (effects (font (size 1.4 1.4))) (uuid "583d8345-75ca-4432-823e-4eae7a87f8e7"))
+)

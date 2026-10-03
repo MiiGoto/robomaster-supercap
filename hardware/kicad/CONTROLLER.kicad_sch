@@ -1,4 +1,4 @@
-(kicad_sch (version 20250114) (generator "eeschema") (uuid "360b944d-7632-4839-8cb2-e048e379fec5") (paper "A4") (title_block (title "CONTROLLER - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
-(text "CONTROLLER\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "27543598-453c-4cb4-a7bd-caa6856e9656"))
-(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "33a1a65c-5778-42f0-8860-fe48c29b89b3"))
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "360b944d-7632-4839-8cb2-e048e379fec5") (paper "A4") (title_block (title "CONTROLLER - Task 2 Proposal") (date "2026-10-03") (rev "0.2-proposal") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "G474RE / LQFP64 proposal\nHRTIM -> PWM x4; synchronized ADC -> current loop\nExternal kill overrides MCU; pin assignment TBD" (at 145 70 0) (effects (font (size 1.7 1.7))) (uuid "d37ffaff-a059-49a2-9305-bf9b1794b582"))
+(text "See docs/task2_decisions.md and docs/interfaces.md\nNo electrical connectivity; no validated circuit" (at 145 110 0) (effects (font (size 1.4 1.4))) (uuid "b0613937-76c4-4113-b8c4-1055730455cb"))
 )

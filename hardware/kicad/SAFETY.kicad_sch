@@ -1,4 +1,4 @@
-(kicad_sch (version 20250114) (generator "eeschema") (uuid "073382c5-a1b1-4bac-879b-821727c72567") (paper "A4") (title_block (title "SAFETY - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
-(text "SAFETY\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "8c015a42-0b62-49c6-96b5-40ea9f928353"))
-(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "e2042540-ad7b-4c86-bc10-eb63fbc61eb9"))
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "073382c5-a1b1-4bac-879b-821727c72567") (paper "A4") (title_block (title "SAFETY - Task 2 Proposal") (date "2026-10-03") (rev "0.2-proposal") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "External OC / OV / watchdog / supervisor -> latch\nLatch -> DRIVER KILL + MCU HRTIM fault + disconnect\nFloat / reset / crash / aux loss -> ENABLE OFF" (at 145 70 0) (effects (font (size 1.7 1.7))) (uuid "2b2cf59d-6aec-4683-b8ed-a95a9b5a23a8"))
+(text "See docs/task2_decisions.md and docs/interfaces.md\nNo electrical connectivity; no validated circuit" (at 145 110 0) (effects (font (size 1.4 1.4))) (uuid "5cf75314-275e-4150-bb2f-3d0105bf23b2"))
 )

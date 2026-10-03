@@ -1,4 +1,4 @@
-(kicad_sch (version 20250114) (generator "eeschema") (uuid "68367fbf-a771-4387-8f63-9ea84ee7c1a7") (paper "A4") (title_block (title "POWER_INPUT - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
-(text "POWER_INPUT\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "66582ef1-bfa4-4463-9e27-df258b42295c"))
-(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "252b8e6d-bbeb-41e4-aee9-cc1e327117e0"))
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "68367fbf-a771-4387-8f63-9ea84ee7c1a7") (paper "A4") (title_block (title "POWER_INPUT - Task 2 Proposal") (date "2026-10-03") (rev "0.2-proposal") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "Referee Chassis -> polarity / disconnect / DC link\nAuxiliary supply separate from converter path\nCutoff must inhibit cap assist; surge / ratings TBD" (at 145 70 0) (effects (font (size 1.7 1.7))) (uuid "cec18774-8528-4675-b60f-2652cf73b504"))
+(text "See docs/task2_decisions.md and docs/interfaces.md\nNo electrical connectivity; no validated circuit" (at 145 110 0) (effects (font (size 1.4 1.4))) (uuid "0060a096-3767-4f05-a130-6d4db69af65b"))
 )

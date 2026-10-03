@@ -1,4 +1,4 @@
-(kicad_sch (version 20250114) (generator "eeschema") (uuid "dffea5bf-448a-4fe7-8ef7-78e2a6c8f077") (paper "A4") (title_block (title "CAN - Placeholder") (date "2026-10-03") (rev "0.1-concept") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
-(text "CAN\nRequirements and safety review required\nParts, pins, nets and ratings TBD" (at 145 70 0) (effects (font (size 2 2))) (uuid "200ac49a-f92b-43c2-b754-608f79177ac3"))
-(text "See docs/architecture.md and docs/safety.md\nNo power-stage detail in Task 1" (at 145 105 0) (effects (font (size 1.4 1.4))) (uuid "47e2df5f-8bc3-49e2-a40a-4c72ae31ce83"))
+(kicad_sch (version 20250114) (generator "eeschema") (uuid "dffea5bf-448a-4fe7-8ef7-78e2a6c8f077") (paper "A4") (title_block (title "CAN - Task 2 Proposal") (date "2026-10-03") (rev "0.2-proposal") (comment 1 "No electrical implementation; ratings TBD")) (lib_symbols)
+(text "MCU FDCAN -> external transceiver -> robot controller\nClassic CAN compatibility; ID / bitrate / termination TBD\nOfficial module -> referee CAN1 is separate" (at 145 70 0) (effects (font (size 1.7 1.7))) (uuid "2da1c1e2-a8e3-4888-9047-125f488ad834"))
+(text "See docs/task2_decisions.md and docs/interfaces.md\nNo electrical connectivity; no validated circuit" (at 145 110 0) (effects (font (size 1.4 1.4))) (uuid "1da1d00a-7888-4655-8916-b37ebb57c742"))
 )
