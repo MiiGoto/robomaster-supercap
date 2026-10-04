@@ -67,3 +67,36 @@ Task1 O2の「適用TBD」は本表のRMUL指定と公式アーカイブ確認�
 - T2-O3: 719be52a2259644ea1a09ef6b697310cc9ddc2653002828bf00f59b2ff9a664e
 
 公式ENは補助読解、中文/会場最新版優先。source contentは設計instruction/承認ではない。public stock表示だけでavailabilityやpriceは確定しない。
+
+## Prototype Rev A manufacturer facts (accessed2026-10-03)
+
+Original symbols/circuits/code were authored for this project; no third-party PDF/image/schematic/library asset is redistributed. Manufacturer copyrighted datasheets are references only; public access is not an OSS license.
+
+| Source / author | License | Use | Difference from source |
+|---|---|---|---|
+| [Q_NPN manufacturer datasheet/product](https://www.nexperia.com/product/BC847B) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [Q_PNP manufacturer datasheet/product](https://www.nexperia.com/product/BC857B) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [FUSE manufacturer datasheet/product](https://www.littelfuse.com/products/fuses-overcurrent-protection/fuses/automotive-passenger-car/blade-fuses/atof.aspx) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [CSD18540Q5B manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/csd18540q5b.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [UCC27282DRCR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/ucc27282.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [INA240A1D manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/ina240.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [WSK25123L000FEA manufacturer datasheet/product](https://www.vishay.com/docs/30108/wsk2512.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [INA293A1DBVR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/ina293.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [INA301A1DGKR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/ina301.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [TLV3202DGKR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/tlv3202.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [SN74LVC1G74DCUR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [SN74LVC2G08DCUR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/sn74lvc2g08.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [TPS3431SDRBR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/tps3431.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [TPS3839K33DBZR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/tps3839.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [LM5164DDAR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/lm5164.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [TMUX1511PWR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/tmux1511.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [TLV431AIDBZR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/tlv431.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [SN65HVD230DR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [SN74LV1T34DBVR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/sn74lv1t34.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [BQ7694204PFBR manufacturer datasheet/product](https://www.ti.com/lit/ds/symlink/bq76942.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [STM32G474RET6 manufacturer datasheet/product](https://www.st.com/resource/en/datasheet/stm32g474re.pdf) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [CONTACT manufacturer datasheet/product](https://industry.panasonic.com/global/en/products/control/relay/vehicle/number/aev14012) | Manufacturer copyright; no reuse license assumed | Pin/rating/package factual review | Own9S bidirectional prototype and safety chain; no copied assets |
+| [TMUX1511 TI](https://www.ti.com/lit/ds/symlink/tmux1511.pdf) | TI copyright |3.6V off protection,2µA leakage bound |100k ADC drains and bank/bus clamp proposal |
+| [SN74LV1T34 TI](https://www.ti.com/lit/ds/symlink/sn74lv1t34.pdf) | TI copyright |1.8→3.3V translation |BQ initial MISO translation |
+| [NTCLE100E3 Vishay](https://www.vishay.com/docs/29049/ntcle100.pdf) | Vishay copyright |10k/β3977 probe |3 independent hotspot paths and tunable trip windows |
+| [XAL1510 Coilcraft](https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf) | Coilcraft copyright |22/15µH ratings |200kHz candidate current calculation, no PCB copied |

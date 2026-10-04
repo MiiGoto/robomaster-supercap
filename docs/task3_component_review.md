@@ -1,3 +1,14 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A selection supplement
+
+CSD18540Q5B / UCC27282DRCR / XAL1510-223MED at200kHz selected as prototype candidates. Fast fronts are INA293A1 pairs, not INA301 (40V absmax vs45.4V SMBJ28A clamp conflict). Detailed current review and pin checks are in rev_a_schematic_review.md / pinout.md; old candidate-only statements below are historical.12V driver vs10V Qg model difference remains explicit.
+
+
+## Historical records (preserved)
+
 # Task 3 component review — conditional shortlist
 
 2026-10-03 JST。採用承認は[gate](task3_review_gate.md)。以下はメーカー一次資料からの候補比較であり、定格freeze・発注BOM・回路完成ではない。surge/peak duty/coolingはユーザー回答「不明」のため、第一候補も条件付き。

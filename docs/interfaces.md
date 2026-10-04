@@ -1,3 +1,30 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A concrete interfaces
+
+| Signal | Direction | Domain/type | Fail-safe default |
+|---|---|---|---|
+| PWM_AH/AL/BH/BL |MCU→AND→driver|3.3V digital|pulled LOW / GATE_PERMIT veto |
+| GATE_PERMIT |latch+fault chain→EN/AND|3.3V digital|LOW, no automatic rearm |
+| HW_FAULT_N |hardware→PA12 FLT1|3.3V active LOW|fault on missing permit |
+| ARM_PULSE / MCU_GATE_REQUEST |MCU→safety|3.3V digital|LOW |
+| BUS/CAP/IL_I_ADC |INA240→RC→TMUX→MCU|0..3.3V analog|off isolated/100k drain |
+| BUS/CAP_V_ADC and RAW_ADC |divider/clamp→TMUX→MCU|0..3.3V analog|off isolated; loaded gain |
+| TEMP_FET/L/BANK |NTC→window+TMUX→MCU|3.3V analog|open/short inhibit |
+| MON_DCHG/DDSG |BQ→safety|REG1 3.3V permission|pull-down, provisioning required |
+| MON_CONFIG_VALID |MCU→safety|3.3V digital|LOW until verified profile |
+| SPI2 / MON_ALERT |MCU↔BQ|3.3V digital, initial1.8V MISO shifted|disconnect when either rail absent |
+| PRE/BYP/ISO requests and feedback |MCU↔external actuators|3.3V control, separate12V coils|requests LOW / NO contacts |
+| DUMP_REQUEST |MCU→thermal qualification→gate|3.3V request /12V gate|OFF; bleed remains |
+| CAN TX/RX/RS |MCU↔transceiver|3.3V digital|TX HIGH, RS standby |
+
+Exact physical pins/AFs: [pinout](pinout.md). Shared GND, source-return integrity and power-off injection remain review gates; no galvanic isolation claim.
+
+
+## Historical records (preserved)
+
 # Task 2 block interface contract
 
 logic3.3 V/ADC reference3.3 VはAssumption。pin/connector、protection、absolute ratingsはTBD。interface名はblock仕様、KiCad net未実装。

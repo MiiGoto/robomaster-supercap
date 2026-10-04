@@ -1,0 +1,3 @@
+# Firmware status — Prototype Rev A
+
+No firmware implementation. Adopted STM32G474RE/LQFP64 pin allocation and default-off protections are in [pinout](../docs/pinout.md) and [schematic review](../docs/rev_a_schematic_review.md). Future work: HRTIM timing/ADC synchronization, BQ supercap provisioning/readback, watchdog health/CAN lease, control loops, precharge/dump/contact interlocks and fault state machine. BOOT0/NRST options and cell monitor profile must be reviewed before any energizing. Hardware latch protection is not optional. Historical firmware requirements remain in [controller README](controller/README.md).

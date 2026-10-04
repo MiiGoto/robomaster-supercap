@@ -1,3 +1,14 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Current authorized schematic gate
+
+User explicitly permits conservative prototype assumptions despite unknown physical conditions. Drawing detailed circuits is authorized and now implemented. This supersedes the historical hold on *schematic creation*. It does not waive measurement/human gates before energizing/full power, or approve component/thermal/isolation capability. External interruption assembly and monitor profile are still incomplete.
+
+
+## Historical records (preserved)
+
 # Task 3 review gate — architecture approved, physical envelope unknown
 
 2026-10-03 JST。ユーザー回答「Task 2案を採用。実機条件は自由入力で指定する」を受領。9S・50 F/cell、Ceq=5.5556 F、Vcap=12–22.05 V、4-switch双方向buck-boost、STM32G474RE/LQFP64、high-side shunt、抵抗precharge、充電入力40 W、assist要求80/120 W、cap平均電流normal8 A/peak12 Aを**承認済み設計目標**とする。承認は部品の熱定格・実装・安全検証を意味しない。Task 2の「人間承認待ち」はこの範囲に限り本記録で置き換える。

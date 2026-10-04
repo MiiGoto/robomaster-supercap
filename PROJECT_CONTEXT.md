@@ -1,3 +1,13 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](docs/rev_a_schematic_review.md)と[pinout](docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+
+
+[Validation record](docs/rev_a_validation.md): ERC0/0;467 actual components; PCB unchanged. External interruption assembly and supercap monitor configuration remain unfinished.
+
+## Historical records (preserved)
+
 # Task 4 current status — placement gate未通過
 
 2026-10-03 JST。Task 3 base428ad10を保持。重大TBDと詳細回路未実装のため添付Task 4 §1に従いplacement/outline/footprint/routingは行わない。[独立review](docs/task4_review.md)が現在status、[PCB方針](docs/task4_pcb_strategy.md)は提案、[検査結果](docs/task4_baseline.md)は既存skeleton限定。Task 5へ進まない。以下は過去Task記録。

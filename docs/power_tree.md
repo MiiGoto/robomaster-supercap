@@ -1,3 +1,14 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A current power domains
+
+Robot BUS_FUSED → LM5164 12V gate bias; separately → LM5164 3.3V MCU/analog/logic/CAN. Aux is upstream of bus isolation and cannot be intentionally powered from bank. External bus-derived ACTUATOR_12V is required for external NO contacts; supply/coil load not implemented or approved. Bank powers BQ REG1/REG18 and independent residual LED/bleed. Local bus/cap links each470µF behind precharge/bypass. Service connections are external assembly boundaries, not permission for extra competition power ports.
+
+
+## Historical records (preserved)
+
 # Task 2 power tree
 
 ```mermaid

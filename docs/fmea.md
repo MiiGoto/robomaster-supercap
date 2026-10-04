@@ -1,3 +1,29 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A FMEA additions (current architecture)
+
+| Failure mode | Cause | Effect | Detection | Protection | Residual risk |
+|---|---|---|---|---|---|
+| Cell OV / imbalance |leakage/mismatch/config wrong|cell damage|BQ per-cell/ADC bank|autonomous configured DCHG/DDSG + latch|Li-ion default unsafe, profile absent, slow passive balance |
+| Cell open-wire |tap break/short|false cell reading/short energy|BQ open-wire + plausibility|charge inhibit/tap series|source-side harness protection unfinished |
+| Overcurrent / L saturation |short/load/control error|rapid heating/current rise|INA293 pairs/TLV3202|latch/PWM AND/EN/FLT1|trip13.96A provisional, delay/saturation unknown |
+| MOSFET short |surge/heat/shoot-through|diode/short reverse path|port/current/rail faults|external disconnect/fuse candidates|DC breaking coordination not approved |
+| MOSFET open |bond/gate failure|diode stress/loss of control|command-current mismatch|latched inhibit|firmware absent, residual IL energy |
+| Driver failure |bias/glitch/stuck output|uncommanded FET|rail window/OC|EN+input kill+external isolation|stuck output ignores logic; actual ringing |
+| Sensor failure |shared shunt/reference/open input|false safe current/temp|independent fast front end + plausibility|hardware windows/latch|shared-element failures, firmware absent |
+| MCU crash / CAN loss |software/link failure|stale assist request|external watchdog/lease|default-off reset/latch|unconditional heartbeat defeats watchdog; lease unimplemented |
+| Thermal fault |bank ESR/core/poor cooling|cell/FET/L overheating|three NTC + hardware windows|disable/contact release|probe lag, thresholds assumed, enclosure unknown |
+| Precharge failure |welded bypass/open resistor|inrush/failed start|raw/link ΔV + feedback/timeout|NO paths/upstream isolate|firmware interlock/pulse test absent |
+| Discharge failure |aux loss/open dump/short Q|energy remains or prolonged heat|meter/time/NTC/LED|permanent bleed + service tool|LED dark misleading,62h bleed, tool/rebound unverified |
+| Auxiliary failure |UV/OV/sequencing|logic/gate unsafe/dump unavailable|PG/supervisor/driver window|latch clear and default-off coils|external actuator rail unresolved, partial-power injection |
+
+Fault taxonomy proposal: WARNING (approach thermal/energy boundary), RECOVERABLE (startup/precharge refused with sources safe), LATCHED (OC/OV/UV/temp/CAN lease), CRITICAL (suspected FET/contact short, failed discharge/monitor provisioning). Clear/rearm requires supervised reason; no automatic restart. Categories are architecture requirements, not implemented firmware.
+
+
+## Historical records (preserved)
+
 # Task 4 prospective PCB risks — no placement yet
 
 次表は配置前のrisk register。Protectionは未実装要求、配置によって実際に発生した不具合ではない。

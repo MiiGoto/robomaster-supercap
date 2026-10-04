@@ -14,7 +14,7 @@ PATTERNS = [
 ]
 
 def run(*args):
-    return subprocess.check_output(['git', *args], cwd=ROOT)
+    return subprocess.check_output(['git', '-c', 'safe.directory='+ROOT.as_posix(), *args], cwd=ROOT)
 
 def main():
     names = run('ls-files', '-z', '--cached', '--others', '--exclude-standard').decode().split('\0')
@@ -25,7 +25,8 @@ def main():
         if not path.is_file():
             problems.append((name, 'not a regular file'))
             continue
-        if path.suffix.lower() not in {'.md', '.py', '.kicad_pro', '.kicad_sch', '.kicad_pcb', ''}:
+        # JSON connectivity and KiCad symbol files are original project sources.
+        if path.suffix.lower() not in {'.md', '.py', '.json', '.kicad_sym', '.kicad_pro', '.kicad_sch', '.kicad_pcb', ''}:
             problems.append((name, 'unexpected file type / provenance review required'))
         content = path.read_text(encoding='utf-8')
         for pattern in PATTERNS:

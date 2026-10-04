@@ -1,3 +1,16 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A current unresolved safety release conditions
+
+Independent OC comparator→async latch→PWM AND/driver EN/HRTIM fault exists in the schematic; do not replace with ADC polling. Mandatory G–S pull-downs, UVLO/window, supervisor, watchdog and default-low arm remain. Active dump is thermally qualified, never automatic on overheat. Sources and bank require independent DC interruption because shorted FET/contact cannot be cleared with PWM.
+
+Unapproved: actual surge/regen/source Z, end-to-end shutdown/overshoot and shoot-through bypassing sense, cell profile defaults/readback/OTP, cell tap source protection, gate/partial-power behavior, shared reference/shunt faults, aux/actuator supply, welded contacts/fuse breaking, discharge residual/rebound, continuous and repeated peak temperature. 60V FET, TVS name and ERC0 are not proof of fault containment. Service voltage investigation1V is not a safe-service certification.
+
+
+## Historical records (preserved)
+
 # Task 3 safety review — circuit unimplemented
 
 [採用承認と未確定条件](task3_review_gate.md)・[部品比較](task3_component_review.md)を優先する。Task 2の8/12 A平均目標承認は瞬時current・熱・保護性能の確認ではない。

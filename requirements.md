@@ -1,3 +1,27 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](docs/rev_a_schematic_review.md)と[pinout](docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A current requirements register
+
+| Item | Current decision | Status |
+|---|---|---|
+| Rules |2026 RMUL; previous source editions retained below; event supplement/Engineer eligibility review required | Confirmed target / applicability TBD |
+| Bank |9S50F, Ceq5.5556F, useful12–22.05V | Confirmed adopted goal / product implementation Assumption |
+| Bus |22–26V,24V nominal; investigate36V surge headroom | Assumption, terminal waveform TBD |
+| Power/current |40W charge input,80/120W assist requests,8/12A cap average targets | Confirmed goals / performance and thermal TBD |
+| Topology/MCU |4-switch bidirectional buck-boost / G474RE LQFP64 | Confirmed architecture / schematic implemented, not validated |
+| Switching / L / MOSFET |200kHz primary,180–200 exploration;22µH XAL1510-223 /CSD18540Q5B | Prototype selection Assumption |
+| Sensing / OC |3mΩ Kelvin bus/cap/IL, INA240 signed; INA293 opposing pairs/TLV3202 hardware kill | Schematic implemented / delay and thresholds TBD |
+| Cells |BQ7694204 SPI/CRC / switched passive / autonomous OV permits | Prototype candidate; supercap configuration NOT implemented |
+| Precharge/discharge |100Ω local470µF paths + NO bypass;10k bleed +100Ω thermal-qualified dump + service meter | Assumption / assembly, pulse, discharge acceptance TBD |
+| Isolation |External source/bank NO contacts + fuse candidates | Assembly supply, DC interruption and fuse coordination TBD; no fabrication release |
+
+Confirmed means adopted target or checked fact; **does not mean demonstrated capability**. Full-power gates remain surge/regen/source impedance, duty, heat, OC clearing, residual energy and isolation fault capability. Current MCU allocation is docs/pinout.md, overriding historical spare-count/pin plans.
+
+
+## Historical records (preserved)
+
 # Task 4 current status — placement gate未通過
 
 2026-10-03 JST。Task 3 base428ad10を保持。重大TBDと詳細回路未実装のため添付Task 4 §1に従いplacement/outline/footprint/routingは行わない。[独立review](docs/task4_review.md)が現在status、[PCB方針](docs/task4_pcb_strategy.md)は提案、[検査結果](docs/task4_baseline.md)は既存skeleton限定。Task 5へ進まない。以下は過去Task記録。

@@ -1,3 +1,14 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Current scope
+
+No board outline, placement, routing, zones or copper stackup change in Rev A. Candidate footprint assignment is schematic metadata only. Earlier PCB strategy remains a proposal; do not place until external containment and schematic review are accepted.
+
+
+## Historical records (preserved)
+
 # Task 4 PCB strategy — proposal before placement
 
 [Review gate](task4_review.md)が未通過。これは将来placementのレビュー資料で、PCB fileへoutline/footprint/netclass/銅箔/routingを実装しない。

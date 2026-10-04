@@ -1,3 +1,19 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A gate before energizing
+
+1. Independent schematic/package/land review; finalize exact passives/local capacitors, source-side tap protection and external actuator supply/NO contacts/DC interruption/fuses.
+2. BQ supercap profile/readback/power-cycle/protection mapping and MCU BOOT0/reset options review. No gate arm with unprovisioned monitor.
+3. Approve current-limited containment plan and independent bank/service isolation; OFF/LED dark never prove discharged.
+4. Only after approval: staged auxiliary/low-energy fault tests, analog off-injection, bootstrap/ringing, actual trip latency/current excursion, precharge/dump and thermal characterization. Then review measured full-power/duty/competition envelope separately.
+
+No tests in this list were physically performed. ERC/netlist/calculation results are not energizing authorization.
+
+
+## Historical records (preserved)
+
 # Task 4 measurement access plan — no energization
 
 scope protective-earth ground clipをhigh-side gate/source、SW_NODE、bankのfloating pointへ無確認で接続しない。scopeのearthを外してfloating測定しない。rated differential probeまたは適切にisolatedされたmeasurement systemを使用し、differential/common-mode電圧、transient、bandwidth、probe spacingを確認する。VGSはgateとそのsource間で測定する。

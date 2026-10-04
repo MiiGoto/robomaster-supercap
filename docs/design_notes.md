@@ -1,3 +1,14 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A current tuning and calculations
+
+See selected-candidate model simulation/rev_a_budget.py/report. Gate series4.7Ω, separate turn-off DNI2.2Ω/diode, DNI10Ω/1nF snubbers, OC divider options, cell configuration, precharge100Ω, dump100Ω, NTC thresholds and CAN termination are tunable. Safety functions themselves are fitted/mandatory. 22µH at100kHz fails the3App modeled worst corner;200kHz primary reduces it to2.23App. Core/Qrr/Coss/aux/connector loss and equal-rail modulation remain unmodeled. No copper layout has begun.
+
+
+## Historical records (preserved)
+
 # Task 4 design notes — placement deferred
 
 [独立レビュー](task4_review.md)、[PCB strategy proposal](task4_pcb_strategy.md)、[baseline results](task4_baseline.md)を参照。4-layer第一案、hot/gate loop、continuous reference、Kelvin、high-current rule register、thermal/connector/debug方針は提案。実netclass/footprint/outline/placementは未実装。Task 4 §1の重大TBD gateは未通過。

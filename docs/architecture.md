@@ -1,3 +1,14 @@
+# Prototype Rev A — current status
+
+2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](../docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](../docs/rev_a_schematic_review.md)と[pinout](../docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
+
+## Rev A concrete hierarchy
+
+POWER_INPUT / AUXILIARY_POWER / CONTROLLER / GATE_DRIVER / POWER_STAGE / CURRENT_SENSING / VOLTAGE_SENSING / TEMPERATURE_SENSING / PRECHARGE / SUPERCAP_BANK / SAFE_DISCHARGE / CAN / SAFETY, with SENSING overview. INDUCTOR is the actual22µH element in POWER_STAGE. Global labels and wires connect actual package pins. Independent latch/AND kill is implemented; control software and autonomous monitor provisioning remain future work. Power modes below remain conceptual requirements. OFF never implies stored-energy-safe.
+
+
+## Historical records (preserved)
+
 # Task 2 system architecture
 
 [選択理由とbudget](task2_decisions.md)。以下はAssumption、保護要求はConfirmed、回路未実装。
