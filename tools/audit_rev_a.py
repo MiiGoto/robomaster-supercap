@@ -12,6 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 LIB=Path('C:/Program Files/KiCad/10.0/share/kicad/footprints')
 PERMITS=['IL_POS_OK','IL_NEG_OK','BUS_POS_OK','BUS_NEG_OK','CAP_POS_OK','CAP_NEG_OK','PG_DRV','PG_MCU','RAIL_OK','WATCHDOG_OK','MON_DCHG','MON_DDSG','MON_CONFIG_VALID','REFEREE_PERMIT','FET_TEMP_LO_OK','FET_TEMP_HI_OK','L_TEMP_LO_OK','L_TEMP_HI_OK','BANK_TEMP_LO_OK','BANK_TEMP_HI_OK','BUS_OV_OK','BUS_UV_OK','BANK_OV_OK','DRIVER_UV_OK','DRIVER_OV_OK']
 def load():return json.loads((ROOT/'simulation/rev_a_connectivity.json').read_text(encoding='utf-8'))
+PERMITS += ['ACTUATOR_UV_OK','ACTUATOR_OV_OK']
 def logic(items,inputs,qstate=1):
     values=dict.fromkeys(PERMITS,1);values.update({'V3V3':1,'GND':0,'NRST':1,'MCU_GATE_REQUEST':1,'FAULT_LATCH_Q':qstate});values.update(inputs)
     gates=[p for p in items if p['typ']=='SN74LVC2G08DCUR']

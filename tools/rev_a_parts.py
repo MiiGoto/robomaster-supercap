@@ -29,7 +29,7 @@ part('D',{1:'K',2:'A'},'Diode_SMD:D_SOD-123')
 part('LED',{1:'K',2:'A'},'LED_SMD:LED_0805_2012Metric')
 part('Q_NPN',{1:'B',2:'E',3:'C'},'Package_TO_SOT_SMD:SOT-23','https://www.nexperia.com/product/BC847B')
 part('Q_PNP',{1:'B',2:'E',3:'C'},'Package_TO_SOT_SMD:SOT-23','https://www.nexperia.com/product/BC857B')
-part('FUSE',{1:'A',2:'B'},'','https://www.littelfuse.com/products/fuses-overcurrent-protection/fuses/automotive-passenger-car/blade-fuses/atof.aspx')
+part('FUSE',{1:'A',2:'B'},'','https://www.littelfuse.com/assetdocs/littelfuse-datasheet-997-mini58v?assetguid=838cc4ad-f429-4185-a8e8-ccc70cd2b713')
 # KiCad functional aliases: 1=S physical1/2/3, 2=G physical4,
 # 3=D physical5/6/7/8 and drain metal. See pinout review before layout.
 part('CSD18540Q5B',{1:'S_DS1_2_3',2:'G_DS4',3:'D_DS5_6_7_8'},
@@ -39,7 +39,7 @@ part('UCC27282DRCR',{1:'VDD:power_in',2:'NC:no_connect',3:'HB:passive',4:'HO:out
 for n in ('INA240A1D','INA240A2D'):
     part(n,{1:'INM:input',2:'GND:power_in',3:'REF2:input',4:'NC:no_connect',5:'OUT:output',6:'VS:power_in',7:'REF1:input',8:'INP:input'},SO8,'https://www.ti.com/lit/ds/symlink/ina240.pdf')
 part('WSK25123L000FEA',{1:'I_P',2:'K_P',3:'K_M',4:'I_M'},
-     'Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm','https://www.vishay.com/docs/30108/wsk2512.pdf')
+     'Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm','https://www.vishay.com/docs/30108/wsk2512.pdf')
 part('INA293A1DBVR',{1:'OUT:output',2:'GND:power_in',3:'INP:input',4:'INM:input',5:'VS:power_in'},'Package_TO_SOT_SMD:SOT-23-5','https://www.ti.com/lit/ds/symlink/ina293.pdf')
 part('INA301A1DGKR',{1:'VS:power_in',2:'OUT:output',3:'LIMIT:input',4:'GND:power_in',5:'RESET:input',6:'ALERT_N:open_collector',7:'INM:input',8:'INP:input'},VSS8,'https://www.ti.com/lit/ds/symlink/ina301.pdf')
 part('TLV3202DGKR',{1:'OUT1:output',2:'INM1:input',3:'INP1:input',4:'GND:power_in',5:'INP2:input',6:'INM2:input',7:'OUT2:output',8:'VCC:power_in'},VSS8,'https://www.ti.com/lit/ds/symlink/tlv3202.pdf')
@@ -66,4 +66,10 @@ part('STM32G474RET6',{i:s+(':power_in' if s in ('VBAT','VSS','VDD','VSSA','VDDA'
 for n in (2,3,4,5,6,10):
     part('J'+str(n),{i:'P'+str(i) for i in range(1,n+1)},f'Connector_PinHeader_2.54mm:PinHeader_1x{n:02}_P2.54mm_Vertical')
 part('CONTACT',{1:'COM',2:'NO',3:'COIL_P',4:'COIL_M'},'','https://industry.panasonic.com/global/en/products/control/relay/vehicle/number/aev14012')
+part('AQZ202G',{1:'LED_M',2:'LED_P',3:'ACDC_A',4:'ACDC_B'},'',
+     'https://industry.panasonic.com/ac/cdn/e/control/relay/photomos/catalog/semi_eng_pwr1a_aqz10_20.pdf')
+part('DDR60L12',{1:'VO_M',2:'VO_M',3:'VO_P',4:'VO_P',5:'VIN_P',6:'VIN_M'},'',
+     'https://www.meanwell.com/Upload/PDF/DDR-60/DDR-60-SPEC.PDF')
+part('DISCONNECT',{1:'COM',2:'SWITCHED'},'',
+     'https://www.bluesea.com/products/compare/6004/6004200/6005200/6006/6006200')
 part('PWR_FLAG',{1:'SUPPLY:power_out'},'')

@@ -4,12 +4,26 @@
     "ref": "J1",
     "typ": "J2",
     "nets": {
-      "1": "BUS_RAW",
+      "1": "BUS_ROBOT_INPUT",
       "2": "GND"
     },
-    "value": "ROBOT BUS terminal / keyed DC-rated connector TBD",
+    "value": "ROBOT BUS / external covered bolted power terminals",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "POWER_INPUT",
+    "ref": "U1",
+    "typ": "DISCONNECT",
+    "nets": {
+      "1": "BUS_ROBOT_INPUT",
+      "2": "BUS_RAW"
+    },
+    "value": "Blue Sea6006 / external manual source disconnect;not a fault breaker",
+    "fp": "",
+    "dni": false,
+    "mpn": "6006"
   },
   {
     "sheet": "POWER_INPUT",
@@ -19,9 +33,10 @@
       "1": "BUS_RAW",
       "2": "BUS_FUSED"
     },
-    "value": "ATOF 58V 10A candidate / I2t & breaking coordination TBD",
+    "value": "0997010.WXN / MINI997 58V10A / external 0FHM0002ZXJM holder",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "0997010.WXN"
   },
   {
     "sheet": "POWER_INPUT",
@@ -33,7 +48,8 @@
     },
     "value": "SMBJ28A / no surge-energy guarantee",
     "fp": "Diode_SMD:D_SMB",
-    "dni": false
+    "dni": false,
+    "mpn": "SMBJ28A"
   },
   {
     "sheet": "POWER_INPUT",
@@ -45,9 +61,10 @@
       "3": "ACTUATOR_12V",
       "4": "BUS_ISO_COIL_M"
     },
-    "value": "BUS_ISO external NO contact / AEV14012 candidate",
+    "value": "BUS_ISO external NO contact / AEV14012 bench selection",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "AEV14012"
   },
   {
     "sheet": "POWER_INPUT",
@@ -60,7 +77,8 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "POWER_INPUT",
@@ -72,7 +90,8 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -85,7 +104,8 @@
     },
     "value": "BC857B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC857B,215"
   },
   {
     "sheet": "POWER_INPUT",
@@ -97,7 +117,8 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -109,7 +130,8 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -121,7 +143,8 @@
     },
     "value": "4.7k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08054K70FKEA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -133,7 +156,8 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -146,7 +170,8 @@
     },
     "value": "BC847B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC847B,215"
   },
   {
     "sheet": "POWER_INPUT",
@@ -158,7 +183,8 @@
     },
     "value": "47R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080547R0FKEA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -168,9 +194,10 @@
       "1": "ACTUATOR_12V",
       "2": "BUS_ISO_COIL_M"
     },
-    "value": "SS110 flyback candidate / release delay MUST VERIFY",
-    "fp": "Diode_SMD:D_SMA",
-    "dni": false
+    "value": "SMBJ18CA bidirectional coil suppression / release MUST VERIFY",
+    "fp": "Diode_SMD:D_SMB",
+    "dni": false,
+    "mpn": "SMBJ18CA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -182,9 +209,10 @@
       "3": "BUS_ISO_FB",
       "4": "GND"
     },
-    "value": "BUS_ISO external actuator+feedback",
+    "value": "BUS_ISO actuator+reserved diagnostic / no intrinsic auxiliary contact",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "POWER_INPUT",
@@ -192,11 +220,12 @@
     "typ": "R",
     "nets": {
       "1": "BUS_ISO_FB",
-      "2": "V3V3"
+      "2": "GND"
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_INPUT",
@@ -209,7 +238,8 @@
     },
     "value": "referee permit interface / no bypass",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "POWER_INPUT",
@@ -221,19 +251,38 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_INPUT",
-    "ref": "J4",
-    "typ": "J2",
+    "ref": "F2",
+    "typ": "FUSE",
     "nets": {
-      "1": "ACTUATOR_12V",
-      "2": "GND"
+      "1": "BUS_RAW",
+      "2": "ACTUATOR_INPUT"
     },
-    "value": "external BUS-derived actuator 12V supply / budget TBD",
+    "value": "0997005.WXN / MINI997 58V5A / external 0FHM0002ZXJM holder",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "0997005.WXN"
+  },
+  {
+    "sheet": "POWER_INPUT",
+    "ref": "U2",
+    "typ": "DDR60L12",
+    "nets": {
+      "1": "GND",
+      "2": "GND",
+      "3": "ACTUATOR_12V",
+      "4": "ACTUATOR_12V",
+      "5": "ACTUATOR_INPUT",
+      "6": "GND"
+    },
+    "value": "DDR-60L-12 / external bench actuator supply",
+    "fp": "",
+    "dni": false,
+    "mpn": "DDR-60L-12"
   },
   {
     "sheet": "POWER_INPUT",
@@ -244,7 +293,102 @@
     },
     "value": "external reviewed actuator supply required",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "U3",
+    "typ": "AQZ202G",
+    "nets": {
+      "1": "PRE_BUS_LED_M",
+      "2": "PRE_BUS_LED_P",
+      "3": "BUS_ISOLATED",
+      "4": "BUS_PRE_R_IN"
+    },
+    "value": "AQZ202G / external precharge SSR",
+    "fp": "",
+    "dni": false,
+    "mpn": "AQZ202G"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R9",
+    "typ": "R",
+    "nets": {
+      "1": "V3V3",
+      "2": "PRE_BUS_LED_P"
+    },
+    "value": "150R",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW0805150RFKEA"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R10",
+    "typ": "R",
+    "nets": {
+      "1": "PRE_BUS_DRIVE",
+      "2": "PRE_BUS_SSR_BASE"
+    },
+    "value": "1.5k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW08051K50FKEA"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R11",
+    "typ": "R",
+    "nets": {
+      "1": "PRE_BUS_SSR_BASE",
+      "2": "GND"
+    },
+    "value": "10k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "Q4",
+    "typ": "Q_NPN",
+    "nets": {
+      "1": "PRE_BUS_SSR_BASE",
+      "2": "GND",
+      "3": "PRE_BUS_LED_M"
+    },
+    "value": "BC847B",
+    "fp": "Package_TO_SOT_SMD:SOT-23",
+    "dni": false,
+    "mpn": "BC847B,215"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R12",
+    "typ": "R",
+    "nets": {
+      "1": "PRE_BUS_FB",
+      "2": "GND"
+    },
+    "value": "10k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R13",
+    "typ": "R",
+    "nets": {
+      "1": "BUS_PRE_R_IN",
+      "2": "BUS_LINK_IN"
+    },
+    "value": "100R / HS25 100R F / external chassis mount",
+    "fp": "",
+    "dni": false,
+    "mpn": "HS25 100R F"
   },
   {
     "sheet": "PRECHARGE",
@@ -252,192 +396,18 @@
     "typ": "CONTACT",
     "nets": {
       "1": "BUS_ISOLATED",
-      "2": "BUS_PRE_R_IN",
-      "3": "ACTUATOR_12V",
-      "4": "PRE_BUS_COIL_M"
-    },
-    "value": "PRE_BUS external NO contact / AEV14012 candidate",
-    "fp": "",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "Q4",
-    "typ": "CSD18540Q5B",
-    "nets": {
-      "1": "GND",
-      "2": "PRE_BUS_COIL_GATE",
-      "3": "PRE_BUS_COIL_M"
-    },
-    "value": "CSD18540Q5B",
-    "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R9",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_BUS_COIL_GATE",
-      "2": "GND"
-    },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "Q5",
-    "typ": "Q_PNP",
-    "nets": {
-      "1": "PRE_BUS_PNP_B",
-      "2": "ACTUATOR_12V",
-      "3": "PRE_BUS_PNP_C"
-    },
-    "value": "BC857B",
-    "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R10",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_BUS_PNP_B",
-      "2": "ACTUATOR_12V"
-    },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R11",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_BUS_PNP_B",
-      "2": "PRE_BUS_NPN_C"
-    },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R12",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_BUS_DRIVE",
-      "2": "PRE_BUS_NPN_C_BASE"
-    },
-    "value": "4.7k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R13",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_BUS_NPN_C_BASE",
-      "2": "GND"
-    },
-    "value": "100k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "Q6",
-    "typ": "Q_NPN",
-    "nets": {
-      "1": "PRE_BUS_NPN_C_BASE",
-      "2": "GND",
-      "3": "PRE_BUS_NPN_C"
-    },
-    "value": "BC847B",
-    "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R14",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_BUS_PNP_C",
-      "2": "PRE_BUS_COIL_GATE"
-    },
-    "value": "47R",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "D3",
-    "typ": "D",
-    "nets": {
-      "1": "ACTUATOR_12V",
-      "2": "PRE_BUS_COIL_M"
-    },
-    "value": "SS110 flyback candidate / release delay MUST VERIFY",
-    "fp": "Diode_SMD:D_SMA",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "J5",
-    "typ": "J4",
-    "nets": {
-      "1": "ACTUATOR_12V",
-      "2": "PRE_BUS_COIL_M",
-      "3": "PRE_BUS_FB",
-      "4": "GND"
-    },
-    "value": "PRE_BUS external actuator+feedback",
-    "fp": "",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R15",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_BUS_FB",
-      "2": "V3V3"
-    },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R16",
-    "typ": "R",
-    "nets": {
-      "1": "BUS_PRE_R_IN",
-      "2": "BUS_LINK_IN"
-    },
-    "value": "100R / AC05 5W pulse candidate",
-    "fp": "Resistor_THT:R_Axial_Power_L25.0mm_W9.0mm_P30.48mm",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "K3",
-    "typ": "CONTACT",
-    "nets": {
-      "1": "BUS_ISOLATED",
       "2": "BUS_LINK_IN",
       "3": "ACTUATOR_12V",
       "4": "BYP_BUS_COIL_M"
     },
-    "value": "BYP_BUS external NO contact / AEV14012 candidate",
+    "value": "BYP_BUS external NO contact / AEV14012 bench selection",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "AEV14012"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "Q7",
+    "ref": "Q5",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "GND",
@@ -446,11 +416,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R17",
+    "ref": "R14",
     "typ": "R",
     "nets": {
       "1": "BYP_BUS_COIL_GATE",
@@ -458,11 +429,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "Q8",
+    "ref": "Q6",
     "typ": "Q_PNP",
     "nets": {
       "1": "BYP_BUS_PNP_B",
@@ -471,11 +443,12 @@
     },
     "value": "BC857B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC857B,215"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R18",
+    "ref": "R15",
     "typ": "R",
     "nets": {
       "1": "BYP_BUS_PNP_B",
@@ -483,11 +456,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R19",
+    "ref": "R16",
     "typ": "R",
     "nets": {
       "1": "BYP_BUS_PNP_B",
@@ -495,11 +469,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R20",
+    "ref": "R17",
     "typ": "R",
     "nets": {
       "1": "BYP_BUS_DRIVE",
@@ -507,11 +482,12 @@
     },
     "value": "4.7k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08054K70FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R21",
+    "ref": "R18",
     "typ": "R",
     "nets": {
       "1": "BYP_BUS_NPN_C_BASE",
@@ -519,11 +495,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "Q9",
+    "ref": "Q7",
     "typ": "Q_NPN",
     "nets": {
       "1": "BYP_BUS_NPN_C_BASE",
@@ -532,11 +509,12 @@
     },
     "value": "BC847B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC847B,215"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R22",
+    "ref": "R19",
     "typ": "R",
     "nets": {
       "1": "BYP_BUS_PNP_C",
@@ -544,23 +522,25 @@
     },
     "value": "47R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080547R0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "D4",
+    "ref": "D3",
     "typ": "D",
     "nets": {
       "1": "ACTUATOR_12V",
       "2": "BYP_BUS_COIL_M"
     },
-    "value": "SS110 flyback candidate / release delay MUST VERIFY",
-    "fp": "Diode_SMD:D_SMA",
-    "dni": false
+    "value": "SMBJ18CA bidirectional coil suppression / release MUST VERIFY",
+    "fp": "Diode_SMD:D_SMB",
+    "dni": false,
+    "mpn": "SMBJ18CA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "J6",
+    "ref": "J4",
     "typ": "J4",
     "nets": {
       "1": "ACTUATOR_12V",
@@ -568,200 +548,121 @@
       "3": "BYP_BUS_FB",
       "4": "GND"
     },
-    "value": "BYP_BUS external actuator+feedback",
+    "value": "BYP_BUS actuator+reserved diagnostic / no intrinsic auxiliary contact",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R20",
+    "typ": "R",
+    "nets": {
+      "1": "BYP_BUS_FB",
+      "2": "GND"
+    },
+    "value": "10k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "U4",
+    "typ": "AQZ202G",
+    "nets": {
+      "1": "PRE_CAP_LED_M",
+      "2": "PRE_CAP_LED_P",
+      "3": "CAP_ISOLATED",
+      "4": "CAP_PRE_R_IN"
+    },
+    "value": "AQZ202G / external precharge SSR",
+    "fp": "",
+    "dni": false,
+    "mpn": "AQZ202G"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R21",
+    "typ": "R",
+    "nets": {
+      "1": "V3V3",
+      "2": "PRE_CAP_LED_P"
+    },
+    "value": "150R",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW0805150RFKEA"
+  },
+  {
+    "sheet": "PRECHARGE",
+    "ref": "R22",
+    "typ": "R",
+    "nets": {
+      "1": "PRE_CAP_DRIVE",
+      "2": "PRE_CAP_SSR_BASE"
+    },
+    "value": "1.5k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW08051K50FKEA"
   },
   {
     "sheet": "PRECHARGE",
     "ref": "R23",
     "typ": "R",
     "nets": {
-      "1": "BYP_BUS_FB",
-      "2": "V3V3"
+      "1": "PRE_CAP_SSR_BASE",
+      "2": "GND"
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "K4",
-    "typ": "CONTACT",
+    "ref": "Q8",
+    "typ": "Q_NPN",
     "nets": {
-      "1": "CAP_ISOLATED",
-      "2": "CAP_PRE_R_IN",
-      "3": "ACTUATOR_12V",
-      "4": "PRE_CAP_COIL_M"
+      "1": "PRE_CAP_SSR_BASE",
+      "2": "GND",
+      "3": "PRE_CAP_LED_M"
     },
-    "value": "PRE_CAP external NO contact / AEV14012 candidate",
-    "fp": "",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "Q10",
-    "typ": "CSD18540Q5B",
-    "nets": {
-      "1": "GND",
-      "2": "PRE_CAP_COIL_GATE",
-      "3": "PRE_CAP_COIL_M"
-    },
-    "value": "CSD18540Q5B",
-    "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "value": "BC847B",
+    "fp": "Package_TO_SOT_SMD:SOT-23",
+    "dni": false,
+    "mpn": "BC847B,215"
   },
   {
     "sheet": "PRECHARGE",
     "ref": "R24",
     "typ": "R",
     "nets": {
-      "1": "PRE_CAP_COIL_GATE",
+      "1": "PRE_CAP_FB",
       "2": "GND"
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "Q11",
-    "typ": "Q_PNP",
-    "nets": {
-      "1": "PRE_CAP_PNP_B",
-      "2": "ACTUATOR_12V",
-      "3": "PRE_CAP_PNP_C"
-    },
-    "value": "BC857B",
-    "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
     "ref": "R25",
     "typ": "R",
     "nets": {
-      "1": "PRE_CAP_PNP_B",
-      "2": "ACTUATOR_12V"
-    },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R26",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_CAP_PNP_B",
-      "2": "PRE_CAP_NPN_C"
-    },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R27",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_CAP_DRIVE",
-      "2": "PRE_CAP_NPN_C_BASE"
-    },
-    "value": "4.7k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R28",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_CAP_NPN_C_BASE",
-      "2": "GND"
-    },
-    "value": "100k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "Q12",
-    "typ": "Q_NPN",
-    "nets": {
-      "1": "PRE_CAP_NPN_C_BASE",
-      "2": "GND",
-      "3": "PRE_CAP_NPN_C"
-    },
-    "value": "BC847B",
-    "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R29",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_CAP_PNP_C",
-      "2": "PRE_CAP_COIL_GATE"
-    },
-    "value": "47R",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "D5",
-    "typ": "D",
-    "nets": {
-      "1": "ACTUATOR_12V",
-      "2": "PRE_CAP_COIL_M"
-    },
-    "value": "SS110 flyback candidate / release delay MUST VERIFY",
-    "fp": "Diode_SMD:D_SMA",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "J7",
-    "typ": "J4",
-    "nets": {
-      "1": "ACTUATOR_12V",
-      "2": "PRE_CAP_COIL_M",
-      "3": "PRE_CAP_FB",
-      "4": "GND"
-    },
-    "value": "PRE_CAP external actuator+feedback",
-    "fp": "",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R30",
-    "typ": "R",
-    "nets": {
-      "1": "PRE_CAP_FB",
-      "2": "V3V3"
-    },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "PRECHARGE",
-    "ref": "R31",
-    "typ": "R",
-    "nets": {
       "1": "CAP_PRE_R_IN",
       "2": "CAP_LINK_IN"
     },
-    "value": "100R / AC05 5W pulse candidate",
-    "fp": "Resistor_THT:R_Axial_Power_L25.0mm_W9.0mm_P30.48mm",
-    "dni": false
+    "value": "100R / HS25 100R F / external chassis mount",
+    "fp": "",
+    "dni": false,
+    "mpn": "HS25 100R F"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "K5",
+    "ref": "K3",
     "typ": "CONTACT",
     "nets": {
       "1": "CAP_ISOLATED",
@@ -769,13 +670,14 @@
       "3": "ACTUATOR_12V",
       "4": "BYP_CAP_COIL_M"
     },
-    "value": "BYP_CAP external NO contact / AEV14012 candidate",
+    "value": "BYP_CAP external NO contact / AEV14012 bench selection",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "AEV14012"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "Q13",
+    "ref": "Q9",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "GND",
@@ -784,11 +686,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R32",
+    "ref": "R26",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_COIL_GATE",
@@ -796,11 +699,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "Q14",
+    "ref": "Q10",
     "typ": "Q_PNP",
     "nets": {
       "1": "BYP_CAP_PNP_B",
@@ -809,11 +713,12 @@
     },
     "value": "BC857B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC857B,215"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R33",
+    "ref": "R27",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_PNP_B",
@@ -821,11 +726,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R34",
+    "ref": "R28",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_PNP_B",
@@ -833,11 +739,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R35",
+    "ref": "R29",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_DRIVE",
@@ -845,11 +752,12 @@
     },
     "value": "4.7k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08054K70FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R36",
+    "ref": "R30",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_NPN_C_BASE",
@@ -857,11 +765,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "Q15",
+    "ref": "Q11",
     "typ": "Q_NPN",
     "nets": {
       "1": "BYP_CAP_NPN_C_BASE",
@@ -870,11 +779,12 @@
     },
     "value": "BC847B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC847B,215"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R37",
+    "ref": "R31",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_PNP_C",
@@ -882,23 +792,25 @@
     },
     "value": "47R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080547R0FKEA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "D6",
+    "ref": "D4",
     "typ": "D",
     "nets": {
       "1": "ACTUATOR_12V",
       "2": "BYP_CAP_COIL_M"
     },
-    "value": "SS110 flyback candidate / release delay MUST VERIFY",
-    "fp": "Diode_SMD:D_SMA",
-    "dni": false
+    "value": "SMBJ18CA bidirectional coil suppression / release MUST VERIFY",
+    "fp": "Diode_SMD:D_SMB",
+    "dni": false,
+    "mpn": "SMBJ18CA"
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "J8",
+    "ref": "J5",
     "typ": "J4",
     "nets": {
       "1": "ACTUATOR_12V",
@@ -906,25 +818,27 @@
       "3": "BYP_CAP_FB",
       "4": "GND"
     },
-    "value": "BYP_CAP external actuator+feedback",
+    "value": "BYP_CAP actuator+reserved diagnostic / no intrinsic auxiliary contact",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "PRECHARGE",
-    "ref": "R38",
+    "ref": "R32",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_FB",
-      "2": "V3V3"
+      "2": "GND"
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R39",
+    "ref": "R33",
     "typ": "WSK25123L000FEA",
     "nets": {
       "1": "BUS_LINK_IN",
@@ -933,12 +847,13 @@
       "4": "BUS_LINK"
     },
     "value": "WSK25123L000FEA / 3mR 1% 1W",
-    "fp": "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm",
-    "dni": false
+    "fp": "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm",
+    "dni": false,
+    "mpn": "WSK25123L000FEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R40",
+    "ref": "R34",
     "typ": "WSK25123L000FEA",
     "nets": {
       "1": "CAP_LINK_IN",
@@ -947,12 +862,13 @@
       "4": "CAP_LINK"
     },
     "value": "WSK25123L000FEA / 3mR 1% 1W",
-    "fp": "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm",
-    "dni": false
+    "fp": "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm",
+    "dni": false,
+    "mpn": "WSK25123L000FEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R41",
+    "ref": "R35",
     "typ": "WSK25123L000FEA",
     "nets": {
       "1": "SW_NODE_A",
@@ -961,8 +877,9 @@
       "4": "IL_TO_L"
     },
     "value": "WSK25123L000FEA / 3mR 1% 1W",
-    "fp": "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm",
-    "dni": false
+    "fp": "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm",
+    "dni": false,
+    "mpn": "WSK25123L000FEA"
   },
   {
     "sheet": "POWER_STAGE",
@@ -972,9 +889,10 @@
       "1": "BUS_LINK",
       "2": "GND"
     },
-    "value": "470uF / 63V low ESR / ripple rating TBD",
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
     "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
-    "dni": false
+    "dni": false,
+    "mpn": "EEUFR1J471"
   },
   {
     "sheet": "POWER_STAGE",
@@ -984,9 +902,10 @@
       "1": "BUS_LINK",
       "2": "GND"
     },
-    "value": "2.2uF / 100V X7R / effective C MUST VERIFY",
-    "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
   },
   {
     "sheet": "POWER_STAGE",
@@ -996,37 +915,157 @@
       "1": "BUS_LINK",
       "2": "GND"
     },
-    "value": "2.2uF / 100V X7R / effective C MUST VERIFY",
-    "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
   },
   {
     "sheet": "POWER_STAGE",
     "ref": "C4",
     "typ": "C",
     "nets": {
-      "1": "CAP_LINK",
+      "1": "BUS_LINK",
       "2": "GND"
     },
-    "value": "470uF / 63V low ESR / ripple rating TBD",
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
     "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
-    "dni": false
+    "dni": false,
+    "mpn": "EEUFR1J471"
   },
   {
     "sheet": "POWER_STAGE",
     "ref": "C5",
     "typ": "C",
     "nets": {
-      "1": "CAP_LINK",
+      "1": "BUS_LINK",
       "2": "GND"
     },
-    "value": "2.2uF / 100V X7R / effective C MUST VERIFY",
-    "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
   },
   {
     "sheet": "POWER_STAGE",
     "ref": "C6",
+    "typ": "C",
+    "nets": {
+      "1": "BUS_LINK",
+      "2": "GND"
+    },
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C7",
+    "typ": "C",
+    "nets": {
+      "1": "BUS_LINK",
+      "2": "GND"
+    },
+    "value": "2.2uF / 100V X7R / effective C MUST VERIFY",
+    "fp": "Capacitor_SMD:C_1210_3225Metric",
+    "dni": false,
+    "mpn": "GRM32ER72A225KA35L"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C8",
+    "typ": "C",
+    "nets": {
+      "1": "BUS_LINK",
+      "2": "GND"
+    },
+    "value": "2.2uF / 100V X7R / effective C MUST VERIFY",
+    "fp": "Capacitor_SMD:C_1210_3225Metric",
+    "dni": false,
+    "mpn": "GRM32ER72A225KA35L"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C9",
+    "typ": "C",
+    "nets": {
+      "1": "CAP_LINK",
+      "2": "GND"
+    },
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C10",
+    "typ": "C",
+    "nets": {
+      "1": "CAP_LINK",
+      "2": "GND"
+    },
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C11",
+    "typ": "C",
+    "nets": {
+      "1": "CAP_LINK",
+      "2": "GND"
+    },
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C12",
+    "typ": "C",
+    "nets": {
+      "1": "CAP_LINK",
+      "2": "GND"
+    },
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C13",
+    "typ": "C",
+    "nets": {
+      "1": "CAP_LINK",
+      "2": "GND"
+    },
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C14",
+    "typ": "C",
+    "nets": {
+      "1": "CAP_LINK",
+      "2": "GND"
+    },
+    "value": "470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz",
+    "fp": "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm",
+    "dni": false,
+    "mpn": "EEUFR1J471"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "C15",
     "typ": "C",
     "nets": {
       "1": "CAP_LINK",
@@ -1034,11 +1073,25 @@
     },
     "value": "2.2uF / 100V X7R / effective C MUST VERIFY",
     "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM32ER72A225KA35L"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "Q16",
+    "ref": "C16",
+    "typ": "C",
+    "nets": {
+      "1": "CAP_LINK",
+      "2": "GND"
+    },
+    "value": "2.2uF / 100V X7R / effective C MUST VERIFY",
+    "fp": "Capacitor_SMD:C_1210_3225Metric",
+    "dni": false,
+    "mpn": "GRM32ER72A225KA35L"
+  },
+  {
+    "sheet": "POWER_STAGE",
+    "ref": "Q12",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "SW_NODE_A",
@@ -1047,11 +1100,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R42",
+    "ref": "R36",
     "typ": "R",
     "nets": {
       "1": "GATE_AH",
@@ -1059,11 +1113,12 @@
     },
     "value": "10k GS mandatory",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "D7",
+    "ref": "D5",
     "typ": "D",
     "nets": {
       "1": "GATE_AH",
@@ -1071,11 +1126,12 @@
     },
     "value": "BZT52H-C15 / gate clamp candidate",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BZT52H-C15"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "Q17",
+    "ref": "Q13",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "GND",
@@ -1084,11 +1140,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R43",
+    "ref": "R37",
     "typ": "R",
     "nets": {
       "1": "GATE_AL",
@@ -1096,11 +1153,12 @@
     },
     "value": "10k GS mandatory",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "D8",
+    "ref": "D6",
     "typ": "D",
     "nets": {
       "1": "GATE_AL",
@@ -1108,11 +1166,12 @@
     },
     "value": "BZT52H-C15 / gate clamp candidate",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BZT52H-C15"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "Q18",
+    "ref": "Q14",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "SW_NODE_B",
@@ -1121,11 +1180,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R44",
+    "ref": "R38",
     "typ": "R",
     "nets": {
       "1": "GATE_BH",
@@ -1133,11 +1193,12 @@
     },
     "value": "10k GS mandatory",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "D9",
+    "ref": "D7",
     "typ": "D",
     "nets": {
       "1": "GATE_BH",
@@ -1145,11 +1206,12 @@
     },
     "value": "BZT52H-C15 / gate clamp candidate",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BZT52H-C15"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "Q19",
+    "ref": "Q15",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "GND",
@@ -1158,11 +1220,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R45",
+    "ref": "R39",
     "typ": "R",
     "nets": {
       "1": "GATE_BL",
@@ -1170,11 +1233,12 @@
     },
     "value": "10k GS mandatory",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "D10",
+    "ref": "D8",
     "typ": "D",
     "nets": {
       "1": "GATE_BL",
@@ -1182,7 +1246,8 @@
     },
     "value": "BZT52H-C15 / gate clamp candidate",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BZT52H-C15"
   },
   {
     "sheet": "POWER_STAGE",
@@ -1194,11 +1259,12 @@
     },
     "value": "XAL1510-223MED / 22uH +/-20%",
     "fp": "Inductor_SMD:L_Coilcraft_XAL1510-223",
-    "dni": false
+    "dni": false,
+    "mpn": "XAL1510-223MED"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R46",
+    "ref": "R40",
     "typ": "R",
     "nets": {
       "1": "SW_NODE_A",
@@ -1206,11 +1272,12 @@
     },
     "value": "10R DNI tunable",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "CRCW080510R0FKEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "C7",
+    "ref": "C17",
     "typ": "C",
     "nets": {
       "1": "SW_NODE_A_SNUB",
@@ -1218,11 +1285,12 @@
     },
     "value": "1nF /100V DNI tunable",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "R47",
+    "ref": "R41",
     "typ": "R",
     "nets": {
       "1": "SW_NODE_B",
@@ -1230,11 +1298,12 @@
     },
     "value": "10R DNI tunable",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "CRCW080510R0FKEA"
   },
   {
     "sheet": "POWER_STAGE",
-    "ref": "C8",
+    "ref": "C18",
     "typ": "C",
     "nets": {
       "1": "SW_NODE_B_SNUB",
@@ -1242,11 +1311,12 @@
     },
     "value": "1nF /100V DNI tunable",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "U1",
+    "ref": "U5",
     "typ": "UCC27282DRCR",
     "nets": {
       "1": "V12_DRIVER",
@@ -1263,23 +1333,25 @@
     },
     "value": "UCC27282DRCR",
     "fp": "Package_SON:VSON-10-1EP_3x3mm_P0.5mm_EP1.65x2.4mm",
-    "dni": false
+    "dni": false,
+    "mpn": "UCC27282DRCR"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C9",
+    "ref": "C19",
     "typ": "C",
     "nets": {
       "1": "HB_A",
       "2": "SW_NODE_A"
     },
-    "value": "470nF /25V X7R bootstrap / effectiveC>=200nF target",
+    "value": "470nF /50V X7R bootstrap / effectiveC>=200nF target",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H474KA88L"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C10",
+    "ref": "C20",
     "typ": "C",
     "nets": {
       "1": "V12_DRIVER",
@@ -1287,11 +1359,12 @@
     },
     "value": "1uF /25V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C11",
+    "ref": "C21",
     "typ": "C",
     "nets": {
       "1": "V12_DRIVER",
@@ -1299,11 +1372,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R48",
+    "ref": "R42",
     "typ": "R",
     "nets": {
       "1": "HO_A",
@@ -1311,11 +1385,12 @@
     },
     "value": "4.7R gate / tunable",
     "fp": "Resistor_SMD:R_0603_1608Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW06034R70FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R49",
+    "ref": "R43",
     "typ": "R",
     "nets": {
       "1": "HO_A",
@@ -1323,11 +1398,12 @@
     },
     "value": "2.2R DNI turnoff option",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "CRCW08052R20FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "D11",
+    "ref": "D9",
     "typ": "D",
     "nets": {
       "1": "HO_A_FAST",
@@ -1335,11 +1411,12 @@
     },
     "value": "1N4148W DNI turnoff bypass",
     "fp": "Diode_SMD:D_SOD-123",
-    "dni": true
+    "dni": true,
+    "mpn": "1N4148W"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R50",
+    "ref": "R44",
     "typ": "R",
     "nets": {
       "1": "LO_A",
@@ -1347,11 +1424,12 @@
     },
     "value": "4.7R gate / tunable",
     "fp": "Resistor_SMD:R_0603_1608Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW06034R70FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R51",
+    "ref": "R45",
     "typ": "R",
     "nets": {
       "1": "LO_A",
@@ -1359,11 +1437,12 @@
     },
     "value": "2.2R DNI turnoff option",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "CRCW08052R20FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "D12",
+    "ref": "D10",
     "typ": "D",
     "nets": {
       "1": "LO_A_FAST",
@@ -1371,11 +1450,12 @@
     },
     "value": "1N4148W DNI turnoff bypass",
     "fp": "Diode_SMD:D_SOD-123",
-    "dni": true
+    "dni": true,
+    "mpn": "1N4148W"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R52",
+    "ref": "R46",
     "typ": "R",
     "nets": {
       "1": "PWM_AH_SAFE",
@@ -1383,11 +1463,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R53",
+    "ref": "R47",
     "typ": "R",
     "nets": {
       "1": "PWM_AL_SAFE",
@@ -1395,11 +1476,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "U2",
+    "ref": "U6",
     "typ": "UCC27282DRCR",
     "nets": {
       "1": "V12_DRIVER",
@@ -1416,23 +1498,25 @@
     },
     "value": "UCC27282DRCR",
     "fp": "Package_SON:VSON-10-1EP_3x3mm_P0.5mm_EP1.65x2.4mm",
-    "dni": false
+    "dni": false,
+    "mpn": "UCC27282DRCR"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C12",
+    "ref": "C22",
     "typ": "C",
     "nets": {
       "1": "HB_B",
       "2": "SW_NODE_B"
     },
-    "value": "470nF /25V X7R bootstrap / effectiveC>=200nF target",
+    "value": "470nF /50V X7R bootstrap / effectiveC>=200nF target",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H474KA88L"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C13",
+    "ref": "C23",
     "typ": "C",
     "nets": {
       "1": "V12_DRIVER",
@@ -1440,11 +1524,12 @@
     },
     "value": "1uF /25V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C14",
+    "ref": "C24",
     "typ": "C",
     "nets": {
       "1": "V12_DRIVER",
@@ -1452,11 +1537,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R54",
+    "ref": "R48",
     "typ": "R",
     "nets": {
       "1": "HO_B",
@@ -1464,11 +1550,12 @@
     },
     "value": "4.7R gate / tunable",
     "fp": "Resistor_SMD:R_0603_1608Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW06034R70FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R55",
+    "ref": "R49",
     "typ": "R",
     "nets": {
       "1": "HO_B",
@@ -1476,11 +1563,12 @@
     },
     "value": "2.2R DNI turnoff option",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "CRCW08052R20FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "D13",
+    "ref": "D11",
     "typ": "D",
     "nets": {
       "1": "HO_B_FAST",
@@ -1488,11 +1576,12 @@
     },
     "value": "1N4148W DNI turnoff bypass",
     "fp": "Diode_SMD:D_SOD-123",
-    "dni": true
+    "dni": true,
+    "mpn": "1N4148W"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R56",
+    "ref": "R50",
     "typ": "R",
     "nets": {
       "1": "LO_B",
@@ -1500,11 +1589,12 @@
     },
     "value": "4.7R gate / tunable",
     "fp": "Resistor_SMD:R_0603_1608Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW06034R70FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R57",
+    "ref": "R51",
     "typ": "R",
     "nets": {
       "1": "LO_B",
@@ -1512,11 +1602,12 @@
     },
     "value": "2.2R DNI turnoff option",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": true
+    "dni": true,
+    "mpn": "CRCW08052R20FNEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "D14",
+    "ref": "D12",
     "typ": "D",
     "nets": {
       "1": "LO_B_FAST",
@@ -1524,11 +1615,12 @@
     },
     "value": "1N4148W DNI turnoff bypass",
     "fp": "Diode_SMD:D_SOD-123",
-    "dni": true
+    "dni": true,
+    "mpn": "1N4148W"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R58",
+    "ref": "R52",
     "typ": "R",
     "nets": {
       "1": "PWM_BH_SAFE",
@@ -1536,11 +1628,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R59",
+    "ref": "R53",
     "typ": "R",
     "nets": {
       "1": "PWM_BL_SAFE",
@@ -1548,11 +1641,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "R60",
+    "ref": "R54",
     "typ": "R",
     "nets": {
       "1": "GATE_PERMIT",
@@ -1560,11 +1654,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C15",
+    "ref": "C25",
     "typ": "C",
     "nets": {
       "1": "GATE_PERMIT",
@@ -1572,11 +1667,12 @@
     },
     "value": "1nF EN filter",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "U3",
+    "ref": "U7",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "PWM_AH",
@@ -1590,11 +1686,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C16",
+    "ref": "C26",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -1602,11 +1699,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "U4",
+    "ref": "U8",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "PWM_BH",
@@ -1620,11 +1718,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "GATE_DRIVER",
-    "ref": "C17",
+    "ref": "C27",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -1632,11 +1731,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "U5",
+    "ref": "U9",
     "typ": "LM5164DDAR",
     "nets": {
       "1": "GND",
@@ -1651,7 +1751,8 @@
     },
     "value": "LM5164DDAR",
     "fp": "Package_SO:TI_SO-PowerPAD-8",
-    "dni": false
+    "dni": false,
+    "mpn": "LM5164DDAR"
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -1661,13 +1762,14 @@
       "1": "AUX_SW_DRV",
       "2": "V12_DRIVER"
     },
-    "value": "68uH / MSS1246T-683MLB candidate",
+    "value": "68uH / MSS1246T-683MLB",
     "fp": "Inductor_SMD:L_Coilcraft_MSS1246T-XXX",
-    "dni": false
+    "dni": false,
+    "mpn": "MSS1246T-683MLB"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C18",
+    "ref": "C28",
     "typ": "C",
     "nets": {
       "1": "BST_DRV",
@@ -1675,11 +1777,12 @@
     },
     "value": "2.2nF /50V X7R mandatory",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C222K5RACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C19",
+    "ref": "C29",
     "typ": "C",
     "nets": {
       "1": "BUS_FUSED",
@@ -1687,11 +1790,12 @@
     },
     "value": "2.2uF /100V X7R",
     "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM32ER72A225KA35L"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C20",
+    "ref": "C30",
     "typ": "C",
     "nets": {
       "1": "V12_DRIVER",
@@ -1699,11 +1803,12 @@
     },
     "value": "22uF /25V X7R",
     "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C1210C226K3RACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C21",
+    "ref": "C31",
     "typ": "C",
     "nets": {
       "1": "V12_DRIVER",
@@ -1711,23 +1816,25 @@
     },
     "value": "22uF /25V X7R",
     "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C1210C226K3RACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R61",
+    "ref": "R55",
     "typ": "R",
     "nets": {
       "1": "V12_DRIVER",
       "2": "AUX_FB_DRV"
     },
-    "value": "900k",
+    "value": "909k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805909KFKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R62",
+    "ref": "R56",
     "typ": "R",
     "nets": {
       "1": "AUX_FB_DRV",
@@ -1735,11 +1842,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R63",
+    "ref": "R57",
     "typ": "R",
     "nets": {
       "1": "RON_DRV",
@@ -1747,11 +1855,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R64",
+    "ref": "R58",
     "typ": "R",
     "nets": {
       "1": "BUS_FUSED",
@@ -1759,11 +1868,12 @@
     },
     "value": "1M",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08051M00FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R65",
+    "ref": "R59",
     "typ": "R",
     "nets": {
       "1": "AUX_EN_DRV",
@@ -1771,11 +1881,12 @@
     },
     "value": "82.5k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080582K5FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R66",
+    "ref": "R60",
     "typ": "R",
     "nets": {
       "1": "PG_DRV",
@@ -1783,11 +1894,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R67",
+    "ref": "R61",
     "typ": "R",
     "nets": {
       "1": "AUX_SW_DRV",
@@ -1795,11 +1907,12 @@
     },
     "value": "1M",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08051M00FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C22",
+    "ref": "C32",
     "typ": "C",
     "nets": {
       "1": "AUX_RIPPLE_DRV",
@@ -1807,11 +1920,12 @@
     },
     "value": "1nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C23",
+    "ref": "C33",
     "typ": "C",
     "nets": {
       "1": "AUX_RIPPLE_DRV",
@@ -1819,7 +1933,8 @@
     },
     "value": "100pF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C101J1GACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -1830,11 +1945,12 @@
     },
     "value": "V12_DRIVER regulator output",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "U6",
+    "ref": "U10",
     "typ": "LM5164DDAR",
     "nets": {
       "1": "GND",
@@ -1849,7 +1965,8 @@
     },
     "value": "LM5164DDAR",
     "fp": "Package_SO:TI_SO-PowerPAD-8",
-    "dni": false
+    "dni": false,
+    "mpn": "LM5164DDAR"
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -1859,13 +1976,14 @@
       "1": "AUX_SW_MCU",
       "2": "V3V3"
     },
-    "value": "47uH / MSS1246T-473MLB candidate",
+    "value": "47uH / MSS1246T-473MLB",
     "fp": "Inductor_SMD:L_Coilcraft_MSS1246T-XXX",
-    "dni": false
+    "dni": false,
+    "mpn": "MSS1246T-473MLB"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C24",
+    "ref": "C34",
     "typ": "C",
     "nets": {
       "1": "BST_MCU",
@@ -1873,11 +1991,12 @@
     },
     "value": "2.2nF /50V X7R mandatory",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C222K5RACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C25",
+    "ref": "C35",
     "typ": "C",
     "nets": {
       "1": "BUS_FUSED",
@@ -1885,11 +2004,12 @@
     },
     "value": "2.2uF /100V X7R",
     "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM32ER72A225KA35L"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C26",
+    "ref": "C36",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -1897,11 +2017,12 @@
     },
     "value": "22uF /25V X7R",
     "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C1210C226K3RACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C27",
+    "ref": "C37",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -1909,23 +2030,25 @@
     },
     "value": "22uF /25V X7R",
     "fp": "Capacitor_SMD:C_1210_3225Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C1210C226K3RACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R68",
+    "ref": "R62",
     "typ": "R",
     "nets": {
       "1": "V3V3",
       "2": "AUX_FB_MCU"
     },
-    "value": "175k",
+    "value": "174k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805174KFKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R69",
+    "ref": "R63",
     "typ": "R",
     "nets": {
       "1": "AUX_FB_MCU",
@@ -1933,11 +2056,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R70",
+    "ref": "R64",
     "typ": "R",
     "nets": {
       "1": "RON_MCU",
@@ -1945,11 +2069,12 @@
     },
     "value": "27.4k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080527K4FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R71",
+    "ref": "R65",
     "typ": "R",
     "nets": {
       "1": "BUS_FUSED",
@@ -1957,11 +2082,12 @@
     },
     "value": "1M",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08051M00FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R72",
+    "ref": "R66",
     "typ": "R",
     "nets": {
       "1": "AUX_EN_MCU",
@@ -1969,11 +2095,12 @@
     },
     "value": "82.5k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080582K5FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R73",
+    "ref": "R67",
     "typ": "R",
     "nets": {
       "1": "PG_MCU",
@@ -1981,11 +2108,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "R74",
+    "ref": "R68",
     "typ": "R",
     "nets": {
       "1": "AUX_SW_MCU",
@@ -1993,11 +2121,12 @@
     },
     "value": "475k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805475KFKEA"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C28",
+    "ref": "C38",
     "typ": "C",
     "nets": {
       "1": "AUX_RIPPLE_MCU",
@@ -2005,11 +2134,12 @@
     },
     "value": "1nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
-    "ref": "C29",
+    "ref": "C39",
     "typ": "C",
     "nets": {
       "1": "AUX_RIPPLE_MCU",
@@ -2017,7 +2147,8 @@
     },
     "value": "100pF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C101J1GACTU"
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2028,7 +2159,8 @@
     },
     "value": "V3V3 regulator output",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2039,7 +2171,8 @@
     },
     "value": "GND declared source (not protection)",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2050,7 +2183,8 @@
     },
     "value": "BUS_RAW declared source (not protection)",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2061,7 +2195,8 @@
     },
     "value": "BUS_FUSED declared source (not protection)",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2072,7 +2207,8 @@
     },
     "value": "BANK_P_RAW declared source (not protection)",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2083,7 +2219,8 @@
     },
     "value": "MON_REGIN declared source (not protection)",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2094,7 +2231,8 @@
     },
     "value": "VDDA declared source (not protection)",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "AUXILIARY_POWER",
@@ -2105,11 +2243,12 @@
     },
     "value": "VREF_ADC declared source (not protection)",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "U7",
+    "ref": "U11",
     "typ": "STM32G474RET6",
     "nets": {
       "1": "V3V3",
@@ -2179,11 +2318,12 @@
     },
     "value": "STM32G474RET6",
     "fp": "Package_QFP:LQFP-64_10x10mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "STM32G474RET6"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C30",
+    "ref": "C40",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2191,11 +2331,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C31",
+    "ref": "C41",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2203,11 +2344,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C32",
+    "ref": "C42",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2215,11 +2357,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C33",
+    "ref": "C43",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2227,11 +2370,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C34",
+    "ref": "C44",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2239,11 +2383,12 @@
     },
     "value": "4.7uF /16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C475K4RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R75",
+    "ref": "R69",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -2251,11 +2396,12 @@
     },
     "value": "10R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510R0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C35",
+    "ref": "C45",
     "typ": "C",
     "nets": {
       "1": "VDDA",
@@ -2263,11 +2409,12 @@
     },
     "value": "1uF /16V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C36",
+    "ref": "C46",
     "typ": "C",
     "nets": {
       "1": "VDDA",
@@ -2275,11 +2422,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R76",
+    "ref": "R70",
     "typ": "R",
     "nets": {
       "1": "VDDA",
@@ -2287,11 +2435,12 @@
     },
     "value": "0R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08050000Z0EA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C37",
+    "ref": "C47",
     "typ": "C",
     "nets": {
       "1": "VREF_ADC",
@@ -2299,11 +2448,12 @@
     },
     "value": "1uF /16V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C38",
+    "ref": "C48",
     "typ": "C",
     "nets": {
       "1": "VREF_ADC",
@@ -2311,11 +2461,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R77",
+    "ref": "R71",
     "typ": "R",
     "nets": {
       "1": "NRST",
@@ -2323,11 +2474,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "C39",
+    "ref": "C49",
     "typ": "C",
     "nets": {
       "1": "NRST",
@@ -2335,11 +2487,12 @@
     },
     "value": "100nF",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R78",
+    "ref": "R72",
     "typ": "R",
     "nets": {
       "1": "CAN_RX",
@@ -2347,11 +2500,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R79",
+    "ref": "R73",
     "typ": "R",
     "nets": {
       "1": "PWM_AH",
@@ -2359,11 +2513,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R80",
+    "ref": "R74",
     "typ": "R",
     "nets": {
       "1": "PWM_AL",
@@ -2371,11 +2526,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R81",
+    "ref": "R75",
     "typ": "R",
     "nets": {
       "1": "PWM_BH",
@@ -2383,11 +2539,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R82",
+    "ref": "R76",
     "typ": "R",
     "nets": {
       "1": "PWM_BL",
@@ -2395,11 +2552,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R83",
+    "ref": "R77",
     "typ": "R",
     "nets": {
       "1": "ARM_PULSE",
@@ -2407,11 +2565,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R84",
+    "ref": "R78",
     "typ": "R",
     "nets": {
       "1": "MCU_GATE_REQUEST",
@@ -2419,11 +2578,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R85",
+    "ref": "R79",
     "typ": "R",
     "nets": {
       "1": "WD_HEARTBEAT",
@@ -2431,11 +2591,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R86",
+    "ref": "R80",
     "typ": "R",
     "nets": {
       "1": "MON_CONFIG_VALID",
@@ -2443,11 +2604,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "R87",
+    "ref": "R81",
     "typ": "R",
     "nets": {
       "1": "MON_CS_HOST",
@@ -2455,11 +2617,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "J9",
+    "ref": "J6",
     "typ": "J6",
     "nets": {
       "1": "V3V3",
@@ -2471,11 +2634,12 @@
     },
     "value": "SWD reference voltage ONLY / do not externally power",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "CONTROLLER",
-    "ref": "J10",
+    "ref": "J7",
     "typ": "J3",
     "nets": {
       "1": "UART_TX",
@@ -2484,11 +2648,12 @@
     },
     "value": "3.3V UART / no power pin",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U8",
+    "ref": "U12",
     "typ": "INA240A2D",
     "nets": {
       "1": "BUS_LINK",
@@ -2502,11 +2667,12 @@
     },
     "value": "INA240A2D",
     "fp": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "INA240A2D"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C40",
+    "ref": "C50",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2514,11 +2680,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "R88",
+    "ref": "R82",
     "typ": "R",
     "nets": {
       "1": "BUS_I_RAW",
@@ -2526,11 +2693,12 @@
     },
     "value": "100R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100RFKEA"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C41",
+    "ref": "C51",
     "typ": "C",
     "nets": {
       "1": "BUS_I_FILTER",
@@ -2538,11 +2706,12 @@
     },
     "value": "1nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U9",
+    "ref": "U13",
     "typ": "INA293A1DBVR",
     "nets": {
       "1": "BUS_FAST_POS",
@@ -2553,11 +2722,12 @@
     },
     "value": "INA293A1DBVR",
     "fp": "Package_TO_SOT_SMD:SOT-23-5",
-    "dni": false
+    "dni": false,
+    "mpn": "INA293A1DBVR"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C42",
+    "ref": "C52",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2565,11 +2735,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U10",
+    "ref": "U14",
     "typ": "INA293A1DBVR",
     "nets": {
       "1": "BUS_FAST_NEG",
@@ -2580,11 +2751,12 @@
     },
     "value": "INA293A1DBVR",
     "fp": "Package_TO_SOT_SMD:SOT-23-5",
-    "dni": false
+    "dni": false,
+    "mpn": "INA293A1DBVR"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C43",
+    "ref": "C53",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2592,11 +2764,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U11",
+    "ref": "U15",
     "typ": "INA240A1D",
     "nets": {
       "1": "CAP_LINK",
@@ -2610,11 +2783,12 @@
     },
     "value": "INA240A1D",
     "fp": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "INA240A1D"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C44",
+    "ref": "C54",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2622,11 +2796,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "R89",
+    "ref": "R83",
     "typ": "R",
     "nets": {
       "1": "CAP_I_RAW",
@@ -2634,11 +2809,12 @@
     },
     "value": "100R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100RFKEA"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C45",
+    "ref": "C55",
     "typ": "C",
     "nets": {
       "1": "CAP_I_FILTER",
@@ -2646,11 +2822,12 @@
     },
     "value": "1nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U12",
+    "ref": "U16",
     "typ": "INA293A1DBVR",
     "nets": {
       "1": "CAP_FAST_POS",
@@ -2661,11 +2838,12 @@
     },
     "value": "INA293A1DBVR",
     "fp": "Package_TO_SOT_SMD:SOT-23-5",
-    "dni": false
+    "dni": false,
+    "mpn": "INA293A1DBVR"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C46",
+    "ref": "C56",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2673,11 +2851,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U13",
+    "ref": "U17",
     "typ": "INA293A1DBVR",
     "nets": {
       "1": "CAP_FAST_NEG",
@@ -2688,11 +2867,12 @@
     },
     "value": "INA293A1DBVR",
     "fp": "Package_TO_SOT_SMD:SOT-23-5",
-    "dni": false
+    "dni": false,
+    "mpn": "INA293A1DBVR"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C47",
+    "ref": "C57",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2700,11 +2880,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U14",
+    "ref": "U18",
     "typ": "INA240A1D",
     "nets": {
       "1": "IL_TO_L",
@@ -2718,11 +2899,12 @@
     },
     "value": "INA240A1D",
     "fp": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "INA240A1D"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C48",
+    "ref": "C58",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2730,11 +2912,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "R90",
+    "ref": "R84",
     "typ": "R",
     "nets": {
       "1": "IL_I_RAW",
@@ -2742,11 +2925,12 @@
     },
     "value": "100R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100RFKEA"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C49",
+    "ref": "C59",
     "typ": "C",
     "nets": {
       "1": "IL_I_FILTER",
@@ -2754,11 +2938,12 @@
     },
     "value": "1nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U15",
+    "ref": "U19",
     "typ": "INA293A1DBVR",
     "nets": {
       "1": "IL_FAST_POS",
@@ -2769,11 +2954,12 @@
     },
     "value": "INA293A1DBVR",
     "fp": "Package_TO_SOT_SMD:SOT-23-5",
-    "dni": false
+    "dni": false,
+    "mpn": "INA293A1DBVR"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C50",
+    "ref": "C60",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2781,11 +2967,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "U16",
+    "ref": "U20",
     "typ": "INA293A1DBVR",
     "nets": {
       "1": "IL_FAST_NEG",
@@ -2796,11 +2983,12 @@
     },
     "value": "INA293A1DBVR",
     "fp": "Package_TO_SOT_SMD:SOT-23-5",
-    "dni": false
+    "dni": false,
+    "mpn": "INA293A1DBVR"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "C51",
+    "ref": "C61",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -2808,11 +2996,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CURRENT_SENSING",
-    "ref": "J11",
+    "ref": "J8",
     "typ": "J5",
     "nets": {
       "1": "BUS_FAST_POS",
@@ -2823,11 +3012,12 @@
     },
     "value": "OC diagnostic outputs / do not load",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R91",
+    "ref": "R85",
     "typ": "R",
     "nets": {
       "1": "BUS_LINK",
@@ -2835,11 +3025,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R92",
+    "ref": "R86",
     "typ": "R",
     "nets": {
       "1": "BUS_DIV_TOP",
@@ -2847,11 +3038,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R93",
+    "ref": "R87",
     "typ": "R",
     "nets": {
       "1": "BUS_V_FILTER",
@@ -2859,11 +3051,12 @@
     },
     "value": "5.1k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08055K10FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "C52",
+    "ref": "C62",
     "typ": "C",
     "nets": {
       "1": "BUS_V_FILTER",
@@ -2871,11 +3064,12 @@
     },
     "value": "4.7nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C472J5GACTU"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D15",
+    "ref": "D13",
     "typ": "D",
     "nets": {
       "1": "ADC_CLAMP_2V7",
@@ -2883,11 +3077,12 @@
     },
     "value": "BAT54H signal clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D16",
+    "ref": "D14",
     "typ": "D",
     "nets": {
       "1": "BUS_V_FILTER",
@@ -2895,11 +3090,12 @@
     },
     "value": "BAT54H negative clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R94",
+    "ref": "R88",
     "typ": "R",
     "nets": {
       "1": "CAP_LINK",
@@ -2907,11 +3103,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R95",
+    "ref": "R89",
     "typ": "R",
     "nets": {
       "1": "CAP_DIV_TOP",
@@ -2919,11 +3116,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R96",
+    "ref": "R90",
     "typ": "R",
     "nets": {
       "1": "CAP_V_FILTER",
@@ -2931,11 +3129,12 @@
     },
     "value": "6.8k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08056K80FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "C53",
+    "ref": "C63",
     "typ": "C",
     "nets": {
       "1": "CAP_V_FILTER",
@@ -2943,11 +3142,12 @@
     },
     "value": "4.7nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C472J5GACTU"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D17",
+    "ref": "D15",
     "typ": "D",
     "nets": {
       "1": "ADC_CLAMP_2V7",
@@ -2955,11 +3155,12 @@
     },
     "value": "BAT54H signal clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D18",
+    "ref": "D16",
     "typ": "D",
     "nets": {
       "1": "CAP_V_FILTER",
@@ -2967,11 +3168,12 @@
     },
     "value": "BAT54H negative clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R97",
+    "ref": "R91",
     "typ": "R",
     "nets": {
       "1": "BUS_FUSED",
@@ -2979,11 +3181,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R98",
+    "ref": "R92",
     "typ": "R",
     "nets": {
       "1": "BUS_RAW_DIV_TOP",
@@ -2991,11 +3194,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R99",
+    "ref": "R93",
     "typ": "R",
     "nets": {
       "1": "BUS_RAW_V_FILTER",
@@ -3003,11 +3207,12 @@
     },
     "value": "5.1k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08055K10FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "C54",
+    "ref": "C64",
     "typ": "C",
     "nets": {
       "1": "BUS_RAW_V_FILTER",
@@ -3015,11 +3220,12 @@
     },
     "value": "4.7nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C472J5GACTU"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D19",
+    "ref": "D17",
     "typ": "D",
     "nets": {
       "1": "ADC_CLAMP_2V7",
@@ -3027,11 +3233,12 @@
     },
     "value": "BAT54H signal clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D20",
+    "ref": "D18",
     "typ": "D",
     "nets": {
       "1": "BUS_RAW_V_FILTER",
@@ -3039,11 +3246,12 @@
     },
     "value": "BAT54H negative clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R100",
+    "ref": "R94",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
@@ -3051,11 +3259,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R101",
+    "ref": "R95",
     "typ": "R",
     "nets": {
       "1": "CAP_RAW_DIV_TOP",
@@ -3063,11 +3272,12 @@
     },
     "value": "33k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080533K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R102",
+    "ref": "R96",
     "typ": "R",
     "nets": {
       "1": "CAP_RAW_V_FILTER",
@@ -3075,11 +3285,12 @@
     },
     "value": "6.8k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08056K80FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "C55",
+    "ref": "C65",
     "typ": "C",
     "nets": {
       "1": "CAP_RAW_V_FILTER",
@@ -3087,11 +3298,12 @@
     },
     "value": "4.7nF C0G",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C472J5GACTU"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D21",
+    "ref": "D19",
     "typ": "D",
     "nets": {
       "1": "ADC_CLAMP_2V7",
@@ -3099,11 +3311,12 @@
     },
     "value": "BAT54H signal clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D22",
+    "ref": "D20",
     "typ": "D",
     "nets": {
       "1": "CAP_RAW_V_FILTER",
@@ -3111,11 +3324,12 @@
     },
     "value": "BAT54H negative clamp",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BAT54H"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D23",
+    "ref": "D21",
     "typ": "D",
     "nets": {
       "1": "CLAMP_OR",
@@ -3123,11 +3337,12 @@
     },
     "value": "1N4148W /100V",
     "fp": "Diode_SMD:D_SOD-123",
-    "dni": false
+    "dni": false,
+    "mpn": "1N4148W"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "D24",
+    "ref": "D22",
     "typ": "D",
     "nets": {
       "1": "CLAMP_OR",
@@ -3135,11 +3350,12 @@
     },
     "value": "1N4148W /100V",
     "fp": "Diode_SMD:D_SOD-123",
-    "dni": false
+    "dni": false,
+    "mpn": "1N4148W"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R103",
+    "ref": "R97",
     "typ": "R",
     "nets": {
       "1": "CLAMP_OR",
@@ -3147,11 +3363,12 @@
     },
     "value": "3.3k /1W",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25123K30FKEG"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "U17",
+    "ref": "U21",
     "typ": "TLV431AIDBZR",
     "nets": {
       "1": "CLAMP_REF",
@@ -3160,11 +3377,12 @@
     },
     "value": "TLV431AIDBZR",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV431AIDBZR"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R104",
+    "ref": "R98",
     "typ": "R",
     "nets": {
       "1": "ADC_CLAMP_2V7",
@@ -3172,11 +3390,12 @@
     },
     "value": "11.8k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080511K8FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R105",
+    "ref": "R99",
     "typ": "R",
     "nets": {
       "1": "CLAMP_REF",
@@ -3184,7 +3403,8 @@
     },
     "value": "10k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
@@ -3195,11 +3415,12 @@
     },
     "value": "independent shunt clamp rail",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "U18",
+    "ref": "U22",
     "typ": "TMUX1511PWR",
     "nets": {
       "1": "RAIL_OK",
@@ -3219,11 +3440,12 @@
     },
     "value": "TMUX1511PWR",
     "fp": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TMUX1511PWR"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "C56",
+    "ref": "C66",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -3231,11 +3453,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "U19",
+    "ref": "U23",
     "typ": "TMUX1511PWR",
     "nets": {
       "1": "RAIL_OK",
@@ -3255,11 +3478,12 @@
     },
     "value": "TMUX1511PWR",
     "fp": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TMUX1511PWR"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "C57",
+    "ref": "C67",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -3267,11 +3491,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "U20",
+    "ref": "U24",
     "typ": "TMUX1511PWR",
     "nets": {
       "1": "RAIL_OK",
@@ -3291,11 +3516,12 @@
     },
     "value": "TMUX1511PWR",
     "fp": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TMUX1511PWR"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "C58",
+    "ref": "C68",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -3303,11 +3529,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R106",
+    "ref": "R100",
     "typ": "R",
     "nets": {
       "1": "BUS_V_ADC",
@@ -3315,11 +3542,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R107",
+    "ref": "R101",
     "typ": "R",
     "nets": {
       "1": "CAP_V_ADC",
@@ -3327,11 +3555,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R108",
+    "ref": "R102",
     "typ": "R",
     "nets": {
       "1": "BUS_RAW_ADC",
@@ -3339,11 +3568,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R109",
+    "ref": "R103",
     "typ": "R",
     "nets": {
       "1": "CAP_RAW_ADC",
@@ -3351,11 +3581,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R110",
+    "ref": "R104",
     "typ": "R",
     "nets": {
       "1": "BUS_I_ADC",
@@ -3363,11 +3594,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R111",
+    "ref": "R105",
     "typ": "R",
     "nets": {
       "1": "CAP_I_ADC",
@@ -3375,11 +3607,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R112",
+    "ref": "R106",
     "typ": "R",
     "nets": {
       "1": "IL_I_ADC",
@@ -3387,11 +3620,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R113",
+    "ref": "R107",
     "typ": "R",
     "nets": {
       "1": "TEMP_FET_ADC",
@@ -3399,11 +3633,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R114",
+    "ref": "R108",
     "typ": "R",
     "nets": {
       "1": "TEMP_L_ADC",
@@ -3411,11 +3646,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "VOLTAGE_SENSING",
-    "ref": "R115",
+    "ref": "R109",
     "typ": "R",
     "nets": {
       "1": "TEMP_BANK_ADC",
@@ -3423,11 +3659,12 @@
     },
     "value": "100k off leakage drain",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "R116",
+    "ref": "R110",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -3435,11 +3672,12 @@
     },
     "value": "10k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "R117",
+    "ref": "R111",
     "typ": "R",
     "nets": {
       "1": "TEMP_FET_FILTER",
@@ -3447,11 +3685,12 @@
     },
     "value": "NTCLE100E3103JB0 /10k NTC B3977",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": "NTCLE100E3103JB0"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "C59",
+    "ref": "C69",
     "typ": "C",
     "nets": {
       "1": "TEMP_FET_FILTER",
@@ -3459,11 +3698,12 @@
     },
     "value": "10nF",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C103J5GACTU"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "J12",
+    "ref": "J9",
     "typ": "J2",
     "nets": {
       "1": "TEMP_FET_FILTER",
@@ -3471,11 +3711,12 @@
     },
     "value": "FET NTC probe option",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": true
+    "dni": true,
+    "mpn": ""
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "R118",
+    "ref": "R112",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -3483,11 +3724,12 @@
     },
     "value": "10k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "R119",
+    "ref": "R113",
     "typ": "R",
     "nets": {
       "1": "TEMP_L_FILTER",
@@ -3495,11 +3737,12 @@
     },
     "value": "NTCLE100E3103JB0 /10k NTC B3977",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": "NTCLE100E3103JB0"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "C60",
+    "ref": "C70",
     "typ": "C",
     "nets": {
       "1": "TEMP_L_FILTER",
@@ -3507,11 +3750,12 @@
     },
     "value": "10nF",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C103J5GACTU"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "J13",
+    "ref": "J10",
     "typ": "J2",
     "nets": {
       "1": "TEMP_L_FILTER",
@@ -3519,11 +3763,12 @@
     },
     "value": "L NTC probe option",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": true
+    "dni": true,
+    "mpn": ""
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "R120",
+    "ref": "R114",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -3531,11 +3776,12 @@
     },
     "value": "10k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "R121",
+    "ref": "R115",
     "typ": "R",
     "nets": {
       "1": "TEMP_BANK_FILTER",
@@ -3543,11 +3789,12 @@
     },
     "value": "NTCLE100E3103JB0 /10k NTC B3977",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": "NTCLE100E3103JB0"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "C61",
+    "ref": "C71",
     "typ": "C",
     "nets": {
       "1": "TEMP_BANK_FILTER",
@@ -3555,11 +3802,12 @@
     },
     "value": "10nF",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C103J5GACTU"
   },
   {
     "sheet": "TEMPERATURE_SENSING",
-    "ref": "J14",
+    "ref": "J11",
     "typ": "J2",
     "nets": {
       "1": "TEMP_BANK_FILTER",
@@ -3567,11 +3815,12 @@
     },
     "value": "BANK NTC probe option",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": true
+    "dni": true,
+    "mpn": ""
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "J15",
+    "ref": "J12",
     "typ": "J2",
     "nets": {
       "1": "BANK_P_RAW",
@@ -3579,23 +3828,38 @@
     },
     "value": "9S bank power -> official module external boundary",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "F2",
-    "typ": "FUSE",
+    "ref": "U25",
+    "typ": "DISCONNECT",
     "nets": {
       "1": "BANK_P_RAW",
-      "2": "BANK_FUSED"
+      "2": "BANK_MANUAL_OUT"
     },
-    "value": "ATOF 58V 15A candidate / bidirectional DC interrupt TBD",
+    "value": "Blue Sea6006 / external manual bank disconnect;not a fault breaker",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "6006"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "K6",
+    "ref": "F3",
+    "typ": "FUSE",
+    "nets": {
+      "1": "BANK_MANUAL_OUT",
+      "2": "BANK_FUSED"
+    },
+    "value": "0997015.WXN / MINI997 58V15A / external 0FHM0002ZXJM holder",
+    "fp": "",
+    "dni": false,
+    "mpn": "0997015.WXN"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "K4",
     "typ": "CONTACT",
     "nets": {
       "1": "BANK_FUSED",
@@ -3603,13 +3867,14 @@
       "3": "ACTUATOR_12V",
       "4": "CAP_ISO_COIL_M"
     },
-    "value": "CAP_ISO external NO contact / AEV14012 candidate",
+    "value": "CAP_ISO external NO contact / AEV14012 bench selection",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "AEV14012"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "Q20",
+    "ref": "Q16",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "GND",
@@ -3618,11 +3883,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R122",
+    "ref": "R116",
     "typ": "R",
     "nets": {
       "1": "CAP_ISO_COIL_GATE",
@@ -3630,11 +3896,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "Q21",
+    "ref": "Q17",
     "typ": "Q_PNP",
     "nets": {
       "1": "CAP_ISO_PNP_B",
@@ -3643,11 +3910,12 @@
     },
     "value": "BC857B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC857B,215"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R123",
+    "ref": "R117",
     "typ": "R",
     "nets": {
       "1": "CAP_ISO_PNP_B",
@@ -3655,11 +3923,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R124",
+    "ref": "R118",
     "typ": "R",
     "nets": {
       "1": "CAP_ISO_PNP_B",
@@ -3667,11 +3936,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R125",
+    "ref": "R119",
     "typ": "R",
     "nets": {
       "1": "CAP_ISO_DRIVE",
@@ -3679,11 +3949,12 @@
     },
     "value": "4.7k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08054K70FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R126",
+    "ref": "R120",
     "typ": "R",
     "nets": {
       "1": "CAP_ISO_NPN_C_BASE",
@@ -3691,11 +3962,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "Q22",
+    "ref": "Q18",
     "typ": "Q_NPN",
     "nets": {
       "1": "CAP_ISO_NPN_C_BASE",
@@ -3704,11 +3976,12 @@
     },
     "value": "BC847B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC847B,215"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R127",
+    "ref": "R121",
     "typ": "R",
     "nets": {
       "1": "CAP_ISO_PNP_C",
@@ -3716,23 +3989,25 @@
     },
     "value": "47R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080547R0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "D25",
+    "ref": "D23",
     "typ": "D",
     "nets": {
       "1": "ACTUATOR_12V",
       "2": "CAP_ISO_COIL_M"
     },
-    "value": "SS110 flyback candidate / release delay MUST VERIFY",
-    "fp": "Diode_SMD:D_SMA",
-    "dni": false
+    "value": "SMBJ18CA bidirectional coil suppression / release MUST VERIFY",
+    "fp": "Diode_SMD:D_SMB",
+    "dni": false,
+    "mpn": "SMBJ18CA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "J16",
+    "ref": "J13",
     "typ": "J4",
     "nets": {
       "1": "ACTUATOR_12V",
@@ -3740,165 +4015,425 @@
       "3": "CAP_ISO_FB",
       "4": "GND"
     },
-    "value": "CAP_ISO external actuator+feedback",
+    "value": "CAP_ISO actuator+reserved diagnostic / no intrinsic auxiliary contact",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R122",
+    "typ": "R",
+    "nets": {
+      "1": "CAP_ISO_FB",
+      "2": "GND"
+    },
+    "value": "10k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C72",
+    "typ": "C",
+    "nets": {
+      "1": "CELL1_RAW",
+      "2": "GND"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C73",
+    "typ": "C",
+    "nets": {
+      "1": "CELL2_RAW",
+      "2": "CELL1_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C74",
+    "typ": "C",
+    "nets": {
+      "1": "CELL3_RAW",
+      "2": "CELL2_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C75",
+    "typ": "C",
+    "nets": {
+      "1": "CELL4_RAW",
+      "2": "CELL3_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C76",
+    "typ": "C",
+    "nets": {
+      "1": "CELL5_RAW",
+      "2": "CELL4_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C77",
+    "typ": "C",
+    "nets": {
+      "1": "CELL6_RAW",
+      "2": "CELL5_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C78",
+    "typ": "C",
+    "nets": {
+      "1": "CELL7_RAW",
+      "2": "CELL6_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C79",
+    "typ": "C",
+    "nets": {
+      "1": "CELL8_RAW",
+      "2": "CELL7_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "C80",
+    "typ": "C",
+    "nets": {
+      "1": "BANK_P_RAW",
+      "2": "CELL8_RAW"
+    },
+    "value": "50F /2.7V SCCV40B506SRB / external cell",
+    "fp": "",
+    "dni": false,
+    "mpn": "SCCV40B506SRB"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R123",
+    "typ": "R",
+    "nets": {
+      "1": "GND",
+      "2": "TAP0_SOURCE_PROTECTED"
+    },
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R124",
+    "typ": "R",
+    "nets": {
+      "1": "CELL1_RAW",
+      "2": "TAP1_SOURCE_PROTECTED"
+    },
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R125",
+    "typ": "R",
+    "nets": {
+      "1": "CELL2_RAW",
+      "2": "TAP2_SOURCE_PROTECTED"
+    },
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R126",
+    "typ": "R",
+    "nets": {
+      "1": "CELL3_RAW",
+      "2": "TAP3_SOURCE_PROTECTED"
+    },
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R127",
+    "typ": "R",
+    "nets": {
+      "1": "CELL4_RAW",
+      "2": "TAP4_SOURCE_PROTECTED"
+    },
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R128",
     "typ": "R",
     "nets": {
-      "1": "CAP_ISO_FB",
-      "2": "V3V3"
+      "1": "CELL5_RAW",
+      "2": "TAP5_SOURCE_PROTECTED"
     },
-    "value": "10k",
-    "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
-  },
-  {
-    "sheet": "SUPERCAP_BANK",
-    "ref": "J17",
-    "typ": "J10",
-    "nets": {
-      "1": "GND",
-      "2": "CELL1_RAW",
-      "3": "CELL2_RAW",
-      "4": "CELL3_RAW",
-      "5": "CELL4_RAW",
-      "6": "CELL5_RAW",
-      "7": "CELL6_RAW",
-      "8": "CELL7_RAW",
-      "9": "CELL8_RAW",
-      "10": "BANK_P_RAW"
-    },
-    "value": "Protected 9S taps / SOURCE-SIDE resistors mandatory; not raw MCU ADC",
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R129",
     "typ": "R",
     "nets": {
-      "1": "GND",
-      "2": "CELL0_FILTER"
+      "1": "CELL6_RAW",
+      "2": "TAP6_SOURCE_PROTECTED"
     },
-    "value": "1k /1W tap protection / no bypass",
-    "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R130",
     "typ": "R",
     "nets": {
-      "1": "CELL1_RAW",
-      "2": "CELL1_FILTER"
+      "1": "CELL7_RAW",
+      "2": "TAP7_SOURCE_PROTECTED"
     },
-    "value": "1k /1W tap protection / no bypass",
-    "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R131",
     "typ": "R",
     "nets": {
-      "1": "CELL2_RAW",
-      "2": "CELL2_FILTER"
+      "1": "CELL8_RAW",
+      "2": "TAP8_SOURCE_PROTECTED"
     },
-    "value": "1k /1W tap protection / no bypass",
-    "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R132",
     "typ": "R",
     "nets": {
-      "1": "CELL3_RAW",
-      "2": "CELL3_FILTER"
+      "1": "BANK_P_RAW",
+      "2": "TAP9_SOURCE_PROTECTED"
     },
-    "value": "1k /1W tap protection / no bypass",
-    "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "value": "1k /1W EXTERNAL cell-terminal tap resistor",
+    "fp": "",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "J14",
+    "typ": "J10",
+    "nets": {
+      "1": "TAP0_SOURCE_PROTECTED",
+      "2": "TAP1_SOURCE_PROTECTED",
+      "3": "TAP2_SOURCE_PROTECTED",
+      "4": "TAP3_SOURCE_PROTECTED",
+      "5": "TAP4_SOURCE_PROTECTED",
+      "6": "TAP5_SOURCE_PROTECTED",
+      "7": "TAP6_SOURCE_PROTECTED",
+      "8": "TAP7_SOURCE_PROTECTED",
+      "9": "TAP8_SOURCE_PROTECTED",
+      "10": "TAP9_SOURCE_PROTECTED"
+    },
+    "value": "Protected 9S taps / source resistors at electrodes,never at cable end",
+    "fp": "",
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R133",
     "typ": "R",
     "nets": {
-      "1": "CELL4_RAW",
-      "2": "CELL4_FILTER"
+      "1": "TAP0_SOURCE_PROTECTED",
+      "2": "CELL0_FILTER"
     },
     "value": "1k /1W tap protection / no bypass",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R134",
     "typ": "R",
     "nets": {
-      "1": "CELL5_RAW",
-      "2": "CELL5_FILTER"
+      "1": "TAP1_SOURCE_PROTECTED",
+      "2": "CELL1_FILTER"
     },
     "value": "1k /1W tap protection / no bypass",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R135",
     "typ": "R",
     "nets": {
-      "1": "CELL6_RAW",
-      "2": "CELL6_FILTER"
+      "1": "TAP2_SOURCE_PROTECTED",
+      "2": "CELL2_FILTER"
     },
     "value": "1k /1W tap protection / no bypass",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R136",
     "typ": "R",
     "nets": {
-      "1": "CELL7_RAW",
-      "2": "CELL7_FILTER"
+      "1": "TAP3_SOURCE_PROTECTED",
+      "2": "CELL3_FILTER"
     },
     "value": "1k /1W tap protection / no bypass",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R137",
     "typ": "R",
     "nets": {
-      "1": "CELL8_RAW",
-      "2": "CELL8_FILTER"
+      "1": "TAP4_SOURCE_PROTECTED",
+      "2": "CELL4_FILTER"
     },
     "value": "1k /1W tap protection / no bypass",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
     "ref": "R138",
     "typ": "R",
     "nets": {
-      "1": "BANK_P_RAW",
+      "1": "TAP5_SOURCE_PROTECTED",
+      "2": "CELL5_FILTER"
+    },
+    "value": "1k /1W tap protection / no bypass",
+    "fp": "Resistor_SMD:R_2512_6332Metric",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R139",
+    "typ": "R",
+    "nets": {
+      "1": "TAP6_SOURCE_PROTECTED",
+      "2": "CELL6_FILTER"
+    },
+    "value": "1k /1W tap protection / no bypass",
+    "fp": "Resistor_SMD:R_2512_6332Metric",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R140",
+    "typ": "R",
+    "nets": {
+      "1": "TAP7_SOURCE_PROTECTED",
+      "2": "CELL7_FILTER"
+    },
+    "value": "1k /1W tap protection / no bypass",
+    "fp": "Resistor_SMD:R_2512_6332Metric",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R141",
+    "typ": "R",
+    "nets": {
+      "1": "TAP8_SOURCE_PROTECTED",
+      "2": "CELL8_FILTER"
+    },
+    "value": "1k /1W tap protection / no bypass",
+    "fp": "Resistor_SMD:R_2512_6332Metric",
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
+  },
+  {
+    "sheet": "SUPERCAP_BANK",
+    "ref": "R142",
+    "typ": "R",
+    "nets": {
+      "1": "TAP9_SOURCE_PROTECTED",
       "2": "CELL9_FILTER"
     },
     "value": "1k /1W tap protection / no bypass",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW25121K00FKEG"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C62",
+    "ref": "C81",
     "typ": "C",
     "nets": {
       "1": "CELL1_FILTER",
@@ -3906,11 +4441,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C63",
+    "ref": "C82",
     "typ": "C",
     "nets": {
       "1": "CELL2_FILTER",
@@ -3918,11 +4454,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C64",
+    "ref": "C83",
     "typ": "C",
     "nets": {
       "1": "CELL3_FILTER",
@@ -3930,11 +4467,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C65",
+    "ref": "C84",
     "typ": "C",
     "nets": {
       "1": "CELL4_FILTER",
@@ -3942,11 +4480,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C66",
+    "ref": "C85",
     "typ": "C",
     "nets": {
       "1": "CELL5_FILTER",
@@ -3954,11 +4493,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C67",
+    "ref": "C86",
     "typ": "C",
     "nets": {
       "1": "CELL6_FILTER",
@@ -3966,11 +4506,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C68",
+    "ref": "C87",
     "typ": "C",
     "nets": {
       "1": "CELL7_FILTER",
@@ -3978,11 +4519,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C69",
+    "ref": "C88",
     "typ": "C",
     "nets": {
       "1": "CELL8_FILTER",
@@ -3990,11 +4532,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C70",
+    "ref": "C89",
     "typ": "C",
     "nets": {
       "1": "CELL9_FILTER",
@@ -4002,11 +4545,12 @@
     },
     "value": "100nF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "U21",
+    "ref": "U26",
     "typ": "BQ7694204PFBR",
     "nets": {
       "1": null,
@@ -4060,11 +4604,12 @@
     },
     "value": "BQ7694204PFBR",
     "fp": "Package_QFP:TQFP-48_7x7mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "BQ7694204PFBR"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "U22",
+    "ref": "U27",
     "typ": "SN74LV1T34DBVR",
     "nets": {
       "1": null,
@@ -4075,11 +4620,12 @@
     },
     "value": "SN74LV1T34DBVR",
     "fp": "Package_TO_SOT_SMD:SOT-23-5",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LV1T34DBVR"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C71",
+    "ref": "C90",
     "typ": "C",
     "nets": {
       "1": "MON_REG1",
@@ -4087,11 +4633,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R139",
+    "ref": "R143",
     "typ": "R",
     "nets": {
       "1": "MON_MISO",
@@ -4099,11 +4646,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "U23",
+    "ref": "U28",
     "typ": "TPS3839K33DBZR",
     "nets": {
       "1": "GND",
@@ -4112,11 +4660,12 @@
     },
     "value": "TPS3839K33DBZR",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "TPS3839K33DBZR"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C72",
+    "ref": "C91",
     "typ": "C",
     "nets": {
       "1": "MON_REG1",
@@ -4124,11 +4673,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "U24",
+    "ref": "U29",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "RAIL_OK",
@@ -4142,11 +4692,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C73",
+    "ref": "C92",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4154,11 +4705,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "U25",
+    "ref": "U30",
     "typ": "TMUX1511PWR",
     "nets": {
       "1": "MON_COMM_PERMIT",
@@ -4178,11 +4730,12 @@
     },
     "value": "TMUX1511PWR",
     "fp": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TMUX1511PWR"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C74",
+    "ref": "C93",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4190,11 +4743,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "U26",
+    "ref": "U31",
     "typ": "TMUX1511PWR",
     "nets": {
       "1": "MON_COMM_PERMIT",
@@ -4214,11 +4768,12 @@
     },
     "value": "TMUX1511PWR",
     "fp": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TMUX1511PWR"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C75",
+    "ref": "C94",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4226,11 +4781,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R140",
+    "ref": "R144",
     "typ": "R",
     "nets": {
       "1": "MON_ALERT",
@@ -4238,11 +4794,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R141",
+    "ref": "R145",
     "typ": "R",
     "nets": {
       "1": "MON_CS",
@@ -4250,11 +4807,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R142",
+    "ref": "R146",
     "typ": "R",
     "nets": {
       "1": "MON_SCLK",
@@ -4262,11 +4820,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R143",
+    "ref": "R147",
     "typ": "R",
     "nets": {
       "1": "MON_MOSI",
@@ -4274,11 +4833,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R144",
+    "ref": "R148",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
@@ -4286,11 +4846,12 @@
     },
     "value": "100R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100RFKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C76",
+    "ref": "C95",
     "typ": "C",
     "nets": {
       "1": "MON_BAT",
@@ -4298,23 +4859,25 @@
     },
     "value": "1uF /50V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C77",
-    "typ": "C",
+    "ref": "R149",
+    "typ": "R",
     "nets": {
       "1": "MON_CP",
       "2": "MON_BAT"
     },
-    "value": "470nF /50V X7R",
-    "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "value": "0R",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW08050000Z0EA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R145",
+    "ref": "R150",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
@@ -4322,11 +4885,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R146",
+    "ref": "R151",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
@@ -4334,11 +4898,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "Q23",
+    "ref": "Q19",
     "typ": "Q_NPN",
     "nets": {
       "1": "MON_BREG",
@@ -4347,11 +4912,12 @@
     },
     "value": "BC847B preregulator / voltage thermal MUST VERIFY",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC847B,215"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C78",
+    "ref": "C96",
     "typ": "C",
     "nets": {
       "1": "MON_REGIN",
@@ -4359,11 +4925,12 @@
     },
     "value": "1uF /16V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C79",
+    "ref": "C97",
     "typ": "C",
     "nets": {
       "1": "MON_REG1",
@@ -4371,11 +4938,12 @@
     },
     "value": "1uF /16V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "C80",
+    "ref": "C98",
     "typ": "C",
     "nets": {
       "1": "MON_REG18",
@@ -4383,11 +4951,12 @@
     },
     "value": "1uF /16V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "GRM21BR71H105KA12L"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R147",
+    "ref": "R152",
     "typ": "R",
     "nets": {
       "1": "MON_TS1",
@@ -4395,11 +4964,12 @@
     },
     "value": "10k TS commissioning option",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R148",
+    "ref": "R153",
     "typ": "R",
     "nets": {
       "1": "MON_TS2",
@@ -4407,11 +4977,12 @@
     },
     "value": "10k TS commissioning option",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R149",
+    "ref": "R154",
     "typ": "R",
     "nets": {
       "1": "MON_TS3",
@@ -4419,11 +4990,12 @@
     },
     "value": "10k TS commissioning option",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R150",
+    "ref": "R155",
     "typ": "R",
     "nets": {
       "1": "MON_DCHG",
@@ -4431,11 +5003,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
-    "ref": "R151",
+    "ref": "R156",
     "typ": "R",
     "nets": {
       "1": "MON_DDSG",
@@ -4443,7 +5016,8 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SUPERCAP_BANK",
@@ -4454,11 +5028,12 @@
     },
     "value": "bank-fed monitor input",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R152",
+    "ref": "R157",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
@@ -4466,23 +5041,25 @@
     },
     "value": "10k /1W permanent bleed",
     "fp": "Resistor_SMD:R_2512_6332Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW251210K0FKEG"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R153",
+    "ref": "R158",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
       "2": "DUMP_DRAIN"
     },
-    "value": "100R /HS25 25W chassis mount candidate",
+    "value": "100R /HS25 100R F / external chassis mount",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": "HS25 100R F"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "Q24",
+    "ref": "Q20",
     "typ": "CSD18540Q5B",
     "nets": {
       "1": "GND",
@@ -4491,11 +5068,12 @@
     },
     "value": "CSD18540Q5B",
     "fp": "Package_SON:VSONP-8-1EP_5x6_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "CSD18540Q5B"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R154",
+    "ref": "R159",
     "typ": "R",
     "nets": {
       "1": "DUMP_GATE",
@@ -4503,11 +5081,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R155",
+    "ref": "R160",
     "typ": "R",
     "nets": {
       "1": "DUMP_PNP_C",
@@ -4515,11 +5094,12 @@
     },
     "value": "47R",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080547R0FKEA"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "Q25",
+    "ref": "Q21",
     "typ": "Q_PNP",
     "nets": {
       "1": "DUMP_PNP_B",
@@ -4528,11 +5108,12 @@
     },
     "value": "BC857B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC857B,215"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R156",
+    "ref": "R161",
     "typ": "R",
     "nets": {
       "1": "DUMP_PNP_B",
@@ -4540,11 +5121,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R157",
+    "ref": "R162",
     "typ": "R",
     "nets": {
       "1": "DUMP_PNP_B",
@@ -4552,11 +5134,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R158",
+    "ref": "R163",
     "typ": "R",
     "nets": {
       "1": "DUMP_DRIVE",
@@ -4564,11 +5147,12 @@
     },
     "value": "4.7k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08054K70FKEA"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R159",
+    "ref": "R164",
     "typ": "R",
     "nets": {
       "1": "DUMP_NPN_C_BASE",
@@ -4576,11 +5160,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "Q26",
+    "ref": "Q22",
     "typ": "Q_NPN",
     "nets": {
       "1": "DUMP_NPN_C_BASE",
@@ -4589,11 +5174,12 @@
     },
     "value": "BC847B",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "BC847B,215"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "D26",
+    "ref": "D24",
     "typ": "D",
     "nets": {
       "1": "DUMP_GATE",
@@ -4601,11 +5187,12 @@
     },
     "value": "BZT52H-C15",
     "fp": "Diode_SMD:D_SOD-123F",
-    "dni": false
+    "dni": false,
+    "mpn": "BZT52H-C15"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "R160",
+    "ref": "R165",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
@@ -4613,11 +5200,12 @@
     },
     "value": "22k /0.25W",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080522K0FKEA"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "D27",
+    "ref": "D25",
     "typ": "LED",
     "nets": {
       "1": "GND",
@@ -4625,11 +5213,12 @@
     },
     "value": "red residual-energy indicator / bank-powered",
     "fp": "LED_SMD:LED_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "LTST-C170KRKT"
   },
   {
     "sheet": "SAFE_DISCHARGE",
-    "ref": "J18",
+    "ref": "J15",
     "typ": "J2",
     "nets": {
       "1": "BANK_P_RAW",
@@ -4637,11 +5226,38 @@
     },
     "value": "KEYED service meter / rated discharge tool connection",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "SAFE_DISCHARGE",
+    "ref": "U32",
+    "typ": "DISCONNECT",
+    "nets": {
+      "1": "BANK_P_RAW",
+      "2": "SERVICE_R_IN"
+    },
+    "value": "Blue Sea6006 / external independent service tool;guarded manual operation",
+    "fp": "",
+    "dni": false,
+    "mpn": "6006"
+  },
+  {
+    "sheet": "SAFE_DISCHARGE",
+    "ref": "R166",
+    "typ": "R",
+    "nets": {
+      "1": "SERVICE_R_IN",
+      "2": "GND"
+    },
+    "value": "100R / HS25 100R F / external service tool",
+    "fp": "",
+    "dni": false,
+    "mpn": "HS25 100R F"
   },
   {
     "sheet": "CAN",
-    "ref": "U27",
+    "ref": "U33",
     "typ": "SN65HVD230DR",
     "nets": {
       "1": "CAN_TX",
@@ -4655,11 +5271,12 @@
     },
     "value": "SN65HVD230DR",
     "fp": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN65HVD230DR"
   },
   {
     "sheet": "CAN",
-    "ref": "C81",
+    "ref": "C99",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4667,11 +5284,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "CAN",
-    "ref": "R161",
+    "ref": "R167",
     "typ": "R",
     "nets": {
       "1": "CAN_TX",
@@ -4679,11 +5297,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CAN",
-    "ref": "R162",
+    "ref": "R168",
     "typ": "R",
     "nets": {
       "1": "CAN_STANDBY",
@@ -4691,11 +5310,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "CAN",
-    "ref": "J19",
+    "ref": "J16",
     "typ": "J3",
     "nets": {
       "1": "CAN_H",
@@ -4704,11 +5324,12 @@
     },
     "value": "robot telemetry CAN / official module CAN separate",
     "fp": "",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "CAN",
-    "ref": "R163",
+    "ref": "R169",
     "typ": "R",
     "nets": {
       "1": "CAN_H",
@@ -4716,11 +5337,12 @@
     },
     "value": "120R /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805120RFKEA"
   },
   {
     "sheet": "CAN",
-    "ref": "J20",
+    "ref": "J17",
     "typ": "J2",
     "nets": {
       "1": "CAN_TERM",
@@ -4728,11 +5350,12 @@
     },
     "value": "selectable termination shunt, fit only at bus end",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "SAFETY",
-    "ref": "R164",
+    "ref": "R170",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -4740,11 +5363,12 @@
     },
     "value": "58.7k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080558K7FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R165",
+    "ref": "R171",
     "typ": "R",
     "nets": {
       "1": "BUS_LIMIT",
@@ -4752,11 +5376,12 @@
     },
     "value": "10k /PROVISIONAL",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U28",
+    "ref": "U34",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "BUS_POS_OK",
@@ -4770,11 +5395,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C82",
+    "ref": "C100",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4782,23 +5408,25 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R166",
+    "ref": "R172",
     "typ": "R",
     "nets": {
       "1": "V3V3",
       "2": "CAP_LIMIT"
     },
-    "value": "29.4k /1%",
+    "value": "35.7k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080535K7FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R167",
+    "ref": "R173",
     "typ": "R",
     "nets": {
       "1": "CAP_LIMIT",
@@ -4806,11 +5434,12 @@
     },
     "value": "10k /PROVISIONAL",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U29",
+    "ref": "U35",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "CAP_POS_OK",
@@ -4824,11 +5453,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C83",
+    "ref": "C101",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4836,11 +5466,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U30",
+    "ref": "U36",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BUS_POS_OK",
@@ -4854,11 +5485,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C84",
+    "ref": "C102",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4866,11 +5498,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U31",
+    "ref": "U37",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BUS_OC_OK",
@@ -4884,11 +5517,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C85",
+    "ref": "C103",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4896,11 +5530,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U32",
+    "ref": "U38",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "IL_POS_OK",
@@ -4914,11 +5549,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C86",
+    "ref": "C104",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4926,35 +5562,38 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R168",
+    "ref": "R174",
     "typ": "R",
     "nets": {
       "1": "V3V3",
       "2": "IL_LIMIT"
     },
-    "value": "29.4k",
+    "value": "35.7k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080535K7FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R169",
+    "ref": "R175",
     "typ": "R",
     "nets": {
       "1": "IL_LIMIT",
       "2": "GND"
     },
-    "value": "10k / IL14A PROVISIONAL",
+    "value": "10k / IL12.035A PROVISIONAL",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U33",
+    "ref": "U39",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "IL_POS_OK",
@@ -4968,11 +5607,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C87",
+    "ref": "C105",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -4980,11 +5620,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U34",
+    "ref": "U40",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "IL_OK",
@@ -4998,11 +5639,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C88",
+    "ref": "C106",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5010,11 +5652,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U35",
+    "ref": "U41",
     "typ": "TPS3839K33DBZR",
     "nets": {
       "1": "GND",
@@ -5023,11 +5666,12 @@
     },
     "value": "TPS3839K33DBZR",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "TPS3839K33DBZR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C89",
+    "ref": "C107",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5035,11 +5679,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U36",
+    "ref": "U42",
     "typ": "TPS3431SDRBR",
     "nets": {
       "1": "V3V3",
@@ -5054,11 +5699,12 @@
     },
     "value": "TPS3431SDRBR",
     "fp": "Package_SON:VSON-8-1EP_3x3mm_P0.65mm_EP1.65x2.4mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TPS3431SDRBR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C90",
+    "ref": "C108",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5066,11 +5712,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R170",
+    "ref": "R176",
     "typ": "R",
     "nets": {
       "1": "WATCHDOG_OK",
@@ -5078,11 +5725,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R171",
+    "ref": "R177",
     "typ": "R",
     "nets": {
       "1": "WD_CWD",
@@ -5090,11 +5738,12 @@
     },
     "value": "10k / preset timeout; verify SET1 table",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U37",
+    "ref": "U43",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "MON_DCHG",
@@ -5108,11 +5757,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C91",
+    "ref": "C109",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5120,11 +5770,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U38",
+    "ref": "U44",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "CELLS_HW_OK",
@@ -5138,11 +5789,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C92",
+    "ref": "C110",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5150,29 +5802,31 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U39",
+    "ref": "U45",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BASE_OK",
       "2": "CELLS_OK",
       "3": "FAULT_CLEAR_N",
       "4": "GND",
-      "5": "DRIVER_PROTECT_OK",
+      "5": "ASSEMBLY_PROTECT_OK",
       "6": "REFEREE_PERMIT",
       "7": "PROTECT_OK",
       "8": "V3V3"
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C93",
+    "ref": "C111",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5180,11 +5834,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U40",
+    "ref": "U46",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "FAULT_CLEAR_N",
@@ -5198,11 +5853,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C94",
+    "ref": "C112",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5210,11 +5866,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U41",
+    "ref": "U47",
     "typ": "SN74LVC1G74DCUR",
     "nets": {
       "1": "ARM_PULSE",
@@ -5228,11 +5885,12 @@
     },
     "value": "SN74LVC1G74DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC1G74DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C95",
+    "ref": "C113",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5240,11 +5898,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "J21",
+    "ref": "J18",
     "typ": "J2",
     "nets": {
       "1": "FAULT_LATCH_QN",
@@ -5252,11 +5911,12 @@
     },
     "value": "latched fault diagnostic output",
     "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
-    "dni": false
+    "dni": false,
+    "mpn": ""
   },
   {
     "sheet": "SAFETY",
-    "ref": "U42",
+    "ref": "U48",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "REQUEST_PERMIT",
@@ -5270,11 +5930,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C96",
+    "ref": "C114",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5282,11 +5943,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U43",
+    "ref": "U49",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "FAULT_LATCH_Q",
@@ -5300,11 +5962,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C97",
+    "ref": "C115",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5312,11 +5975,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R172",
+    "ref": "R178",
     "typ": "R",
     "nets": {
       "1": "FAULT_LATCH_Q",
@@ -5324,11 +5988,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R173",
+    "ref": "R179",
     "typ": "R",
     "nets": {
       "1": "GATE_PERMIT",
@@ -5336,11 +6001,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U44",
+    "ref": "U50",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BUS_ISO_REQUEST",
@@ -5354,11 +6020,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C98",
+    "ref": "C116",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5366,11 +6033,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R174",
+    "ref": "R180",
     "typ": "R",
     "nets": {
       "1": "BUS_ISO_REQUEST",
@@ -5378,11 +6046,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U45",
+    "ref": "U51",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "CAP_ISO_REQUEST",
@@ -5396,11 +6065,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C99",
+    "ref": "C117",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5408,11 +6078,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R175",
+    "ref": "R181",
     "typ": "R",
     "nets": {
       "1": "CAP_ISO_REQUEST",
@@ -5420,11 +6091,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U46",
+    "ref": "U52",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "PRE_BUS_REQUEST",
@@ -5438,11 +6110,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C100",
+    "ref": "C118",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5450,11 +6123,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R176",
+    "ref": "R182",
     "typ": "R",
     "nets": {
       "1": "PRE_BUS_REQUEST",
@@ -5462,11 +6136,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U47",
+    "ref": "U53",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BYP_BUS_REQUEST",
@@ -5480,11 +6155,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C101",
+    "ref": "C119",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5492,11 +6168,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R177",
+    "ref": "R183",
     "typ": "R",
     "nets": {
       "1": "BYP_BUS_REQUEST",
@@ -5504,11 +6181,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U48",
+    "ref": "U54",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "PRE_CAP_REQUEST",
@@ -5522,11 +6200,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C102",
+    "ref": "C120",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5534,11 +6213,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R178",
+    "ref": "R184",
     "typ": "R",
     "nets": {
       "1": "PRE_CAP_REQUEST",
@@ -5546,11 +6226,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U49",
+    "ref": "U55",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BYP_CAP_REQUEST",
@@ -5564,11 +6245,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C103",
+    "ref": "C121",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5576,11 +6258,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R179",
+    "ref": "R185",
     "typ": "R",
     "nets": {
       "1": "BYP_CAP_REQUEST",
@@ -5588,11 +6271,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R180",
+    "ref": "R186",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -5600,11 +6284,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R181",
+    "ref": "R187",
     "typ": "R",
     "nets": {
       "1": "TEMP_FET_LIMIT",
@@ -5612,11 +6297,12 @@
     },
     "value": "1.74k /PROVISIONAL",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08051K74FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U50",
+    "ref": "U56",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "FET_TEMP_LO_OK",
@@ -5630,11 +6316,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C104",
+    "ref": "C122",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5642,11 +6329,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U51",
+    "ref": "U57",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "FET_TEMP_LO_OK",
@@ -5660,11 +6348,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C105",
+    "ref": "C123",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5672,11 +6361,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R182",
+    "ref": "R188",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -5684,11 +6374,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R183",
+    "ref": "R189",
     "typ": "R",
     "nets": {
       "1": "TEMP_L_LIMIT",
@@ -5696,11 +6387,12 @@
     },
     "value": "1.74k /PROVISIONAL",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08051K74FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U52",
+    "ref": "U58",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "L_TEMP_LO_OK",
@@ -5714,11 +6406,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C106",
+    "ref": "C124",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5726,11 +6419,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U53",
+    "ref": "U59",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "L_TEMP_LO_OK",
@@ -5744,11 +6438,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C107",
+    "ref": "C125",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5756,11 +6451,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R184",
+    "ref": "R190",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -5768,11 +6464,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R185",
+    "ref": "R191",
     "typ": "R",
     "nets": {
       "1": "TEMP_BANK_LIMIT",
@@ -5780,11 +6477,12 @@
     },
     "value": "3.01k /PROVISIONAL",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08053K01FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U54",
+    "ref": "U60",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "BANK_TEMP_LO_OK",
@@ -5798,11 +6496,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C108",
+    "ref": "C126",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5810,11 +6509,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U55",
+    "ref": "U61",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BANK_TEMP_LO_OK",
@@ -5828,11 +6528,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C109",
+    "ref": "C127",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5840,11 +6541,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R186",
+    "ref": "R192",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -5852,11 +6554,12 @@
     },
     "value": "1k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08051K00FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R187",
+    "ref": "R193",
     "typ": "R",
     "nets": {
       "1": "TEMP_OPEN_LIMIT",
@@ -5864,11 +6567,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U56",
+    "ref": "U62",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "FET_THERM_OK",
@@ -5882,11 +6586,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C110",
+    "ref": "C128",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5894,11 +6599,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U57",
+    "ref": "U63",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "PROTECT_OK",
@@ -5912,11 +6618,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C111",
+    "ref": "C129",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -5924,11 +6631,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R188",
+    "ref": "R194",
     "typ": "R",
     "nets": {
       "1": "V3V3",
@@ -5936,11 +6644,12 @@
     },
     "value": "2.2k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW08052K20FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U58",
+    "ref": "U64",
     "typ": "TLV431AIDBZR",
     "nets": {
       "1": "HW_REF_1V24",
@@ -5949,11 +6658,12 @@
     },
     "value": "TLV431AIDBZR",
     "fp": "Package_TO_SOT_SMD:SOT-23",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV431AIDBZR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R189",
+    "ref": "R195",
     "typ": "R",
     "nets": {
       "1": "BUS_FUSED",
@@ -5961,11 +6671,12 @@
     },
     "value": "221k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805221KFKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R190",
+    "ref": "R196",
     "typ": "R",
     "nets": {
       "1": "BUS_OV_DIV",
@@ -5973,11 +6684,12 @@
     },
     "value": "10k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C112",
+    "ref": "C130",
     "typ": "C",
     "nets": {
       "1": "BUS_OV_DIV",
@@ -5985,11 +6697,12 @@
     },
     "value": "1nF /50V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R191",
+    "ref": "R197",
     "typ": "R",
     "nets": {
       "1": "BUS_FUSED",
@@ -5997,11 +6710,12 @@
     },
     "value": "154k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805154KFKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R192",
+    "ref": "R198",
     "typ": "R",
     "nets": {
       "1": "BUS_UV_DIV",
@@ -6009,11 +6723,12 @@
     },
     "value": "10k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C113",
+    "ref": "C131",
     "typ": "C",
     "nets": {
       "1": "BUS_UV_DIV",
@@ -6021,11 +6736,12 @@
     },
     "value": "1nF /50V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R193",
+    "ref": "R199",
     "typ": "R",
     "nets": {
       "1": "BANK_P_RAW",
@@ -6033,11 +6749,12 @@
     },
     "value": "172k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805172KFKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R194",
+    "ref": "R200",
     "typ": "R",
     "nets": {
       "1": "BANK_OV_DIV",
@@ -6045,11 +6762,12 @@
     },
     "value": "10k /1%",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C114",
+    "ref": "C132",
     "typ": "C",
     "nets": {
       "1": "BANK_OV_DIV",
@@ -6057,11 +6775,12 @@
     },
     "value": "1nF /50V",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C102J1GACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U59",
+    "ref": "U65",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "BUS_OV_OK",
@@ -6075,11 +6794,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C115",
+    "ref": "C133",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -6087,11 +6807,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U60",
+    "ref": "U66",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "BANK_OV_OK",
@@ -6105,11 +6826,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C116",
+    "ref": "C134",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -6117,11 +6839,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U61",
+    "ref": "U67",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "BUS_OV_OK",
@@ -6135,11 +6858,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C117",
+    "ref": "C135",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -6147,11 +6871,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U62",
+    "ref": "U68",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "THERM_PROTECT_OK",
@@ -6165,11 +6890,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C118",
+    "ref": "C136",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -6177,11 +6903,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R195",
+    "ref": "R201",
     "typ": "R",
     "nets": {
       "1": "V12_DRIVER",
@@ -6189,11 +6916,12 @@
     },
     "value": "80.6k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080580K6FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R196",
+    "ref": "R202",
     "typ": "R",
     "nets": {
       "1": "DRIVER_UV_DIV",
@@ -6201,11 +6929,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R197",
+    "ref": "R203",
     "typ": "R",
     "nets": {
       "1": "V12_DRIVER",
@@ -6213,11 +6942,12 @@
     },
     "value": "100k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "R198",
+    "ref": "R204",
     "typ": "R",
     "nets": {
       "1": "DRIVER_OV_DIV",
@@ -6225,11 +6955,12 @@
     },
     "value": "10k",
     "fp": "Resistor_SMD:R_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U63",
+    "ref": "U69",
     "typ": "TLV3202DGKR",
     "nets": {
       "1": "DRIVER_UV_OK",
@@ -6243,11 +6974,12 @@
     },
     "value": "TLV3202DGKR",
     "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
-    "dni": false
+    "dni": false,
+    "mpn": "TLV3202DGKR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C119",
+    "ref": "C137",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -6255,11 +6987,12 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   },
   {
     "sheet": "SAFETY",
-    "ref": "U64",
+    "ref": "U70",
     "typ": "SN74LVC2G08DCUR",
     "nets": {
       "1": "DRIVER_UV_OK",
@@ -6273,11 +7006,12 @@
     },
     "value": "SN74LVC2G08DCUR",
     "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
-    "dni": false
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
   },
   {
     "sheet": "SAFETY",
-    "ref": "C120",
+    "ref": "C138",
     "typ": "C",
     "nets": {
       "1": "V3V3",
@@ -6285,6 +7019,123 @@
     },
     "value": "100nF / 16V X7R",
     "fp": "Capacitor_SMD:C_0805_2012Metric",
-    "dni": false
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "R205",
+    "typ": "R",
+    "nets": {
+      "1": "ACTUATOR_12V",
+      "2": "ACTUATOR_UV_DIV"
+    },
+    "value": "78.7k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW080578K7FKEA"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "R206",
+    "typ": "R",
+    "nets": {
+      "1": "ACTUATOR_UV_DIV",
+      "2": "GND"
+    },
+    "value": "10k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "R207",
+    "typ": "R",
+    "nets": {
+      "1": "ACTUATOR_12V",
+      "2": "ACTUATOR_OV_DIV"
+    },
+    "value": "100k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW0805100KFKEA"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "R208",
+    "typ": "R",
+    "nets": {
+      "1": "ACTUATOR_OV_DIV",
+      "2": "GND"
+    },
+    "value": "10k",
+    "fp": "Resistor_SMD:R_0805_2012Metric",
+    "dni": false,
+    "mpn": "CRCW080510K0FKEA"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "U71",
+    "typ": "TLV3202DGKR",
+    "nets": {
+      "1": "ACTUATOR_UV_OK",
+      "2": "HW_REF_1V24",
+      "3": "ACTUATOR_UV_DIV",
+      "4": "GND",
+      "5": "HW_REF_1V24",
+      "6": "ACTUATOR_OV_DIV",
+      "7": "ACTUATOR_OV_OK",
+      "8": "V3V3"
+    },
+    "value": "TLV3202DGKR",
+    "fp": "Package_SO:VSSOP-8_3x3mm_P0.65mm",
+    "dni": false,
+    "mpn": "TLV3202DGKR"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "C139",
+    "typ": "C",
+    "nets": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "value": "100nF / 16V X7R",
+    "fp": "Capacitor_SMD:C_0805_2012Metric",
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "U72",
+    "typ": "SN74LVC2G08DCUR",
+    "nets": {
+      "1": "ACTUATOR_UV_OK",
+      "2": "ACTUATOR_OV_OK",
+      "3": "ASSEMBLY_PROTECT_OK",
+      "4": "GND",
+      "5": "DRIVER_PROTECT_OK",
+      "6": "ACTUATOR_WINDOW_OK",
+      "7": "ACTUATOR_WINDOW_OK",
+      "8": "V3V3"
+    },
+    "value": "SN74LVC2G08DCUR",
+    "fp": "Package_SO:VSSOP-8_2.3x2mm_P0.5mm",
+    "dni": false,
+    "mpn": "SN74LVC2G08DCUR"
+  },
+  {
+    "sheet": "SAFETY",
+    "ref": "C140",
+    "typ": "C",
+    "nets": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "value": "100nF / 16V X7R",
+    "fp": "Capacitor_SMD:C_0805_2012Metric",
+    "dni": false,
+    "mpn": "C0805C104K5RACTU"
   }
 ]

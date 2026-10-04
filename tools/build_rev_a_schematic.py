@@ -9,6 +9,7 @@ from pathlib import Path
 from collections import defaultdict
 import uuid, json, re
 from rev_a_parts import P, part, RFP, CFP, mcu
+from rev_a_passives import mpn
 ROOT=Path(__file__).resolve().parents[1]
 K=ROOT/'hardware/kicad'
 NAME='robomaster_supercap'
@@ -23,7 +24,8 @@ def add(sheet,typ,nets,value=None,fp=None,ref=None,dni=False):
     spec=P[typ]
     nets={str(k):v for k,v in nets.items()} if isinstance(nets,dict) else dict(zip(spec.pins,nets))
     assert set(nets)==set(spec.pins),(ref,typ,set(spec.pins)-set(nets))
-    pages[sheet].append(dict(ref=ref,typ=typ,nets=nets,value=value or typ,fp=spec.footprint if fp is None else fp,dni=dni))
+    chosen_fp=spec.footprint if fp is None else fp
+    pages[sheet].append(dict(ref=ref,typ=typ,nets=nets,value=value or typ,fp=chosen_fp,dni=dni,mpn=mpn(typ,value or typ,chosen_fp)))
     return ref
 def r(s,a,b,v,fp=None,dni=False):return add(s,'R',[a,b],v,fp,dni=dni)
 def c(s,a,b,v,fp=None,dni=False):return add(s,'C',[a,b],v,fp,dni=dni)
@@ -34,47 +36,59 @@ def gate(s,a,b,out,a2,b2,out2):
 def npn(s,cmd,collector):
     base=collector+'_BASE';r(s,cmd,base,'4.7k');pull(s,base,v='100k');add(s,'Q_NPN',[base,'GND',collector],'BC847B')
 def relay(s,a,b,cmd,tag):
+    if tag.startswith('PRE_'):
+        # External AC/DC PhotoMOS, manufacturer physical pins. No body-diode
+        # shortcut around the resistor when input LED is off.
+        led=tag+'_LED_P';sink=tag+'_LED_M';base=tag+'_SSR_BASE'
+        add(s,'AQZ202G',{1:sink,2:led,3:a,4:b},'AQZ202G / external precharge SSR',fp='')
+        r(s,'V3V3',led,'150R');r(s,cmd,base,'1.5k');pull(s,base)
+        add(s,'Q_NPN',[base,'GND',sink],'BC847B')
+        pull(s,tag+'_FB')
+        notes[s].append(tag+' SSR has no auxiliary contact: infer conduction using raw/link ADC; FB pin reserved LOW, not confirmation.')
+        return
     # Contacts and coil represent an EXTERNAL DC-rated assembly, not an onboard
     # low-current signal relay. Candidate/polarity/coil budget in review document.
-    coil=tag+'_COIL_M';add(s,'CONTACT',[a,b,'ACTUATOR_12V',coil],tag+' external NO contact / AEV14012 candidate',fp='')
+    coil=tag+'_COIL_M';add(s,'CONTACT',[a,b,'ACTUATOR_12V',coil],tag+' external NO contact / AEV14012 bench selection',fp='')
     # Separate external actuator supply (bus-derived), not a 1A gate-bias rail.
     g=tag+'_COIL_GATE';pn=tag+'_PNP_B';nc=tag+'_NPN_C'
     add(s,'CSD18540Q5B',{1:'GND',2:g,3:coil});pull(s,g,v='10k')
     add(s,'Q_PNP',[pn,'ACTUATOR_12V',tag+'_PNP_C'],'BC857B');pull(s,pn,'ACTUATOR_12V');r(s,pn,nc,'10k')
     npn(s,cmd,nc);r(s,tag+'_PNP_C',g,'47R')
-    add(s,'D',['ACTUATOR_12V',coil],'SS110 flyback candidate / release delay MUST VERIFY',fp='Diode_SMD:D_SMA')
-    add(s,'J4',['ACTUATOR_12V',coil,tag+'_FB','GND'],tag+' external actuator+feedback',fp='')
-    pull(s,tag+'_FB','V3V3')
+    add(s,'D',['ACTUATOR_12V',coil],'SMBJ18CA bidirectional coil suppression / release MUST VERIFY',fp='Diode_SMD:D_SMB')
+    add(s,'J4',['ACTUATOR_12V',coil,tag+'_FB','GND'],tag+' actuator+reserved diagnostic / no intrinsic auxiliary contact',fp='')
+    pull(s,tag+'_FB')
 
 # INPUT and inrush boundaries. External contacts are not claimed as coordinated
 # fault interrupt devices. No hot-plug/energizing allowed before assembly review.
 s='POWER_INPUT'
-add(s,'J2',['BUS_RAW','GND'],'ROBOT BUS terminal / keyed DC-rated connector TBD',fp='')
-add(s,'FUSE',['BUS_RAW','BUS_FUSED'],'ATOF 58V 10A candidate / I2t & breaking coordination TBD')
+add(s,'J2',['BUS_ROBOT_INPUT','GND'],'ROBOT BUS / external covered bolted power terminals',fp='')
+add(s,'DISCONNECT',['BUS_ROBOT_INPUT','BUS_RAW'],'Blue Sea6006 / external manual source disconnect;not a fault breaker',fp='')
+add(s,'FUSE',['BUS_RAW','BUS_FUSED'],'0997010.WXN / MINI997 58V10A / external 0FHM0002ZXJM holder')
 add(s,'D',['BUS_FUSED','GND'],'SMBJ28A / no surge-energy guarantee',fp='Diode_SMD:D_SMB')
 relay(s,'BUS_FUSED','BUS_ISOLATED','BUS_ISO_DRIVE','BUS_ISO')
 add(s,'J3',['BUS_RAW','GND','REFEREE_PERMIT'],'referee permit interface / no bypass',fp='')
 pull(s,'REFEREE_PERMIT')
-add(s,'J2',['ACTUATOR_12V','GND'],'external BUS-derived actuator 12V supply / budget TBD',fp='')
+add(s,'FUSE',['BUS_RAW','ACTUATOR_INPUT'],'0997005.WXN / MINI997 58V5A / external 0FHM0002ZXJM holder')
+add(s,'DDR60L12',{1:'GND',2:'GND',3:'ACTUATOR_12V',4:'ACTUATOR_12V',5:'ACTUATOR_INPUT',6:'GND'},'DDR-60L-12 / external bench actuator supply',fp='')
 add(s,'PWR_FLAG',['ACTUATOR_12V'],'external reviewed actuator supply required')
 notes[s]+=['Aux input is BUS_FUSED upstream of NO isolate. No bank-fed control rail.',
-           'External NO contacts need independent DC interrupt review; AEV14012 is oversized candidate, not released BOM.',
+           'Four AEV14012 main/bypass contacts, 12V coils; external DDR-60L-12. Bench only: total contact mass about1.6kg.',
            'Fuse+TVS values provisional. TVS cathode positive; reverse insertion is not authorized.']
 s='PRECHARGE'
 relay(s,'BUS_ISOLATED','BUS_PRE_R_IN','PRE_BUS_DRIVE','PRE_BUS')
-r(s,'BUS_PRE_R_IN','BUS_LINK_IN','100R / AC05 5W pulse candidate',fp='Resistor_THT:R_Axial_Power_L25.0mm_W9.0mm_P30.48mm')
+r(s,'BUS_PRE_R_IN','BUS_LINK_IN','100R / HS25 100R F / external chassis mount',fp='')
 relay(s,'BUS_ISOLATED','BUS_LINK_IN','BYP_BUS_DRIVE','BYP_BUS')
 relay(s,'CAP_ISOLATED','CAP_PRE_R_IN','PRE_CAP_DRIVE','PRE_CAP')
-r(s,'CAP_PRE_R_IN','CAP_LINK_IN','100R / AC05 5W pulse candidate',fp='Resistor_THT:R_Axial_Power_L25.0mm_W9.0mm_P30.48mm')
+r(s,'CAP_PRE_R_IN','CAP_LINK_IN','100R / HS25 100R F / external chassis mount',fp='')
 relay(s,'CAP_ISOLATED','CAP_LINK_IN','BYP_CAP_DRIVE','BYP_CAP')
 notes[s]+=['Separate NO isolate plus NO resistor-path and NO bypass contacts; no permanent path around isolation.',
-           '470uF each; 26V/100R ideal t95=0.141s, E=0.159J. 1s timeout and delta-V<1V proposal.',
-           'Precharge feedback is required. External actuator coil current/driver rating unresolved; not an energizable assembly.']
+           'Six470uF per link; 26V/100R t95 nominal0.845s, worst target<1.1s. Timeout3s and delta-V<1V.',
+           'SSR path acceptance uses link voltage progression and open-path diagnosis; no resistor-only bank charge.']
 s='POWER_STAGE'
 for name,a,b in [('BUS','BUS_LINK_IN','BUS_LINK'),('CAP','CAP_LINK_IN','CAP_LINK'),('IL','SW_NODE_A','IL_TO_L')]:
     add(s,'WSK25123L000FEA',{1:a,2:a,3:b,4:b},'WSK25123L000FEA / 3mR 1% 1W')
 for rail in ['BUS_LINK','CAP_LINK']:
-    c(s,rail,'GND','470uF / 63V low ESR / ripple rating TBD',fp='Capacitor_THT:CP_Radial_D12.5mm_P5.00mm')
+    for _ in range(6):c(s,rail,'GND','470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz',fp='Capacitor_THT:CP_Radial_D12.5mm_P5.00mm')
     for _ in range(2):c(s,rail,'GND','2.2uF / 100V X7R / effective C MUST VERIFY',fp='Capacitor_SMD:C_1210_3225Metric')
 for n,drain,source in [('AH','BUS_LINK','SW_NODE_A'),('AL','SW_NODE_A','GND'),('BH','CAP_LINK','SW_NODE_B'),('BL','SW_NODE_B','GND')]:
     add(s,'CSD18540Q5B',{1:source,2:'GATE_'+n,3:drain})
@@ -86,13 +100,13 @@ for sw in ['SW_NODE_A','SW_NODE_B']:
     r(s,sw,sw+'_SNUB','10R DNI tunable',dni=True)
     c(s,sw+'_SNUB','GND','1nF /100V DNI tunable',dni=True)
 notes[s]+=['Body diode S -> D: healthy all-OFF positive rails block static DC; inductor decay or a short high-side FET can feed the other rail.',
-           'Shunts: power pads1/4, Kelvin pads2/3. WSK 3mR footprint terminal T=1.19mm.',
-           'Primary fs=200kHz; normal8A/peak12A are cap average targets, not guaranteed module port peak limits.']
+           'Shunts: power pads1/4, Kelvin pads2/3. WSK3mR terminal T=2.21mm (not the>=5mR T1.19 land).',
+           'Primary fs=200kHz; initial average current cap9.5A maximum,8A normal;12A remains later design goal.']
 s='GATE_DRIVER'
 for leg in ['A','B']:
     sw='SW_NODE_'+leg;hb='HB_'+leg
     add(s,'UCC27282DRCR',{1:'V12_DRIVER',2:None,3:hb,4:'HO_'+leg,5:sw,6:'GATE_PERMIT',7:'PWM_'+leg+'H_SAFE',8:'PWM_'+leg+'L_SAFE',9:'GND',10:'LO_'+leg,11:'GND'})
-    c(s,hb,sw,'470nF /25V X7R bootstrap / effectiveC>=200nF target')
+    c(s,hb,sw,'470nF /50V X7R bootstrap / effectiveC>=200nF target')
     c(s,'V12_DRIVER','GND','1uF /25V X7R');dec(s,'V12_DRIVER')
     for level,out in [('H','HO_'+leg),('L','LO_'+leg)]:
         dest='GATE_'+leg+level;r(s,out,dest,'4.7R gate / tunable',fp='Resistor_SMD:R_0603_1608Metric')
@@ -108,7 +122,7 @@ notes[s]+=['DRC package only: EN pin6, exposed pad11 to VSS. Internal bootstrap 
            'Independent AND inhibit stops HI/LI; EN secondary (typ1.5us is not a maximum guarantee).']
 
 s='AUXILIARY_POWER'
-for tag,out,rt,ron,lv in [('DRV','V12_DRIVER','900k','100k','68uH / MSS1246T-683MLB candidate'),('MCU','V3V3','175k','27.4k','47uH / MSS1246T-473MLB candidate')]:
+for tag,out,rt,ron,lv in [('DRV','V12_DRIVER','909k','100k','68uH / MSS1246T-683MLB'),('MCU','V3V3','174k','27.4k','47uH / MSS1246T-473MLB')]:
     sw='AUX_SW_'+tag;fb='AUX_FB_'+tag;en='AUX_EN_'+tag;rp='AUX_RIPPLE_'+tag;pg='PG_'+tag
     add(s,'LM5164DDAR',{1:'GND',2:'BUS_FUSED',3:en,4:'RON_'+tag,5:fb,6:pg,7:'BST_'+tag,8:sw,9:'GND'})
     add(s,'L',[sw,out],lv,fp='Inductor_SMD:L_Coilcraft_MSS1246T-XXX')
@@ -126,7 +140,7 @@ for net in ['GND','BUS_RAW','BUS_FUSED','BANK_P_RAW','MON_REGIN','VDDA','VREF_AD
 notes[s]+=['12V rail 1A IC capacity is not the available actuator/thermal budget. External contact coils require separate reviewed actuator supply.',
            '3.3V and driver12V independently bus-fed, no bank-fed MCU rail. UVLO approx19.68V-on/18.37V-off.',
            'COT Type3 ripple RA/CA/CB options: stability/startup/backfeed and actual auxiliary load must be verified.',
-           '12V nominal feedback1.2*(1+900k/100k); 3.3V 1.2*(1+175k/100k). PGOOD qualified by safety.']
+           'Feedback:1.2*(1+909k/100k)=12.108V;1.2*(1+174k/100k)=3.288V. PGOOD qualified by safety.']
 
 # MCU net mapping by port, exact physical pins generated into docs/pinout.md.
 MCU_NETS={'PG10':'NRST','PA8':'PWM_AH','PA9':'PWM_AL','PA10':'PWM_BH','PA11':'PWM_BL','PA12':'HW_FAULT_N',
@@ -205,11 +219,15 @@ notes[s]+=['3 representative hotspots; optional connector replaces fitted NTC, n
 
 s='SUPERCAP_BANK'
 add(s,'J2',['BANK_P_RAW','GND'],'9S bank power -> official module external boundary',fp='')
-add(s,'FUSE',['BANK_P_RAW','BANK_FUSED'],'ATOF 58V 15A candidate / bidirectional DC interrupt TBD')
+add(s,'DISCONNECT',['BANK_P_RAW','BANK_MANUAL_OUT'],'Blue Sea6006 / external manual bank disconnect;not a fault breaker',fp='')
+add(s,'FUSE',['BANK_MANUAL_OUT','BANK_FUSED'],'0997015.WXN / MINI997 58V15A / external 0FHM0002ZXJM holder')
 relay(s,'BANK_FUSED','CAP_ISOLATED','CAP_ISO_DRIVE','CAP_ISO')
 raw=['GND']+['CELL'+str(i)+'_RAW' for i in range(1,9)]+['BANK_P_RAW']
-add(s,'J10',raw,'Protected 9S taps / SOURCE-SIDE resistors mandatory; not raw MCU ADC',fp='')
-for i,net in enumerate(raw):
+for i in range(1,10):c(s,raw[i],raw[i-1],'50F /2.7V SCCV40B506SRB / external cell',fp='')
+protected=['TAP'+str(i)+'_SOURCE_PROTECTED' for i in range(10)]
+for i,net in enumerate(raw):r(s,net,protected[i],'1k /1W EXTERNAL cell-terminal tap resistor',fp='')
+add(s,'J10',protected,'Protected 9S taps / source resistors at electrodes,never at cable end',fp='')
+for i,net in enumerate(protected):
     r(s,net,'CELL'+str(i)+'_FILTER','1k /1W tap protection / no bypass',fp='Resistor_SMD:R_2512_6332Metric')
 for i in range(1,10):c(s,'CELL'+str(i)+'_FILTER','CELL'+str(i-1)+'_FILTER','100nF /50V X7R')
 bqns={i:None for i in P['BQ7694204PFBR'].pins}
@@ -224,7 +242,7 @@ for index,group in enumerate([[('MON_SCLK_HOST','MON_SCLK'),('MON_MOSI_HOST','MO
     add(s,'TMUX1511PWR',ns);dec(s)
 pull(s,'MON_ALERT','MON_REG1')
 pull(s,'MON_CS','MON_REG1');pull(s,'MON_SCLK');pull(s,'MON_MOSI')
-r(s,'BANK_P_RAW','MON_BAT','100R');c(s,'MON_BAT','GND','1uF /50V X7R');c(s,'MON_CP','MON_BAT','470nF /50V X7R')
+r(s,'BANK_P_RAW','MON_BAT','100R');c(s,'MON_BAT','GND','1uF /50V X7R');r(s,'MON_CP','MON_BAT','0R')
 r(s,'BANK_P_RAW','MON_PACK','10k');r(s,'BANK_P_RAW','MON_LD','10k')
 # BREG external emitter follower: B=pin1 E=pin2 C=pin3; base controlled by IC.
 add(s,'Q_NPN',['MON_BREG','MON_REGIN','MON_BAT'],'BC847B preregulator / voltage thermal MUST VERIFY')
@@ -233,16 +251,16 @@ for ts in ['MON_TS1','MON_TS2','MON_TS3']:r(s,ts,'GND','10k TS commissioning opt
 for net in ['MON_DCHG','MON_DDSG']:pull(s,net)
 add(s,'PWR_FLAG',['MON_BAT'],'bank-fed monitor input')
 notes[s]+=['BQ7694204 SPI/CRC +3.3V REG1 variant. 9S mask: cells1..8 +cell10, VC9 tied to VC8, unused cell9 disabled.',
-           'Standalone COV/CUV/protection need verified provisioning; defaults for Li-ion are NOT supercap settings.',
-           'DCHG/DDSG configured ACTIVE-HIGH permission, pull-down, protection mapping/readback+power-cycle test mandatory.',
-           'Internal switched passive balance limited by1k input R; charge must taper/inhibit if balancing cannot keep up.',
+           'RAM profile firmware/config/bq76942_rev_a.json: COV2.530V, CUV1.2144V, delay~10ms; readback mandatory.',
+           'DCHG/DDSG active-LOW fault / healthy-HIGH REG1 permission,0xA6,pull-down. Never use Li-ion defaults.',
+           'Host-only balance,2k total input resistance/tap including external1k; slow trim,not full-current balancing.',
            'Open-wire current/settling plus input R must be validated; harness source protection before connector is mandatory.',
            'TMUX SPI/ALERT disconnect if either MCU or REG1 power missing; LV1T34 handles initial1.8V MISO level.',
            'BQ battery-ground SPI is not galvanically isolated; partial-power/backfeed review still mandatory.']
 
 s='SAFE_DISCHARGE'
 r(s,'BANK_P_RAW','GND','10k /1W permanent bleed',fp='Resistor_SMD:R_2512_6332Metric')
-r(s,'BANK_P_RAW','DUMP_DRAIN','100R /HS25 25W chassis mount candidate',fp='')
+r(s,'BANK_P_RAW','DUMP_DRAIN','100R /HS25 100R F / external chassis mount',fp='')
 add(s,'CSD18540Q5B',{1:'GND',2:'DUMP_GATE',3:'DUMP_DRAIN'})
 pull(s,'DUMP_GATE',v='10k');r(s,'DUMP_PNP_C','DUMP_GATE','47R')
 add(s,'Q_PNP',['DUMP_PNP_B','V12_DRIVER','DUMP_PNP_C'],'BC857B');pull(s,'DUMP_PNP_B','V12_DRIVER')
@@ -250,6 +268,8 @@ r(s,'DUMP_PNP_B','DUMP_NPN_C','10k');npn(s,'DUMP_DRIVE','DUMP_NPN_C')
 add(s,'D',['DUMP_GATE','GND'],'BZT52H-C15',fp='Diode_SMD:D_SOD-123F')
 r(s,'BANK_P_RAW','RESIDUAL_LED_A','22k /0.25W');add(s,'LED',['GND','RESIDUAL_LED_A'],'red residual-energy indicator / bank-powered')
 add(s,'J2',['BANK_P_RAW','GND'],'KEYED service meter / rated discharge tool connection',fp='')
+add(s,'DISCONNECT',['BANK_P_RAW','SERVICE_R_IN'],'Blue Sea6006 / external independent service tool;guarded manual operation',fp='')
+r(s,'SERVICE_R_IN','GND','100R / HS25 100R F / external service tool',fp='')
 notes[s]+=['OFF is not safe. LED dark is not safe. Independent meter + all cells + local links + rebound required.',
            'Switched100R initial4.862W, energy up to1752J(+30%); 10k bleed alone ~62h to1V. No guaranteed service time.',
            'Dump unavailable after bus aux loss: permanent bleed + independent service tool remain; do not add unauthorized bank-to-bus supply.',
@@ -263,14 +283,14 @@ r(s,'CAN_H','CAN_TERM','120R /1%');add(s,'J2',['CAN_TERM','CAN_L'],'selectable t
 notes[s]+=['Classic CAN initial protocol, bitrate/ID/timeouts TBD. CAN comm must not bypass official cutoff.',
            'CAN powered-off impedance/common-mode protection and external power through UART/SWD/taps require validation.']
 s='SAFETY'
-for tag,top in [('BUS','58.7k'),('CAP','29.4k')]:
+for tag,top in [('BUS','58.7k'),('CAP','35.7k')]:
     lim=tag+'_LIMIT';r(s,'V3V3',lim,top+' /1%');r(s,lim,'GND','10k /PROVISIONAL')
     add(s,'TLV3202DGKR',{1:tag+'_POS_OK',2:tag+'_FAST_POS',3:lim,4:'GND',5:lim,6:tag+'_FAST_NEG',7:tag+'_NEG_OK',8:'V3V3'});dec(s)
 gate(s,'BUS_POS_OK','BUS_NEG_OK','BUS_OC_OK','CAP_POS_OK','CAP_NEG_OK','CAP_OC_OK')
 gate(s,'BUS_OC_OK','CAP_OC_OK','PORT_OC_N','GND','GND',None)
 # Comparator outputs high only when below trip: low asynchronously clears permit.
 add(s,'TLV3202DGKR',{1:'IL_POS_OK',2:'IL_FAST_POS',3:'IL_LIMIT',4:'GND',5:'IL_LIMIT',6:'IL_FAST_NEG',7:'IL_NEG_OK',8:'V3V3'});dec(s)
-r(s,'V3V3','IL_LIMIT','29.4k');r(s,'IL_LIMIT','GND','10k / IL14A PROVISIONAL')
+r(s,'V3V3','IL_LIMIT','35.7k');r(s,'IL_LIMIT','GND','10k / IL12.035A PROVISIONAL')
 gate(s,'IL_POS_OK','IL_NEG_OK','IL_OK','PG_DRV','PG_MCU','AUX_OK')
 gate(s,'IL_OK','PORT_OC_N','OC_OK','AUX_OK','RAIL_OK','POWER_OK')
 add(s,'TPS3839K33DBZR',{1:'GND',2:'RAIL_OK',3:'V3V3'});dec(s)
@@ -316,6 +336,10 @@ r(s,'V12_DRIVER','DRIVER_UV_DIV','80.6k');r(s,'DRIVER_UV_DIV','GND','10k')
 r(s,'V12_DRIVER','DRIVER_OV_DIV','100k');r(s,'DRIVER_OV_DIV','GND','10k')
 add(s,'TLV3202DGKR',{1:'DRIVER_UV_OK',2:'HW_REF_1V24',3:'DRIVER_UV_DIV',4:'GND',5:'HW_REF_1V24',6:'DRIVER_OV_DIV',7:'DRIVER_OV_OK',8:'V3V3'});dec(s)
 gate(s,'DRIVER_UV_OK','DRIVER_OV_OK','DRIVER_WINDOW_OK','ALL_PROTECT_OK','DRIVER_WINDOW_OK','DRIVER_PROTECT_OK')
+for tag,top in [('ACTUATOR_UV','78.7k'),('ACTUATOR_OV','100k')]:
+    r(s,'ACTUATOR_12V',tag+'_DIV',top);r(s,tag+'_DIV','GND','10k')
+add(s,'TLV3202DGKR',{1:'ACTUATOR_UV_OK',2:'HW_REF_1V24',3:'ACTUATOR_UV_DIV',4:'GND',5:'HW_REF_1V24',6:'ACTUATOR_OV_DIV',7:'ACTUATOR_OV_OK',8:'V3V3'});dec(s)
+gate(s,'ACTUATOR_UV_OK','ACTUATOR_OV_OK','ACTUATOR_WINDOW_OK','DRIVER_PROTECT_OK','ACTUATOR_WINDOW_OK','ASSEMBLY_PROTECT_OK')
 notes[s]+=['Independent IL INA293 + comparator -> async latch clear -> PWM AND + EN LOW, plus HRTIM FLT1.',
            'Port INA293 pairs + TLV3202 windows + AND. No ADC polling in OC path; maximum delay unverified.',
            'Hardware cell permission requires BQ provisioning; missing/invalid commissioning inhibits startup.',
@@ -325,7 +349,7 @@ notes[s]+=['Independent IL INA293 + comparator -> async latch clear -> PWM AND +
 for page,items in pages.items():
     for item in items:
         if item['typ']=='SN74LVC2G08DCUR':
-            if item['nets'].get('3')=='FAULT_CLEAR_N':item['nets']['5']='DRIVER_PROTECT_OK'
+            if item['nets'].get('3')=='FAULT_CLEAR_N':item['nets']['5']='ASSEMBLY_PROTECT_OK'
             if item['nets'].get('7') in ['BUS_ISO_DRIVE','CAP_ISO_DRIVE','PRE_BUS_DRIVE','BYP_BUS_DRIVE','PRE_CAP_DRIVE','BYP_CAP_DRIVE']:item['nets']['2']='CONTACT_PERMIT'
             if (item['nets'].get('3') or '').endswith(('_UNUSED_Y','_THERM_UNUSED')):item['nets']['3']=None
 
@@ -368,7 +392,7 @@ def generate():
             xx=88.9+(i%7)*152.4;yy=114.3+(i//7)*101.6
             typ=item['typ'];ref=item['ref'];su=uid('component:'+ref);_,pins,h=lib[typ]
             out+=f'(symbol (lib_id {q("RevA:"+typ)}) (at {xx} {yy} 0) (unit 1) (in_bom {"no" if ref.startswith("#") else "yes"}) (on_board {"no" if ref.startswith("#") else "yes"}) (dnp {"yes" if item["dni"] else "no"}) (uuid {q(su)})'
-            for key,val,pos,hide in [('Reference',ref,yy-h-5,False),('Value',item['value'],yy+h+4,False),('Footprint',item['fp'],yy,True),('Datasheet',P[typ].source,yy,True)]:
+            for key,val,pos,hide in [('Reference',ref,yy-h-5,False),('Value',item['value'],yy+h+4,False),('Footprint',item['fp'],yy,True),('Datasheet',P[typ].source,yy,True),('MPN',item['mpn'],yy,True)]:
                 out+=f'(property {q(key)} {q(val)} (at {xx} {pos} 0) {effects(1)}'+(' (hide yes)' if hide else '')+')'
             for number in pins:out+=f'(pin {q(number)} (uuid {q(uid(ref+":"+number))}))'
             out+=f'(instances (project {q(NAME)} (path {q("/"+rootid+"/"+sid)} (reference {q(ref)}) (unit 1)))))'

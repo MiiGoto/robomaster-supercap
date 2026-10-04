@@ -1,6 +1,26 @@
 (kicad_symbol_lib
   (version 20231120)
   (generator "kicad_symbol_editor")
+  (symbol "AQZ202G"
+    (pin_names (offset 0.5))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Value" "AQZ202G" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Footprint" "" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Datasheet" "https://industry.panasonic.com/ac/cdn/e/control/relay/photomos/catalog/semi_eng_pwr1a_aqz10_20.pdf"
+      (at 0 0 0)
+      (effects (font (size 1 1)))
+      (hide yes)
+    )
+    (symbol "AQZ202G_0_1" (rectangle (start -12 -5) (end 12 5) (stroke (width 0.254) (type default)) (fill (type background))))
+    (symbol "AQZ202G_1_1"
+      (pin passive line (at -15.24 1.27 0) (length 3.24) (name "LED_M" (effects (font (size 0.8 0.8)))) (number "1" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at -15.24 -1.27 0) (length 3.24) (name "LED_P" (effects (font (size 0.8 0.8)))) (number "2" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at 15.24 1.27 180) (length 3.24) (name "ACDC_A" (effects (font (size 0.8 0.8)))) (number "3" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at 15.24 -1.27 180) (length 3.24) (name "ACDC_B" (effects (font (size 0.8 0.8)))) (number "4" (effects (font (size 0.8 0.8)))))
+    )
+  )
   (symbol "BQ7694204PFBR"
     (pin_names (offset 0.5))
     (in_bom yes)
@@ -120,6 +140,38 @@
       (pin passive line (at 15.24 0.0 180) (length 3.24) (name "A" (effects (font (size 0.8 0.8)))) (number "2" (effects (font (size 0.8 0.8)))))
     )
   )
+  (symbol "DDR60L12"
+    (pin_names (offset 0.5))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Value" "DDR60L12" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Footprint" "" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Datasheet" "https://www.meanwell.com/Upload/PDF/DDR-60/DDR-60-SPEC.PDF" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (symbol "DDR60L12_0_1" (rectangle (start -12 -5.08) (end 12 5.08) (stroke (width 0.254) (type default)) (fill (type background))))
+    (symbol "DDR60L12_1_1"
+      (pin passive line (at -15.24 2.54 0) (length 3.24) (name "VO_M" (effects (font (size 0.8 0.8)))) (number "1" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at -15.24 0.0 0) (length 3.24) (name "VO_M" (effects (font (size 0.8 0.8)))) (number "2" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at -15.24 -2.54 0) (length 3.24) (name "VO_P" (effects (font (size 0.8 0.8)))) (number "3" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at 15.24 2.54 180) (length 3.24) (name "VO_P" (effects (font (size 0.8 0.8)))) (number "4" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at 15.24 0.0 180) (length 3.24) (name "VIN_P" (effects (font (size 0.8 0.8)))) (number "5" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at 15.24 -2.54 180) (length 3.24) (name "VIN_M" (effects (font (size 0.8 0.8)))) (number "6" (effects (font (size 0.8 0.8)))))
+    )
+  )
+  (symbol "DISCONNECT"
+    (pin_names (offset 0.5))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Value" "DISCONNECT" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Footprint" "" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Datasheet" "https://www.bluesea.com/products/compare/6004/6004200/6005200/6006/6006200" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (symbol "DISCONNECT_0_1" (rectangle (start -12 -5) (end 12 5) (stroke (width 0.254) (type default)) (fill (type background))))
+    (symbol "DISCONNECT_1_1"
+      (pin passive line (at -15.24 0.0 0) (length 3.24) (name "COM" (effects (font (size 0.8 0.8)))) (number "1" (effects (font (size 0.8 0.8)))))
+      (pin passive line (at 15.24 0.0 180) (length 3.24) (name "SWITCHED" (effects (font (size 0.8 0.8)))) (number "2" (effects (font (size 0.8 0.8)))))
+    )
+  )
   (symbol "FUSE"
     (pin_names (offset 0.5))
     (in_bom yes)
@@ -127,7 +179,7 @@
     (property "Reference" "U" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
     (property "Value" "FUSE" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
     (property "Footprint" "" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
-    (property "Datasheet" "https://www.littelfuse.com/products/fuses-overcurrent-protection/fuses/automotive-passenger-car/blade-fuses/atof.aspx"
+    (property "Datasheet" "https://www.littelfuse.com/assetdocs/littelfuse-datasheet-997-mini58v?assetguid=838cc4ad-f429-4185-a8e8-ccc70cd2b713"
       (at 0 0 0)
       (effects (font (size 1 1)))
       (hide yes)
@@ -700,7 +752,7 @@
     (on_board yes)
     (property "Reference" "U" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
     (property "Value" "WSK25123L000FEA" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
-    (property "Footprint" "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
+    (property "Footprint" "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
     (property "Datasheet" "https://www.vishay.com/docs/30108/wsk2512.pdf" (at 0 0 0) (effects (font (size 1 1))) (hide yes))
     (symbol "WSK25123L000FEA_0_1" (rectangle (start -12 -5) (end 12 5) (stroke (width 0.254) (type default)) (fill (type background))))
     (symbol "WSK25123L000FEA_1_1"
