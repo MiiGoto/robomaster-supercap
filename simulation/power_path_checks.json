@@ -1,0 +1,37 @@
+[
+  {
+    "net": "BUS_LINK_IN",
+    "required_pads": 2,
+    "passed": true
+  },
+  {
+    "net": "CAP_LINK_IN",
+    "required_pads": 2,
+    "passed": true
+  },
+  {
+    "net": "BUS_LINK",
+    "required_pads": 14,
+    "passed": true
+  },
+  {
+    "net": "CAP_LINK",
+    "required_pads": 14,
+    "passed": true
+  },
+  {
+    "net": "SW_NODE_A",
+    "required_pads": 9,
+    "passed": true
+  },
+  {
+    "net": "SW_NODE_B",
+    "required_pads": 9,
+    "passed": true
+  },
+  {
+    "net": "IL_TO_L",
+    "required_pads": 2,
+    "passed": true
+  }
+]

@@ -3,82 +3,83 @@
   "mounting_holes": 4,
   "pad_net_matches": 1478,
   "copper_layers": 4,
-  "track_objects": 929,
-  "via_objects": 213,
+  "track_objects": 1304,
+  "via_objects": 632,
   "zones": 2,
   "keepouts": 5,
   "drc_errors": 0,
   "drc_warnings": 0,
   "drc_unrouted_report_items": 499,
-  "unrouted": 935,
+  "unrouted": 610,
   "schematic_parity": 0,
   "drc_types": {},
   "power_nets": {
     "BUS_LINK": {
-      "length_mm": 5.02461507501237,
-      "vias": 0,
-      "min_width_mm": 2.0316,
+      "length_mm": 193.872501,
+      "vias": 32,
+      "min_width_mm": 0.2,
       "layers": [
-        "F.Cu"
+        "F.Cu",
+        "B.Cu"
       ]
     },
     "BUS_LINK_IN": {
-      "length_mm": 35.70747629959006,
-      "vias": 0,
-      "min_width_mm": 2.0316,
+      "length_mm": 16.428042199758558,
+      "vias": 6,
+      "min_width_mm": 2.0,
       "layers": [
-        "F.Cu"
+        "B.Cu"
       ]
     },
     "CAP_LINK": {
-      "length_mm": 17.54133934163197,
-      "vias": 0,
-      "min_width_mm": 2.0316,
+      "length_mm": 191.7725,
+      "vias": 32,
+      "min_width_mm": 0.2,
       "layers": [
-        "F.Cu"
+        "F.Cu",
+        "B.Cu"
       ]
     },
-    "CAP_LINK_IN": {},
-    "IL_TO_L": {
-      "length_mm": 11.28455410846827,
-      "vias": 0,
-      "min_width_mm": 2.0316,
+    "CAP_LINK_IN": {
+      "length_mm": 63.60185424949238,
+      "vias": 6,
+      "min_width_mm": 2.0,
       "layers": [
-        "F.Cu"
+        "F.Cu",
+        "B.Cu"
+      ]
+    },
+    "IL_TO_L": {
+      "length_mm": 23.38455310846827,
+      "vias": 18,
+      "min_width_mm": 2.0,
+      "layers": [
+        "B.Cu"
       ]
     },
     "SW_NODE_A": {
-      "length_mm": 18.55282316579248,
-      "vias": 2,
-      "min_width_mm": 1.0268,
+      "length_mm": 97.06882182564568,
+      "vias": 23,
+      "min_width_mm": 0.2,
       "layers": [
         "F.Cu",
+        "B.Cu"
+      ]
+    },
+    "SW_NODE_B": {
+      "length_mm": 101.95638903797207,
+      "vias": 30,
+      "min_width_mm": 0.2,
+      "layers": [
+        "F.Cu",
+        "B.Cu",
         "In2.Cu"
       ]
-    },
-    "SW_NODE_B": {}
+    }
   },
   "kelvin_nets": {
-    "IL_KELVIN_M": {
-      "length_mm": 29.339400746116077,
-      "vias": 2,
-      "min_width_mm": 0.25,
-      "layers": [
-        "F.Cu",
-        "In1.Cu"
-      ]
-    },
     "IL_KELVIN_P": {
       "length_mm": 44.235187796049956,
-      "vias": 2,
-      "min_width_mm": 0.25,
-      "layers": [
-        "F.Cu",
-        "In1.Cu"
-      ]
-    },
-    "BUS_KELVIN_M": {
-      "length_mm": 31.265363731419452,
       "vias": 2,
       "min_width_mm": 0.25,
       "layers": [
@@ -95,17 +96,8 @@
         "In1.Cu"
       ]
     },
-    "CAP_KELVIN_M": {
-      "length_mm": 21.65971392087293,
-      "vias": 2,
-      "min_width_mm": 0.25,
-      "layers": [
-        "F.Cu",
-        "In1.Cu"
-      ]
-    },
     "CAP_KELVIN_P": {
-      "length_mm": 28.96921187704242,
+      "length_mm": 28.968575603903982,
       "vias": 2,
       "min_width_mm": 0.25,
       "layers": [

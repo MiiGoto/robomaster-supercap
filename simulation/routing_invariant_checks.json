@@ -1,0 +1,6 @@
+{
+  "connected_power_groups": 7,
+  "broken_inductor_path_rejected": true,
+  "unconnected_ground_exclusion_rejected": true,
+  "scope": "Independent native CAD connectivity invariants; no hardware performance claim."
+}
