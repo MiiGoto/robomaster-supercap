@@ -1,3 +1,9 @@
+# Routing checkpoint — 2026-10-04
+
+**Routing incomplete.** 保存したPCBは電力7ネットの全パッド接続と、局所GND/一部信号配線を追加したcheckpoint。native未接続 **610本**（239 nets）、寸法・間隔DRC **0 errors/0 warnings**、schematic parity0。元の935本から325本を解消したが、配線完成/製造/通電/性能保証は意味しない。
+
+現在の結果と残りを[配線作業記録](pcb_routing_completion.md)で確認する。以下は以前の経緯を含む。
+
 # Approved fine-pitch clearance — 2026-10-04
 
 ユーザーが同一fine-pitch部品内のパッド間0.15 mm、その他0.20 mm以上を明示承認した。39個の対象ICに同一referenceのPad/Pad例外を設定し、一般銅箔間隔0.20 mmを明示維持した。projectのhard floor0.15 mmは例外を許容するためで、一般ruleを0.15 mmへ緩めてはいない。
