@@ -1,3 +1,5 @@
+Current selection limits/assembly results are in rev_a_limits_results.md;12A rows below retain the accepted future design goal.
+
 # Prototype Rev A selected-candidate calculations
 
 ASSUMPTION — MUST VERIFY ON PROTOTYPE. CSD18540Q5B, XAL1510-223MED22uH,
@@ -40,14 +42,14 @@ At22.05V rest ceiling this model stops charge; cell limits can stop earlier. Pow
 
 ## Sanity checks and proposed setting arithmetic
 
-- Local-link precharge100R/470uF/26V: I0=0.260A, P0=6.760W, resistor energy=0.15886J, t95=0.14080s. Loads ignored.
+- Local-link precharge100R/6x470uF/26V: I0=0.260A, P0=6.760W, resistor energy=0.95316J, t95=0.84480s. Loads ignored.
 - Dump100R, +30%C: initial=4.862W, energy to1V=1752.120J, ideal time=2234.1s.1V is only proposed inspection/service investigation target.
 - Permanent10k bleed +30%C: initial=0.04862W, time to1V=62.06h; OFF is not safe.
 - Available nominal ideal useful energy950.5625J; +30%C1235.73125J. Stored total at22.05V1350.5625J nominal. External dump thermally rated separately.
 - 12A cell-bank ESR loss=25.92W initially; 2x aging51.84W.1s/30s pulse-only mean=0.864/1.728W, excludes normal current and all other losses.
 - WSK2512 1W70C rating is board/ambient dependent.3mR at12A=0.432W; modeled IL RMS≈12.02A gives≈0.433W. Pulse/derating are not yet accepted.
-- IL comparator nominal threshold3.3*10k/(29.4k+10k)=0.83756V -> 13.9594A with gain20/3mR. Not coordinated maximum fault current.
-- Port INA293A1/TLV3202 thresholds: BUS3.3*10/68.7/0.06=8.006A; CAP3.3*10/39.4/0.06=13.959A. Tolerance/offset/delay/overshoot unbudgeted; INA301 rejected for40V absmax versus45.4V TVS clamp.
+- IL comparator nominal threshold3.288*10k/(35.7k+10k) -> 11.9912A with gain20/3mR. Not coordinated maximum fault current.
+- Port INA293A1/TLV3202 thresholds: BUS3.3*10/68.7/0.06=8.006A; CAP3.288*10/45.7/0.06=11.991A. See rev_a_limits_results.md for±7% provisional allowance and0.5us required clearing; INA301 rejected for40V absmax versus45.4V TVS clamp.
 - Independent TLV4311.24V reference: bus OV221k/10k ->28.644V; bus UV154k/10k ->20.336V; bank OV172k/10k ->22.568V nominal. These are hardware backup proposals, distinct from operating window.
 - Loaded voltage dividers including100k ADC drain: bus36V->2.46555V; cap24.3V->2.13798V. Clamp2.7V plus diode drop/mux3.6V need transient test.2uA off-leakage *100k=0.2V proposed bound.
 - Current midscale1.65V: BUSgain50 +-8A->0.45..2.85V; CAP/ILgain20 +-20A->0.45..2.85V; ideal12-bit steps5.37/13.43mA. Actual clamp/swing can reduce range.

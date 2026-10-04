@@ -34,18 +34,18 @@ def report():
             assert abs(ch['input_w']-ch['stored_power_w']-ch['esr_loss_w']-ch['converter_loss_w'])<1e-9
             lines.append(f'| {bv}/{cv} | {ch["input_w"]:.3f} | {ch["bus_a"]:.3f} | {ch["cap_a"]:.3f} | {ch["stored_power_w"]:.3f} | {ch["esr_loss_w"]:.3f} | {ch["converter_loss_w"]:.3f} |')
     lines+=['','At22.05V rest ceiling this model stops charge; cell limits can stop earlier. Power conservation checked in W, signed capacitor charging current is negative.','']
-    p=precharge(26,470e-6,100)
+    p=precharge(26,6*470e-6,100)
     d=bleed(BANKS[0].c_f*1.3,22.05,1,100)
     slow=bleed(BANKS[0].c_f*1.3,22.05,1,10000)
     lines+=['','## Sanity checks and proposed setting arithmetic','',
-      f'- Local-link precharge100R/470uF/26V: I0={p["initial_a"]:.3f}A, P0={p["initial_w"]:.3f}W, resistor energy={p["resistor_energy_j"]:.5f}J, t95={p["time_s"]:.5f}s. Loads ignored.',
+      f'- Local-link precharge100R/6x470uF/26V: I0={p["initial_a"]:.3f}A, P0={p["initial_w"]:.3f}W, resistor energy={p["resistor_energy_j"]:.5f}J, t95={p["time_s"]:.5f}s. Loads ignored.',
       f'- Dump100R, +30%C: initial={d["initial_w"]:.3f}W, energy to1V={d["dissipated_j"]:.3f}J, ideal time={d["time_s"]:.1f}s.1V is only proposed inspection/service investigation target.',
       f'- Permanent10k bleed +30%C: initial={slow["initial_w"]:.5f}W, time to1V={slow["time_s"]/3600:.2f}h; OFF is not safe.',
       '- Available nominal ideal useful energy950.5625J; +30%C1235.73125J. Stored total at22.05V1350.5625J nominal. External dump thermally rated separately.',
       '- 12A cell-bank ESR loss=25.92W initially; 2x aging51.84W.1s/30s pulse-only mean=0.864/1.728W, excludes normal current and all other losses.',
       '- WSK2512 1W70C rating is board/ambient dependent.3mR at12A=0.432W; modeled IL RMS≈12.02A gives≈0.433W. Pulse/derating are not yet accepted.',
-      f'- IL comparator nominal threshold3.3*10k/(29.4k+10k)=0.83756V -> {3.3*10/39.4/.06:.4f}A with gain20/3mR. Not coordinated maximum fault current.',
-      '- Port INA293A1/TLV3202 thresholds: BUS3.3*10/68.7/0.06=8.006A; CAP3.3*10/39.4/0.06=13.959A. Tolerance/offset/delay/overshoot unbudgeted; INA301 rejected for40V absmax versus45.4V TVS clamp.',
+      f'- IL comparator nominal threshold3.288*10k/(35.7k+10k) -> {3.288*10/45.7/.06:.4f}A with gain20/3mR. Not coordinated maximum fault current.',
+      '- Port INA293A1/TLV3202 thresholds: BUS3.3*10/68.7/0.06=8.006A; CAP3.288*10/45.7/0.06=11.991A. See rev_a_limits_results.md for±7% provisional allowance and0.5us required clearing; INA301 rejected for40V absmax versus45.4V TVS clamp.',
       '- Independent TLV4311.24V reference: bus OV221k/10k ->28.644V; bus UV154k/10k ->20.336V; bank OV172k/10k ->22.568V nominal. These are hardware backup proposals, distinct from operating window.',
       f'- Loaded voltage dividers including100k ADC drain: bus36V->{36/(1+66000/(1/(1/5100+1/100000))):.5f}V; cap24.3V->{24.3/(1+66000/(1/(1/6800+1/100000))):.5f}V. Clamp2.7V plus diode drop/mux3.6V need transient test.2uA off-leakage *100k=0.2V proposed bound.',
       '- Current midscale1.65V: BUSgain50 +-8A->0.45..2.85V; CAP/ILgain20 +-20A->0.45..2.85V; ideal12-bit steps5.37/13.43mA. Actual clamp/swing can reduce range.',
@@ -58,6 +58,6 @@ def report():
     return '\n'.join(lines)
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--write-report',action='store_true');args=parser.parse_args()
-    result=report()
+    result="Current selection limits/assembly results are in rev_a_limits_results.md;12A rows below retain the accepted future design goal.\n\n"+report()
     if args.write_report:Path(__file__).with_name('rev_a_results.md').write_text(result,encoding='utf-8')
     else:print(result)
