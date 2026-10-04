@@ -1,0 +1,32 @@
+[
+  {
+    "case": "fine_015",
+    "clearance_violations": 0,
+    "passed": true
+  },
+  {
+    "case": "fine_014",
+    "clearance_violations": 1,
+    "passed": true
+  },
+  {
+    "case": "other_019",
+    "clearance_violations": 1,
+    "passed": true
+  },
+  {
+    "case": "other_020",
+    "clearance_violations": 0,
+    "passed": true
+  },
+  {
+    "case": "cross_package_019",
+    "clearance_violations": 1,
+    "passed": true
+  },
+  {
+    "case": "pad_track_019",
+    "clearance_violations": 1,
+    "passed": true
+  }
+]

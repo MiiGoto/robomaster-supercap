@@ -7,14 +7,12 @@
   "via_objects": 213,
   "zones": 2,
   "keepouts": 5,
-  "drc_errors": 218,
+  "drc_errors": 0,
   "drc_warnings": 0,
   "drc_unrouted_report_items": 499,
   "unrouted": 935,
   "schematic_parity": 0,
-  "drc_types": {
-    "clearance": 218
-  },
+  "drc_types": {},
   "power_nets": {
     "BUS_LINK": {
       "length_mm": 5.02461507501237,

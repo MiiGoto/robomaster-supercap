@@ -1,3 +1,13 @@
+# Approved fine-pitch clearance — 2026-10-04
+
+ユーザーが同一fine-pitch部品内のパッド間0.15 mm、その他0.20 mm以上を明示承認した。39個の対象ICに同一referenceのPad/Pad例外を設定し、一般銅箔間隔0.20 mmを明示維持した。projectのhard floor0.15 mmは例外を許容するためで、一般ruleを0.15 mmへ緩めてはいない。
+
+独立DRCテスト6件PASS：対象内0.15 mmは許容、0.14 mmは検出、非対象/別部品/pad-to-trackの0.19 mmは検出、非対象0.20 mmは許容。現行PCBの寸法・間隔DRC0 errors/0 warnings、schematic parity0。未配線はCLI報告499件／全ratsnest935本のままで、配線完成や製造承認を意味しない。
+
+以前の自動承認拒否と218件の違反記録は以下に履歴として保持する。
+
+## Historical records before this approval
+
 # Prototype Rev A PCB engineering work
 
 2026-10-04 JST. The user authorized placement/routing **without prior surge, OC latency, fuse/contactor, thermal or discharge measurements**. These are retained as assumptions and unmeasured validation items, not prerequisites for CAD work. Fabrication, energizing, guaranteed120 W operation and competition compliance are not asserted.

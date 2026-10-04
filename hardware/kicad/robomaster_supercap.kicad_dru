@@ -1,3 +1,120 @@
 (version 1)
-# Preserve the existing 0.20mm minimum. Fine-pitch library pads that violate
-# this remain reported defects; no rule exclusion or marker hides them.
+# User explicitly approved 2026-10-04: fine-pitch pads0.15mm;all others>=0.20mm.
+(rule "Rev A default copper spacing" (constraint clearance (min 0.20mm)))
+(rule "U7 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U7') && B.memberOfFootprint('U7')")
+  (constraint clearance (min 0.15mm)))
+(rule "U8 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U8') && B.memberOfFootprint('U8')")
+  (constraint clearance (min 0.15mm)))
+(rule "U29 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U29') && B.memberOfFootprint('U29')")
+  (constraint clearance (min 0.15mm)))
+(rule "U34 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U34') && B.memberOfFootprint('U34')")
+  (constraint clearance (min 0.15mm)))
+(rule "U35 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U35') && B.memberOfFootprint('U35')")
+  (constraint clearance (min 0.15mm)))
+(rule "U36 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U36') && B.memberOfFootprint('U36')")
+  (constraint clearance (min 0.15mm)))
+(rule "U37 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U37') && B.memberOfFootprint('U37')")
+  (constraint clearance (min 0.15mm)))
+(rule "U38 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U38') && B.memberOfFootprint('U38')")
+  (constraint clearance (min 0.15mm)))
+(rule "U39 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U39') && B.memberOfFootprint('U39')")
+  (constraint clearance (min 0.15mm)))
+(rule "U40 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U40') && B.memberOfFootprint('U40')")
+  (constraint clearance (min 0.15mm)))
+(rule "U43 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U43') && B.memberOfFootprint('U43')")
+  (constraint clearance (min 0.15mm)))
+(rule "U44 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U44') && B.memberOfFootprint('U44')")
+  (constraint clearance (min 0.15mm)))
+(rule "U45 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U45') && B.memberOfFootprint('U45')")
+  (constraint clearance (min 0.15mm)))
+(rule "U46 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U46') && B.memberOfFootprint('U46')")
+  (constraint clearance (min 0.15mm)))
+(rule "U47 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U47') && B.memberOfFootprint('U47')")
+  (constraint clearance (min 0.15mm)))
+(rule "U48 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U48') && B.memberOfFootprint('U48')")
+  (constraint clearance (min 0.15mm)))
+(rule "U49 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U49') && B.memberOfFootprint('U49')")
+  (constraint clearance (min 0.15mm)))
+(rule "U50 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U50') && B.memberOfFootprint('U50')")
+  (constraint clearance (min 0.15mm)))
+(rule "U51 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U51') && B.memberOfFootprint('U51')")
+  (constraint clearance (min 0.15mm)))
+(rule "U52 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U52') && B.memberOfFootprint('U52')")
+  (constraint clearance (min 0.15mm)))
+(rule "U53 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U53') && B.memberOfFootprint('U53')")
+  (constraint clearance (min 0.15mm)))
+(rule "U54 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U54') && B.memberOfFootprint('U54')")
+  (constraint clearance (min 0.15mm)))
+(rule "U55 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U55') && B.memberOfFootprint('U55')")
+  (constraint clearance (min 0.15mm)))
+(rule "U56 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U56') && B.memberOfFootprint('U56')")
+  (constraint clearance (min 0.15mm)))
+(rule "U57 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U57') && B.memberOfFootprint('U57')")
+  (constraint clearance (min 0.15mm)))
+(rule "U58 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U58') && B.memberOfFootprint('U58')")
+  (constraint clearance (min 0.15mm)))
+(rule "U59 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U59') && B.memberOfFootprint('U59')")
+  (constraint clearance (min 0.15mm)))
+(rule "U60 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U60') && B.memberOfFootprint('U60')")
+  (constraint clearance (min 0.15mm)))
+(rule "U61 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U61') && B.memberOfFootprint('U61')")
+  (constraint clearance (min 0.15mm)))
+(rule "U62 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U62') && B.memberOfFootprint('U62')")
+  (constraint clearance (min 0.15mm)))
+(rule "U63 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U63') && B.memberOfFootprint('U63')")
+  (constraint clearance (min 0.15mm)))
+(rule "U65 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U65') && B.memberOfFootprint('U65')")
+  (constraint clearance (min 0.15mm)))
+(rule "U66 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U66') && B.memberOfFootprint('U66')")
+  (constraint clearance (min 0.15mm)))
+(rule "U67 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U67') && B.memberOfFootprint('U67')")
+  (constraint clearance (min 0.15mm)))
+(rule "U68 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U68') && B.memberOfFootprint('U68')")
+  (constraint clearance (min 0.15mm)))
+(rule "U69 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U69') && B.memberOfFootprint('U69')")
+  (constraint clearance (min 0.15mm)))
+(rule "U70 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U70') && B.memberOfFootprint('U70')")
+  (constraint clearance (min 0.15mm)))
+(rule "U71 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U71') && B.memberOfFootprint('U71')")
+  (constraint clearance (min 0.15mm)))
+(rule "U72 internal fine-pitch pads"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('U72') && B.memberOfFootprint('U72')")
+  (constraint clearance (min 0.15mm)))

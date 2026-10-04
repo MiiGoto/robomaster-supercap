@@ -3,7 +3,13 @@
     "filename": "robomaster_supercap.kicad_pro",
     "version": 1
   },
-  "board": {},
+  "board": {
+    "design_settings": {
+      "rules": {
+        "min_clearance": 0.15
+      }
+    }
+  },
   "schematic": {},
   "net_settings": {
     "classes": [],
