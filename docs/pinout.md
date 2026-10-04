@@ -1,3 +1,7 @@
+# Prototype Rev A — 2026-10-04 delegated decisions
+
+ユーザーの委任に基づき、セル監視RAM設定・exact passive選定・外部ベンチ遮断アセンブリ・保護/熱/放電検証基準を[現行選定書](rev_a_design_freeze.md)へ確定した。選定はPrototype Assumption、実測検証は未実施。平均cap電流の初期上限9.5 A、OC約12 A、目標遮断0.5 µs、各link bulk6×470 µF、precharge timeout3 s。12 A/120 Wは後続の検証目標として保持。PCB placement/通電は開始しない。以下の2026-10-03以前の未選定表示は経緯記録であり、この選定書が優先する。
+
 # Prototype Rev A physical pinout
 
 2026-10-03. STM32G474RET6/LQFP64. Pin numbers and AF functions checked against ST DS12288 Table12/13 and manufacturer package data. This is a schematic allocation, not firmware or PCB completion. VDD3.3V; analog0..3.3V only. HSI clock provisional. **PB8 is also BOOT0: nSWBOOT0/nBOOT0 option-bit policy must force flash boot before use; CAN idle HIGH cannot serve as a LOW boot strap.** PG10 option must enable NRST. Option programming is not implemented.
@@ -84,7 +88,7 @@ Original box symbols are maintained in tools/rev_a_parts.py; numbers are physica
 | UCC27282DRCR | 1:VDD, 2:NC, 3:HB, 4:HO, 5:HS, 6:EN, 7:HI, 8:LI, 9:VSS, 10:LO, 11:EP | Package_SON:VSON-10-1EP_3x3mm_P0.5mm_EP1.65x2.4mm |
 | INA240A1D | 1:INM, 2:GND, 3:REF2, 4:NC, 5:OUT, 6:VS, 7:REF1, 8:INP | Package_SO:SOIC-8_3.9x4.9mm_P1.27mm |
 | INA240A2D | 1:INM, 2:GND, 3:REF2, 4:NC, 5:OUT, 6:VS, 7:REF1, 8:INP | Package_SO:SOIC-8_3.9x4.9mm_P1.27mm |
-| WSK25123L000FEA | 1:I_P, 2:K_P, 3:K_M, 4:I_M | Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm |
+| WSK25123L000FEA | 1:I_P, 2:K_P, 3:K_M, 4:I_M | Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm |
 | INA293A1DBVR | 1:OUT, 2:GND, 3:INP, 4:INM, 5:VS | Package_TO_SOT_SMD:SOT-23-5 |
 | INA301A1DGKR | 1:VS, 2:OUT, 3:LIMIT, 4:GND, 5:RESET, 6:ALERT_N, 7:INM, 8:INP | Package_SO:VSSOP-8_3x3mm_P0.65mm |
 | TLV3202DGKR | 1:OUT1, 2:INM1, 3:INP1, 4:GND, 5:INP2, 6:INM2, 7:OUT2, 8:VCC | Package_SO:VSSOP-8_3x3mm_P0.65mm |
@@ -101,3 +105,14 @@ Original box symbols are maintained in tools/rev_a_parts.py; numbers are physica
 | CONTACT | 1:COM, 2:NO, 3:COIL_P, 4:COIL_M | external / TBD |
 
 CSD18540 functional1=S physical package leads1/2/3; functional2=G lead4; functional3=D leads5/6/7/8 and drain metal. KiCad VSONP footprint groups these as1/2/3; **not literal manufacturer 8-pin numbering**. WSK2512 grouped1=I+,2=Kelvin+,3=Kelvin−,4=I−; inspect terminal view and PCB current direction before routing. UCC27282 EP11 and LM5164 EP9 are ground; thermal-pad solder and vias need PCB review. BQ76942 physical48=VC10,2=VC9; VC9/VC8 short is deliberate unused-channel handling, not a missing ninth cell.
+
+## External selected-module physical pin supplement
+
+| Module | Manufacturer terminal mapping | PCB land |
+|---|---|---|
+| AQZ202G |1 LED−,2 LED+,3/4 AC/DC load|External,no PCB footprint|
+| DDR-60L-12 |1/2 −Vo,3/4 +Vo,5 +Vin,6 −Vin|External DIN module|
+
+PRE_BUS_FB/ PRE_CAP_FB are reserved inputs pulled LOW;SSR conduction is inferred from raw/link voltage progression,not an invented auxiliary contact. Existing64-pin MCU allocation is unchanged.
+
+AEV14012 main-contact FB headers are also reserved diagnostic inputs,default LOW;the selected contactor has no intrinsic auxiliary feedback. Firmware must not interpret an unconnected pin as closed-contact proof. Raw/link ADC progression,current response and independently inspected isolation establish behavior;welded-contact fault tests remain required.

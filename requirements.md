@@ -1,3 +1,7 @@
+# Prototype Rev A — 2026-10-04 delegated decisions
+
+ユーザーの委任に基づき、セル監視RAM設定・exact passive選定・外部ベンチ遮断アセンブリ・保護/熱/放電検証基準を[現行選定書](docs/rev_a_design_freeze.md)へ確定した。選定はPrototype Assumption、実測検証は未実施。平均cap電流の初期上限9.5 A、OC約12 A、目標遮断0.5 µs、各link bulk6×470 µF、precharge timeout3 s。12 A/120 Wは後続の検証目標として保持。PCB placement/通電は開始しない。以下の2026-10-03以前の未選定表示は経緯記録であり、この選定書が優先する。
+
 # Prototype Rev A — current status
 
 2026-10-03 JST。**Current: Prototype Rev A schematic only.** Task2 architectureはユーザー採用承認済み。実機条件未確認は[Prototype envelope](docs/prototype_rev_a_envelope.md)に明示した **ASSUMPTION — MUST VERIFY ON PROTOTYPE** として隔離し、詳細electrical schematicを作成した。部品/保護閾値はprototype候補で性能保証ではない。[現行review](docs/rev_a_schematic_review.md)と[pinout](docs/pinout.md)が現在の設計記録。PCB placement/routing、firmware、通電、120W使用許可、競技適合、Task4開始は未承認。以下の旧status/approval pending/skeleton-only記述はhistorical recordであり現在statusではない。
@@ -6,16 +10,16 @@
 
 | Item | Current decision | Status |
 |---|---|---|
-| Rules |2026 RMUL; previous source editions retained below; event supplement/Engineer eligibility review required | Confirmed target / applicability TBD |
-| Bank |9S50F, Ceq5.5556F, useful12–22.05V | Confirmed adopted goal / product implementation Assumption |
-| Bus |22–26V,24V nominal; investigate36V surge headroom | Assumption, terminal waveform TBD |
-| Power/current |40W charge input,80/120W assist requests,8/12A cap average targets | Confirmed goals / performance and thermal TBD |
-| Topology/MCU |4-switch bidirectional buck-boost / G474RE LQFP64 | Confirmed architecture / schematic implemented, not validated |
-| Switching / L / MOSFET |200kHz primary,180–200 exploration;22µH XAL1510-223 /CSD18540Q5B | Prototype selection Assumption |
-| Sensing / OC |3mΩ Kelvin bus/cap/IL, INA240 signed; INA293 opposing pairs/TLV3202 hardware kill | Schematic implemented / delay and thresholds TBD |
-| Cells |BQ7694204 SPI/CRC / switched passive / autonomous OV permits | Prototype candidate; supercap configuration NOT implemented |
-| Precharge/discharge |100Ω local470µF paths + NO bypass;10k bleed +100Ω thermal-qualified dump + service meter | Assumption / assembly, pulse, discharge acceptance TBD |
-| Isolation |External source/bank NO contacts + fuse candidates | Assembly supply, DC interruption and fuse coordination TBD; no fabrication release |
+| Rules |2026 RMUL,prior source editions;event supplement applicability remains open |Confirmed target / eligibility TBD|
+| Bank |9S SCCV40B506SRB50F;Ceq5.5556F;rest12–22.05V;cell normal2.45V,COV2.530V |Adopted goals / Prototype selection|
+| Bus |22–26V;surge investigation36V,measured VDS<=48V and reviewed SOA |Prototype Assumption / waveform TBD|
+| Power/current |40W charge,80/120W assist requests;normal8A,initial peak-average9.5A;12A future goal |Adopted goals / capability TBD|
+| Converter/MCU |Four-switch bidirectional buck-boost,G474RE/LQFP64,200kHz/22uH |Approved architecture / schematic only|
+| Sensing/OC |Three3mR WSK2512 Kelvin,INA240 signed,INA293/TLV3202;cap/IL~12A;0.5us clearing required |Concrete schematic / actual response TBD|
+| Cell monitor |BQ7694204,39-entryRAM profile,SPI CRC,9S0x02FF,COV/CUV,active-low-fault permits,host-only trim |Selected configuration / NOT programmed|
+| Link/precharge |Each6×EEUFR1J471,100R HS25+AQZ202G,NO AEV bypass,3s timeout |Prototype selection / inrush test TBD|
+| Discharge |10k bleed,100R HS25 dump/service;40min to1V target pluscell/rebound/energy checks |Procedure target / measured time TBD|
+| External isolation |FourAEV14012,DDR-60L-12,MINI99758V fuses+0FHM holders;manual disconnect |Bench assembly selected / interruption coordination test TBD|
 
 Confirmed means adopted target or checked fact; **does not mean demonstrated capability**. Full-power gates remain surge/regen/source impedance, duty, heat, OC clearing, residual energy and isolation fault capability. Current MCU allocation is docs/pinout.md, overriding historical spare-count/pin plans.
 

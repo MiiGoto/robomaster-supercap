@@ -1,3 +1,27 @@
+# Prototype Rev A — 2026-10-04 selection validation
+
+Engineering selection is delegated;[current design freeze](rev_a_design_freeze.md) and [RAM profile](../firmware/config/bq76942_rev_a.json) supersede previous unselected-component gates. **No physical measurement,hardware programming,firmware,PCB placement or energizing was performed.**
+
+| Check | Current result | Limit |
+|---|---|---|
+| KiCad10.0.6 ERC,final selected schematic |**Errors0 / Warnings0** |Existing four rule exclusions unchanged;no No-ERC markers |
+| Actual exported netlist |495 non-flag components,343 nets,1504 intended pin/net entries |507 instances including12 flags;not an empty export |
+| Fault logic |27 independent inhibit drops,unarmed/reset,four PWM kills/contact reclosure prevention PASS |Boolean logic only;0.5us physical clearing requirement UNPROVEN |
+| Footprint pad audit |All assigned pad sets match;46 deliberate external components/interfaces without PCB land |External bank9cells,tap resistors,contactors/fuses/SSR/DDR/manual/service assembly are not onboard placement |
+| Key geometry audit |WSK3mR T2.21 power/Kelvin dimensions,bulk5mm pitch,MCU/BQ0.5mm pitch,driver main EP PASS |Does not establish paste,clearance,tolerance,thermal or manufacturing readiness |
+| Cell profile |39 RAM entries,widths/little-endian,mask0x02FF,SPI CRC,active-low-fault polarity,protection mapping/quantization PASS |Offline check,not live readback;FET_INIT_OFF/CP disable operation must be tested |
+| Physics |8 existing tests PASS;new RC/energy/ripple/OC-bound/current-corner assertions PASS |η90%,ESR,Lbias,hotRDS andswitching assumptions;no switching/thermal guarantee |
+| Publication |Original prose/code/MPNs/symbols/manifest only;manufacturer source PDFs/images ignored |No copied third-party assets;project license remains owner TBD |
+| User settings / PCB |Original SHA256 values below retained |.kicad_pro remains unstaged;empty PCB unchanged |
+
+Manual review:source/bank manual switches are not fault breakers;AEV contacts need fuse-clearing-before-separation verification at currents exceeding rated reverse interruption. DDR/coil branch has independent voltage windows. AQZ precharge off path is AC/DC;SSR and AEV devices must not be assigned invented auxiliary contacts. Header feedback pins are diagnostic interfaces;ADC progression/current observations and external isolation checks must establish actual behavior. DCHG/DDSG permits are healthy HIGH using0xA6;unconfigured/partial-power states remain startup inhibits. Source-side tap resistors are now actual external schematic elements. Service dump is independent of MCU auxiliary power. All six previously reviewed body-diode/failure conditions remain physical tests,not solved by ERC.
+
+Corrections:ATOF32V label replaced withMINI99758V and matching58V holder;AEV low-load precharge replaced withAQZ;separate DDR actuator supply and voltage windows added;coil freewheel replaced by bidirectional suppression;bulk ripple led to6capacitors/link and3s timeout;WSK3mR land corrected fromT1.19 toT2.21;E96 feedback now909k/174k (~12.108/3.288V);OC reduced to~12A andinitial average cap limit9.5A;monitor CP tied BAT and39-entry supercap RAM profile added. Historical12A design-goal sensitivity rows remain explicitly labeled as future-goal calculations.
+
+HS heatsink PDF retrieval returned403 in bounded attempts;manufacturer product/mechanical page retained,malformed web electrical table not treated as a verified thermal-rating table. Exact passive suffix inventory is a procurement check. Physical SOA/surge/ringing,OC delay/error/Lmin,contact/fuse/harness interruption,power sequencing,ADC off injection,monitor/tap fault tests,continuous/pulsed heat anddischarge/rebound remain unrun. **Task4 remains closed.**
+
+## Historical validation record — 2026-10-03
+
 # Prototype Rev A validation record
 
 2026-10-03 JST, schematic-only review. No physical prototype test, firmware execution, PCB placement, DRC change or performance acceptance.

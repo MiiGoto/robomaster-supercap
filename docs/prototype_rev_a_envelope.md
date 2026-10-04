@@ -1,3 +1,7 @@
+# Prototype Rev A — 2026-10-04 delegated decisions
+
+ユーザーの委任に基づき、セル監視RAM設定・exact passive選定・外部ベンチ遮断アセンブリ・保護/熱/放電検証基準を[現行選定書](rev_a_design_freeze.md)へ確定した。選定はPrototype Assumption、実測検証は未実施。平均cap電流の初期上限9.5 A、OC約12 A、目標遮断0.5 µs、各link bulk6×470 µF、precharge timeout3 s。12 A/120 Wは後続の検証目標として保持。PCB placement/通電は開始しない。以下の2026-10-03以前の未選定表示は経緯記録であり、この選定書が優先する。
+
 # Prototype Rev A envelope — schematic design assumptions
 
 2026-10-03 JST. Architecture adoption is approved by the user. This revision permits schematic work with explicit assumptions; it does not authorize energizing a prototype, full-power operation, PCB placement or a competition compliance claim. Earlier Task 3/4 holds on *schematic creation solely because physical conditions are unknown* are superseded by the current user instruction. Measurement and human review gates remain.

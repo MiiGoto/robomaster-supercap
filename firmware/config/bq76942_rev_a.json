@@ -1,0 +1,348 @@
+{
+  "status": "PROTOTYPE SELECTION - NOT PROGRAMMED OR VERIFIED ON HARDWARE",
+  "part": "BQ7694204PFBR",
+  "source": "https://www.ti.com/lit/ug/sluuby1b/sluuby1b.pdf",
+  "revision": "SLUUBY1B April2022",
+  "accessed": "2026-10-04",
+  "write_policy": "RAM only;no OTP burning or seal;read every configured byte back with SPI CRC before MON_CONFIG_VALID",
+  "startup_policy": [
+    "Keep MON_CONFIG_VALID LOW and ARM LOW throughout provisioning",
+    "Read device identity;confirm BQ7694204 SPI/CRC startup variant",
+    "Enter CONFIG_UPDATE;write each data-memory item with checksum/length per TRM;verify CRC readback",
+    "Exit CONFIG_UPDATE;SLEEP_DISABLE0x009A;FET_INIT_OFF keeps logical permits off",
+    "Check nine cell values,bank voltage,all independent NTCs and open-wire diagnosis",
+    "Send0x0096 ALL_FETS_ON only after all checks;this releases host block but does not override protection. Never FET test commands;FET_ENABLE toggles state so must not be issued blindly",
+    "Verify DCHG/DDSG healthy HIGH and fault LOW using cell simulator BEFORE any charged bank connection",
+    "Enable MON_CONFIG_VALID only after all checks;any CRC/config/mode failure clears it and hardware latch",
+    "Repeat provisioning after reset/power cycle;shutdown state high impedance must be pulled LOW externally"
+  ],
+  "balancing_policy": {
+    "host_only": true,
+    "maximum_simultaneous_cells": 1,
+    "maximum_command_interval_s": 1,
+    "bank_temperature_c": [
+      0,
+      40
+    ],
+    "minimum_cell_v": 2.3,
+    "start_delta_mv": 20,
+    "stop_delta_mv": 10,
+    "require_converter_off": true,
+    "require_all_measurements_valid": true,
+    "note": "Slow trim,not protection substitute;settle before cell samples;firmware not implemented"
+  },
+  "data_memory": [
+    {
+      "address": "0x9236",
+      "name": "REG12 Config",
+      "width": 1,
+      "value": 13,
+      "little_endian": "0d",
+      "intent": "REG1 3.3V enabled;REG2 disabled"
+    },
+    {
+      "address": "0x9237",
+      "name": "REG0 Config",
+      "width": 1,
+      "value": 1,
+      "little_endian": "01",
+      "intent": "BREG preregulator enabled"
+    },
+    {
+      "address": "0x9239",
+      "name": "Comm Type",
+      "width": 1,
+      "value": 16,
+      "little_endian": "10",
+      "intent": "SPI with CRC"
+    },
+    {
+      "address": "0x923C",
+      "name": "SPI Configuration",
+      "width": 1,
+      "value": 96,
+      "little_endian": "60",
+      "intent": "REG1 MISO drive,input filter enabled"
+    },
+    {
+      "address": "0x92FC",
+      "name": "ALERT Pin Config",
+      "width": 1,
+      "value": 130,
+      "little_endian": "82",
+      "intent": "Active-low alarm,tri-state high;external REG1 pull-up"
+    },
+    {
+      "address": "0x92FD",
+      "name": "TS1 Config",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Unused:external bank NTC uses independent hardware window"
+    },
+    {
+      "address": "0x92FE",
+      "name": "TS2 Config",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Unused"
+    },
+    {
+      "address": "0x92FF",
+      "name": "TS3 Config",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Unused"
+    },
+    {
+      "address": "0x9301",
+      "name": "DCHG Pin Config",
+      "width": 1,
+      "value": 166,
+      "little_endian": "a6",
+      "intent": "Active-low fault;REG1 high drive,weak pulldown;PIN_FXN2"
+    },
+    {
+      "address": "0x9302",
+      "name": "DDSG Pin Config",
+      "width": 1,
+      "value": 166,
+      "little_endian": "a6",
+      "intent": "Active-low fault;REG1 high drive,weak pulldown;PIN_FXN2"
+    },
+    {
+      "address": "0x9304",
+      "name": "Vcell Mode",
+      "width": 2,
+      "value": 767,
+      "little_endian": "ff02",
+      "intent": "Cells1..8+10;VC9 tied VC8"
+    },
+    {
+      "address": "0x9261",
+      "name": "Enabled Protections A",
+      "width": 1,
+      "value": 12,
+      "little_endian": "0c",
+      "intent": "COV and CUV only;SRP/SRN grounded,external fast OC mandatory"
+    },
+    {
+      "address": "0x9262",
+      "name": "Enabled Protections B",
+      "width": 1,
+      "value": 64,
+      "little_endian": "40",
+      "intent": "Internal monitor overtemperature"
+    },
+    {
+      "address": "0x9263",
+      "name": "Enabled Protections C",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "External watchdog and latch;no current-based BQ conditions"
+    },
+    {
+      "address": "0x9265",
+      "name": "CHG FET Protections A",
+      "width": 1,
+      "value": 24,
+      "little_endian": "18",
+      "intent": "TI fast DCHG mapping;OCC not enabled"
+    },
+    {
+      "address": "0x9266",
+      "name": "CHG FET Protections B",
+      "width": 1,
+      "value": 64,
+      "little_endian": "40",
+      "intent": "Internal overtemperature"
+    },
+    {
+      "address": "0x9267",
+      "name": "CHG FET Protections C",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Unused"
+    },
+    {
+      "address": "0x9269",
+      "name": "DSG FET Protections A",
+      "width": 1,
+      "value": 228,
+      "little_endian": "e4",
+      "intent": "TI fast DDSG mapping;SCD/OCD not enabled"
+    },
+    {
+      "address": "0x926A",
+      "name": "DSG FET Protections B",
+      "width": 1,
+      "value": 64,
+      "little_endian": "40",
+      "intent": "Internal overtemperature"
+    },
+    {
+      "address": "0x926B",
+      "name": "DSG FET Protections C",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Unused"
+    },
+    {
+      "address": "0x9308",
+      "name": "FET Options",
+      "width": 1,
+      "value": 44,
+      "little_endian": "2c",
+      "intent": "FET_INIT_OFF,HOST_FET_EN,FET_CTRL_EN;SFET off,current unknown"
+    },
+    {
+      "address": "0x9309",
+      "name": "Chg Pump Control",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Unused high-side drivers;CP1 tied BAT per low-side application note"
+    },
+    {
+      "address": "0x9314",
+      "name": "Open-wire Check Time",
+      "width": 1,
+      "value": 1,
+      "little_endian": "01",
+      "intent": "Periodic check every1s;harness validation mandatory"
+    },
+    {
+      "address": "0x9275",
+      "name": "CUV Threshold",
+      "width": 1,
+      "value": 24,
+      "little_endian": "18",
+      "intent": "24*50.6mV=1.2144V"
+    },
+    {
+      "address": "0x9276",
+      "name": "CUV Delay",
+      "width": 2,
+      "value": 1,
+      "little_endian": "0100",
+      "intent": "6.6ms+3.3ms*1~10ms"
+    },
+    {
+      "address": "0x927B",
+      "name": "CUV Recovery Hysteresis",
+      "width": 1,
+      "value": 2,
+      "little_endian": "02",
+      "intent": "101.2mV;external latch still requires manual rearm"
+    },
+    {
+      "address": "0x9278",
+      "name": "COV Threshold",
+      "width": 1,
+      "value": 50,
+      "little_endian": "32",
+      "intent": "50*50.6mV=2.530V"
+    },
+    {
+      "address": "0x9279",
+      "name": "COV Delay",
+      "width": 2,
+      "value": 1,
+      "little_endian": "0100",
+      "intent": "6.6ms+3.3ms*1~10ms"
+    },
+    {
+      "address": "0x927C",
+      "name": "COV Recovery Hysteresis",
+      "width": 1,
+      "value": 2,
+      "little_endian": "02",
+      "intent": "101.2mV;external latch still requires manual rearm"
+    },
+    {
+      "address": "0x92A3",
+      "name": "OTINT Threshold",
+      "width": 1,
+      "value": 80,
+      "little_endian": "50",
+      "intent": "80C monitor internal temperature"
+    },
+    {
+      "address": "0x92A4",
+      "name": "OTINT Delay",
+      "width": 1,
+      "value": 1,
+      "little_endian": "01",
+      "intent": "1s"
+    },
+    {
+      "address": "0x92A5",
+      "name": "OTINT Recovery",
+      "width": 1,
+      "value": 70,
+      "little_endian": "46",
+      "intent": "70C"
+    },
+    {
+      "address": "0x9335",
+      "name": "Balancing Configuration",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Host-only;no autonomous charge/relax detection with current pins grounded"
+    },
+    {
+      "address": "0x9336",
+      "name": "Min Cell Temp",
+      "width": 1,
+      "value": 0,
+      "little_endian": "00",
+      "intent": "Host additionally requires external bank temperature 0..40C"
+    },
+    {
+      "address": "0x9337",
+      "name": "Max Cell Temp",
+      "width": 1,
+      "value": 45,
+      "little_endian": "2d",
+      "intent": "Unused TS pins do not establish actual bank temperature"
+    },
+    {
+      "address": "0x9338",
+      "name": "Max Internal Temp",
+      "width": 1,
+      "value": 60,
+      "little_endian": "3c",
+      "intent": "Balance inhibited above60C chip internal temperature"
+    },
+    {
+      "address": "0x9339",
+      "name": "Cell Balance Interval",
+      "width": 1,
+      "value": 1,
+      "little_endian": "01",
+      "intent": "1s interval;at most one cell,then settle/sample"
+    },
+    {
+      "address": "0x933A",
+      "name": "Cell Balance Max Cells",
+      "width": 1,
+      "value": 1,
+      "little_endian": "01",
+      "intent": "One cell at a time"
+    },
+    {
+      "address": "0x9343",
+      "name": "Mfg Status Init",
+      "width": 2,
+      "value": 16,
+      "little_endian": "1000",
+      "intent": "Normal autonomous FET control;OTP writing disabled;no chemical fuse/PF engine;external latch remains mandatory"
+    }
+  ]
+}

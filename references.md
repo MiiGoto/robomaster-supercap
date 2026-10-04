@@ -100,3 +100,28 @@ Original symbols/circuits/code were authored for this project; no third-party PD
 | [SN74LV1T34 TI](https://www.ti.com/lit/ds/symlink/sn74lv1t34.pdf) | TI copyright |1.8→3.3V translation |BQ initial MISO translation |
 | [NTCLE100E3 Vishay](https://www.vishay.com/docs/29049/ntcle100.pdf) | Vishay copyright |10k/β3977 probe |3 independent hotspot paths and tunable trip windows |
 | [XAL1510 Coilcraft](https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf) | Coilcraft copyright |22/15µH ratings |200kHz candidate current calculation, no PCB copied |
+
+## Delegated Rev A selections — accessed2026-10-04
+
+Manufacturer sources below retain copyright;no reuse license assumed. Only original selection/configuration/calculation prose and factual part numbers are committed. No source PDF,image,schematic,library or PCB is copied. Author is the named manufacturer;differences are our9S supercap converter,external bench containment and prototype-only acceptance envelope.
+
+| Source / author | Reviewed evidence | Use / difference |
+|---|---|---|
+| [BQ76942 TRM,Texas Instruments](https://www.ti.com/lit/ug/sluuby1b/sluuby1b.pdf) |SLUUBY1B April2022:data-memory address/format,pin polarity,9S mask,50.6mV thresholds |Original39-entryRAM profile;not Li-ion defaults or copied firmware |
+| [Low-side FET application note,TI](https://www.ti.com/lit/an/sluaa84a/sluaa84a.pdf) |SLUAA84A:logical permits,FET_CTRL_EN,charge-pump disabled |External latch/PWM kill rather than external low-side pack FETs;CP tied BAT |
+| [DCHG/DDSG mapping FAQ,TI](https://e2e.ti.com/support/power-management-group/power-management/f/power-management-forum/1237508/faq-bq76952-do-the-dchg-and-ddsg-signals-on-the-bq769x2-follow-the-chg-and-dsg-fet-driver-pin-states) |Fast-output protection masks |Avoid undocumented250ms/1s mapping delays;still measure actual path |
+| [MINI99758V,Littelfuse](https://www.littelfuse.com/assetdocs/littelfuse-datasheet-997-mini58v?assetguid=838cc4ad-f429-4185-a8e8-ccc70cd2b713) |58V/1000A interrupt,typical meltingI²t |10/15/5A assembly selections;no claim of guaranteed silicon coordination |
+| [0FHM0002ZXJM,Littelfuse](https://www.littelfuse.com/ja-jp/products/fuses-overcurrent-protection/fuse-holders-fuse-blocks-accessories/fuse-holders/in-line-fuse-holders/mini-fhm/0fhm0002zxjm) |58V MINI holder family |External wiring,not PCB fuse land |
+| [DDR-60,MEAN WELL](https://www.meanwell.com/Upload/PDF/DDR-60/DDR-60-SPEC.PDF) |2026-03-31 edition:pinout,input derating,inrush |12V actuator supply with24W reserved output,not gate bias rail |
+| [AQZ202G,Panasonic](https://industry.panasonic.com/global/en/products/control/relay/photomos/number/aqz202g) |AC/DC PhotoMOS rating and input current |Low-current precharge;main contacts remain AEV14012 |
+| [PhotoMOS power-series datasheet,Panasonic](https://industry.panasonic.com/ac/cdn/e/control/relay/photomos/catalog/semi_eng_pwr1a_aqz10_20.pdf) |AC/DC load pins3/4,input−1/+2 |Original physical pin table,no imported symbol |
+| [EEUFR1J471,Panasonic](https://na.industrial.panasonic.com/products/capacitors/aluminum-electrolytic-capacitors/radial-lead-type/series/83367/model/83797) |470uF63V,1995mArms100kHz,12.5Dx25L,5mm pitch |Six parallel/link,ripple sharing allowance and increased precharge time |
+| [MLCC component list,Murata](https://www.murata.com/-/media/webrenewal/tool/library/common-pdf/static-model/component-list-s-mlcc-2506.ashx?cvid=20250805040438000000&la=ko-kr) |Nominal ceramic selections/size/ratings |No nominal-C claim under DC bias;exact suffix stock unverified |
+| [C1210C226K3RACTU,KEMET](https://search.kemet.com/download/specsheet/C1210C226K3RACTU) |22uF25V1210 |Aux output selection;stability must be tested |
+| [C0805C104K5RACTU,KEMET](https://search.kemet.com/download/specsheet/C0805C104K5RACTU) |100nF50V0805 |Selected local bypass;no vendor library copied |
+| [CRCW e3,Vishay](https://www.vishay.com/docs/20035/dcrcwe3.pdf) |Ordering codes,size,rated power/voltage |Original resistor MPN mapping;E96 feedback values909k/174k |
+| [WSK2512,Vishay](https://www.vishay.com/docs/30108/wsk2512.pdf) |2023-12-11:3mR usesT2.21mm terminals |Corrects previousT1.19 assignment;four-terminal geometry check |
+| [HS25 100R F,Ohmite](https://www.ohmite.com/catalog/hs-series/HS25_100R_F) |100ohm25W heat-sinkable product |External precharge/dump/tool resistor;not a PCB axial land |
+| [HS mechanical/thermal documentation,Ohmite](https://www.ohmite.com/hs-aluminium-housed-resistors/) |Body dimensions and heatsink requirements;web electrical table has shifted columns |Product choice retained;PDF retrieval403 after bounded attempts. Do not treat malformed web table as a validated thermal-rating table |
+| [6006 comparison,Blue Sea Systems](https://www.bluesea.com/products/compare/6004/6004200/6005200/6006/6006200) |48VDC/25A switching listing |Manual healthy/load-off isolation;not an emergency fault breaker |
+| [5859 specification,Alpha Wire](https://www.alphawire.com/disteAPI/SpecPDF/DownloadProductSpecPdf?productPartNumber=5859) |14AWG/PTFE electrical/temp facts |Short bench wiring choice;no bundled-current guarantee or source document reproduction |
