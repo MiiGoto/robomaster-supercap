@@ -3,7 +3,7 @@
   (generator "eeschema")
   (uuid "fc970ec3-fedb-52d7-90b2-3a61e72753fe")
   (paper "User" 1189 841)
-  (title_block (title "SENSING / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement"))
+  (title_block (title "SENSING / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; PCB engineering authorized"))
   (lib_symbols)
   (text "Electrical sensing now on CURRENT_SENSING, VOLTAGE_SENSING and TEMPERATURE_SENSING."
     (at 530 776 0)

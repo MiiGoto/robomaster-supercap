@@ -23,6 +23,7 @@ SO8='Package_SO:SOIC-8_3.9x4.9mm_P1.27mm'
 VSS8='Package_SO:VSSOP-8_3x3mm_P0.65mm'
 DCU8='Package_SO:VSSOP-8_2.3x2mm_P0.5mm'
 part('R',{1:'A',2:'B'},RFP)
+part('J1_PAD',{1:'WIRE'},'Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm')
 part('C',{1:'A',2:'B'},CFP)
 part('L',{1:'A',2:'B'},'Inductor_SMD:L_Coilcraft_XAL1510-223')
 part('D',{1:'K',2:'A'},'Diode_SMD:D_SOD-123')

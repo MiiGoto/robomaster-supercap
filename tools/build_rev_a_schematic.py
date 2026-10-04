@@ -86,7 +86,7 @@ notes[s]+=['Separate NO isolate plus NO resistor-path and NO bypass contacts; no
            'SSR path acceptance uses link voltage progression and open-path diagnosis; no resistor-only bank charge.']
 s='POWER_STAGE'
 for name,a,b in [('BUS','BUS_LINK_IN','BUS_LINK'),('CAP','CAP_LINK_IN','CAP_LINK'),('IL','SW_NODE_A','IL_TO_L')]:
-    add(s,'WSK25123L000FEA',{1:a,2:a,3:b,4:b},'WSK25123L000FEA / 3mR 1% 1W')
+    add(s,'WSK25123L000FEA',{1:a,2:name+'_KELVIN_P',3:name+'_KELVIN_M',4:b},'WSK25123L000FEA / 3mR 1% 1W')
 for rail in ['BUS_LINK','CAP_LINK']:
     for _ in range(6):c(s,rail,'GND','470uF /63V EEUFR1J471 / ripple1.995Arms at100kHz',fp='Capacitor_THT:CP_Radial_D12.5mm_P5.00mm')
     for _ in range(2):c(s,rail,'GND','2.2uF / 100V X7R / effective C MUST VERIFY',fp='Capacitor_SMD:C_1210_3225Metric')
@@ -172,6 +172,7 @@ notes[s]+=['PG10 pin7 configured NRST; PB8 pin61 BOOT0 strap/options: boot confi
 
 s='CURRENT_SENSING'
 for tag,p,m,gain in [('BUS','BUS_LINK_IN','BUS_LINK','INA240A2D'),('CAP','CAP_LINK_IN','CAP_LINK','INA240A1D'),('IL','SW_NODE_A','IL_TO_L','INA240A1D')]:
+    p,m=tag+'_KELVIN_P',tag+'_KELVIN_M'
     add(s,gain,{1:m,2:'GND',3:'GND',4:None,5:tag+'_I_RAW',6:'V3V3',7:'V3V3',8:p});dec(s)
     r(s,tag+'_I_RAW',tag+'_I_FILTER','100R');c(s,tag+'_I_FILTER','GND','1nF C0G')
     # Dedicated fast front ends differ from INA240/control ADC; both polarities.
@@ -357,6 +358,19 @@ pages['SENSING'];notes['SENSING']=['Electrical sensing now on CURRENT_SENSING, V
  'Global labels connect actual package pins and wires across hierarchy. No firmware or PCB placement.',
  'Review all external assemblies, source-side tap protection and provisional ratings before energizing.']
 
+# Explicit board/harness boundary. External contacts, cells, source resistors
+# and service parts remain outside the PCB rather than silently acquiring pads.
+board_nets={n for items in pages.values() for x in items if x['fp'] for n in x['nets'].values() if n}
+external_nets={n for items in pages.values() for x in items if not x['fp'] and not x['ref'].startswith('#') for n in x['nets'].values() if n}
+power_boundary={'BUS_FUSED','BUS_LINK_IN','CAP_LINK_IN','CAP_BANK_RAW','CAP_FUSED','BUS_RAW','GND','DISCHARGE_DRAIN'}
+for net in sorted(board_nets & external_nets):
+    fp=('Connector_Wire:SolderWire-2sqmm_1x01_D2mm_OD3.9mm' if net in power_boundary else
+        'Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm')
+    add('PCB_INTERFACE','J1_PAD',[net],net+' / soldered harness with fixture strain relief',fp=fp)
+notes['PCB_INTERFACE']=['Bench prototype only: wire lands are NOT plug connectors. Harness continuity/polarity inspection mandatory.',
+ 'External isolation/fuses/precharge/cells remain separate. Each named terminal is a distinct net; do not bridge protection.',
+ '2026-10-04 user authorized PCB work without preceding hardware measurement. No fabrication or energizing release.']
+
 def libsymbol(typ):
     spec=P[typ];n=len(spec.pins);rows=(n+1)//2;h=max(5,(rows+1)*2.54/2)
     s=f'(symbol {q("RevA:"+typ)} (pin_names (offset 0.5)) (in_bom yes) (on_board yes)'
@@ -378,7 +392,7 @@ def generate():
     sheetids=dict(re.findall(r'\(uuid "([^"]+)"\) \(property "Sheetname" "([^"]+)"',old))
     sheetids={v:k for k,v in sheetids.items()}
     root=f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {q(rootid)}) (paper "A3") (lib_symbols)'
-    root+=f'(text "PROTOTYPE REV A SCHEMATIC DRAFT - NOT RELEASED FOR ENERGIZING OR PCB" (at 200 15 0) {effects(2)} (uuid {q(uid("root-title"))}))'
+    root+=f'(text "PROTOTYPE REV A - PCB WORK AUTHORIZED; NOT RELEASED FOR ENERGIZING" (at 200 15 0) {effects(2)} (uuid {q(uid("root-title"))}))'
     registry=[]
     for index,(sheet,items) in enumerate(pages.items()):
         sid=sheetids.get(sheet,uid('sheet:'+sheet));cid=uid('page:'+sheet)
@@ -386,12 +400,12 @@ def generate():
         root+=f'(sheet (at {x} {y}) (size 82 40) (stroke (width 0.254) (type default)) (fill (color 0 0 0 0)) (uuid {q(sid)}) (property "Sheetname" {q(sheet)} (at {x} {y-1} 0) {effects()}) (property "Sheetfile" {q(sheet+".kicad_sch")} (at {x} {y+41} 0) {effects()}) (instances (project {q(NAME)} (path {q('/'+rootid)} (page {q(index+2)})))))'
         lib={typ:libsymbol(typ) for typ in sorted({item['typ'] for item in items})}
         height=max(841,230+((len(items)+6)//7)*100)
-        out=f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {q(cid)}) (paper "User" 1189 {height}) (title_block (title {q(sheet+" / Prototype Rev A draft")}) (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement")) (lib_symbols '+''.join(v[0] for v in lib.values())+')'
+        out=f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {q(cid)}) (paper "User" 1189 {height}) (title_block (title {q(sheet+" / Prototype Rev A draft")}) (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; PCB engineering authorized")) (lib_symbols '+''.join(v[0] for v in lib.values())+')'
         for i,item in enumerate(items):
             # Spacious package-box electrical schematic; wires carry global nets.
             xx=88.9+(i%7)*152.4;yy=114.3+(i//7)*101.6
             typ=item['typ'];ref=item['ref'];su=uid('component:'+ref);_,pins,h=lib[typ]
-            out+=f'(symbol (lib_id {q("RevA:"+typ)}) (at {xx} {yy} 0) (unit 1) (in_bom {"no" if ref.startswith("#") else "yes"}) (on_board {"no" if ref.startswith("#") else "yes"}) (dnp {"yes" if item["dni"] else "no"}) (uuid {q(su)})'
+            out+=f'(symbol (lib_id {q("RevA:"+typ)}) (at {xx} {yy} 0) (unit 1) (in_bom {"no" if ref.startswith("#") else "yes"}) (on_board {"yes" if item["fp"] and not ref.startswith("#") else "no"}) (dnp {"yes" if item["dni"] else "no"}) (uuid {q(su)})'
             for key,val,pos,hide in [('Reference',ref,yy-h-5,False),('Value',item['value'],yy+h+4,False),('Footprint',item['fp'],yy,True),('Datasheet',P[typ].source,yy,True),('MPN',item['mpn'],yy,True)]:
                 out+=f'(property {q(key)} {q(val)} (at {xx} {pos} 0) {effects(1)}'+(' (hide yes)' if hide else '')+')'
             for number in pins:out+=f'(pin {q(number)} (uuid {q(uid(ref+":"+number))}))'

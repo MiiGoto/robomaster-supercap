@@ -24,7 +24,7 @@ def logic(items,inputs,qstate=1):
     return values
 def main():
     items=load(); netlist=parse((ROOT/'.local/rev_a.net').read_text(encoding='utf-8'))
-    comps=children(child(netlist,'components'),'comp');assert len(comps)==sum(not p['ref'].startswith('#') for p in items),(len(comps),len(items))
+    comps=children(child(netlist,'components'),'comp');assert len(comps)==sum(bool(p['fp']) and not p['ref'].startswith('#') for p in items),(len(comps),len(items))
     assert len({p['ref'] for p in items})==len(items),'duplicate references'
     actual={}
     for net in children(child(netlist,'nets'),'net'):
@@ -33,6 +33,7 @@ def main():
     checked=0;missing=[];nofp=[]
     for p in items:
         if p['ref'].startswith('#'):continue
+        if not p['fp']:nofp.append(p['ref']);continue
         for pin,net in p['nets'].items():
             if net is not None:
                 assert actual.get((p['ref'],pin))==net,(p['ref'],pin,net,actual.get((p['ref'],pin)))

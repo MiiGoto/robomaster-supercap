@@ -3,7 +3,7 @@
   (generator "eeschema")
   (uuid "0f3636bd-40df-56c3-bab5-7a3e93af2ff0")
   (paper "User" 1189 841)
-  (title_block (title "CONTROLLER / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement"))
+  (title_block (title "CONTROLLER / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; PCB engineering authorized"))
   (lib_symbols
     (symbol "RevA:C"
       (pin_names (offset 0.5))

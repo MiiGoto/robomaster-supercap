@@ -3,7 +3,7 @@
   (generator "eeschema")
   (uuid "6cb3a081-cf93-542e-9974-bebe6ba31f38")
   (paper "User" 1189 841)
-  (title_block (title "CAN / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement"))
+  (title_block (title "CAN / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; PCB engineering authorized"))
   (lib_symbols
     (symbol "RevA:C"
       (pin_names (offset 0.5))
@@ -201,7 +201,7 @@
     (at 698.5 114.3 0)
     (unit 1)
     (in_bom yes)
-    (on_board yes)
+    (on_board no)
     (dnp no)
     (uuid "187e0006-010e-5563-b88e-e8fa50ed1378")
     (property "Reference" "J16" (at 698.5 104.3 0) (effects (font (size 1 1))))

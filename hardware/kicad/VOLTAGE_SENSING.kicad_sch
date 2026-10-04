@@ -3,7 +3,7 @@
   (generator "eeschema")
   (uuid "e95cf8bb-e2c0-5e67-94ba-e0503094a52b")
   (paper "User" 1189 930)
-  (title_block (title "VOLTAGE_SENSING / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement"))
+  (title_block (title "VOLTAGE_SENSING / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; PCB engineering authorized"))
   (lib_symbols
     (symbol "RevA:C"
       (pin_names (offset 0.5))

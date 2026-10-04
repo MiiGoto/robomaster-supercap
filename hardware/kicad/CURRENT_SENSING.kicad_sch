@@ -3,7 +3,7 @@
   (generator "eeschema")
   (uuid "b12d4f1a-02b4-51af-9273-c1477757c2b2")
   (paper "User" 1189 841)
-  (title_block (title "CURRENT_SENSING / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement"))
+  (title_block (title "CURRENT_SENSING / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; PCB engineering authorized"))
   (lib_symbols
     (symbol "RevA:C"
       (pin_names (offset 0.5))
@@ -132,7 +132,13 @@
     (instances (project "robomaster_supercap" (path "/fe0d835f-f536-483b-a54a-4b6f1f4699ec/83790ed1-f3c0-5051-a35b-10c3deac3390" (reference "U12") (unit 1))))
   )
   (wire (pts (xy 73.66 110.49) (xy 68.58 110.49)) (stroke (width 0) (type default)) (uuid "e588f797-4bae-5fad-8448-6fe8e70641a8"))
-  (global_label "BUS_LINK" (shape bidirectional) (at 68.58 110.49 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "4f9fd5bd-2940-5853-bee4-7c65a85b0c3b"))
+  (global_label "BUS_KELVIN_M"
+    (shape bidirectional)
+    (at 68.58 110.49 0)
+    (fields_autoplaced yes)
+    (effects (font (size 0.8 0.8)))
+    (uuid "4f9fd5bd-2940-5853-bee4-7c65a85b0c3b")
+  )
   (wire (pts (xy 73.66 113.03) (xy 68.58 113.03)) (stroke (width 0) (type default)) (uuid "d59e2b7f-80ac-5cf0-b4ae-4f74482b67db"))
   (global_label "GND" (shape bidirectional) (at 68.58 113.03 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "6f52e377-1443-512a-80dc-feab650545cd"))
   (wire (pts (xy 73.66 115.57) (xy 68.58 115.57)) (stroke (width 0) (type default)) (uuid "77bb7a07-d092-5ed9-9d8c-c3bdddf991f4"))
@@ -151,7 +157,7 @@
   (wire (pts (xy 104.14 115.57) (xy 109.22 115.57)) (stroke (width 0) (type default)) (uuid "c7e5240f-a85a-583c-ae2c-d4587ee14c66"))
   (global_label "V3V3" (shape bidirectional) (at 109.22 115.57 180) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "41719bde-7f2b-53f7-a3c9-75aae2492af6"))
   (wire (pts (xy 104.14 118.11) (xy 109.22 118.11)) (stroke (width 0) (type default)) (uuid "e40c7fb0-f65d-5e17-9873-109197124d18"))
-  (global_label "BUS_LINK_IN"
+  (global_label "BUS_KELVIN_P"
     (shape bidirectional)
     (at 109.22 118.11 180)
     (fields_autoplaced yes)
@@ -270,7 +276,7 @@
   (wire (pts (xy 683.26 114.3) (xy 678.18 114.3)) (stroke (width 0) (type default)) (uuid "a1e16260-5833-58bf-b755-d428fa156bf0"))
   (global_label "GND" (shape bidirectional) (at 678.18 114.3 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "3359a897-d728-5cbe-a8a5-ab5a534e945c"))
   (wire (pts (xy 683.26 116.84) (xy 678.18 116.84)) (stroke (width 0) (type default)) (uuid "5cac8e9a-ae57-57a5-8579-b36f276db35b"))
-  (global_label "BUS_LINK_IN"
+  (global_label "BUS_KELVIN_P"
     (shape bidirectional)
     (at 678.18 116.84 0)
     (fields_autoplaced yes)
@@ -278,7 +284,7 @@
     (uuid "c3b07322-3ccf-5b02-ba43-cb99a6c9c4ba")
   )
   (wire (pts (xy 713.74 111.76) (xy 718.82 111.76)) (stroke (width 0) (type default)) (uuid "a9f660a0-2c1e-55ec-a590-8b2f64c4fa0a"))
-  (global_label "BUS_LINK"
+  (global_label "BUS_KELVIN_M"
     (shape bidirectional)
     (at 718.82 111.76 180)
     (fields_autoplaced yes)
@@ -339,7 +345,7 @@
   (wire (pts (xy 988.06 114.3) (xy 982.98 114.3)) (stroke (width 0) (type default)) (uuid "1bd287ec-16de-529b-b601-da61ac44f6ef"))
   (global_label "GND" (shape bidirectional) (at 982.98 114.3 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "4a44822e-45c9-519c-8245-579171799b6d"))
   (wire (pts (xy 988.06 116.84) (xy 982.98 116.84)) (stroke (width 0) (type default)) (uuid "e8dc0582-caeb-5612-8102-23ffa67ef53a"))
-  (global_label "BUS_LINK"
+  (global_label "BUS_KELVIN_M"
     (shape bidirectional)
     (at 982.98 116.84 0)
     (fields_autoplaced yes)
@@ -347,7 +353,7 @@
     (uuid "5804c36a-db23-514a-a752-4d152900066e")
   )
   (wire (pts (xy 1018.54 111.76) (xy 1023.62 111.76)) (stroke (width 0) (type default)) (uuid "17cd45e5-ccfa-5f98-8407-d775a6c124c8"))
-  (global_label "BUS_LINK_IN"
+  (global_label "BUS_KELVIN_P"
     (shape bidirectional)
     (at 1023.62 111.76 180)
     (fields_autoplaced yes)
@@ -401,7 +407,7 @@
     (instances (project "robomaster_supercap" (path "/fe0d835f-f536-483b-a54a-4b6f1f4699ec/83790ed1-f3c0-5051-a35b-10c3deac3390" (reference "U15") (unit 1))))
   )
   (wire (pts (xy 226.06 212.09) (xy 220.98 212.09)) (stroke (width 0) (type default)) (uuid "c34c0c7f-6fc4-59cc-a38a-c3ad42c6be51"))
-  (global_label "CAP_LINK"
+  (global_label "CAP_KELVIN_M"
     (shape bidirectional)
     (at 220.98 212.09 0)
     (fields_autoplaced yes)
@@ -426,7 +432,7 @@
   (wire (pts (xy 256.54 217.17) (xy 261.62 217.17)) (stroke (width 0) (type default)) (uuid "0ce8314e-a56e-5e9d-ac7b-5ffe83cfcd54"))
   (global_label "V3V3" (shape bidirectional) (at 261.62 217.17 180) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "c0e73869-b40a-5175-a05a-ca79bc30cafe"))
   (wire (pts (xy 256.54 219.71) (xy 261.62 219.71)) (stroke (width 0) (type default)) (uuid "af7d5ad5-6082-5c00-9616-4725f817154e"))
-  (global_label "CAP_LINK_IN"
+  (global_label "CAP_KELVIN_P"
     (shape bidirectional)
     (at 261.62 219.71 180)
     (fields_autoplaced yes)
@@ -545,7 +551,7 @@
   (wire (pts (xy 835.66 215.9) (xy 830.58 215.9)) (stroke (width 0) (type default)) (uuid "0be9afe5-3b23-56fb-9712-13aaddf65168"))
   (global_label "GND" (shape bidirectional) (at 830.58 215.9 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "557fa81a-0a19-5a8a-8559-89c7a3c1730c"))
   (wire (pts (xy 835.66 218.44) (xy 830.58 218.44)) (stroke (width 0) (type default)) (uuid "f5703eb2-682f-5690-8b34-7177fa19cba1"))
-  (global_label "CAP_LINK_IN"
+  (global_label "CAP_KELVIN_P"
     (shape bidirectional)
     (at 830.58 218.44 0)
     (fields_autoplaced yes)
@@ -553,7 +559,7 @@
     (uuid "cd9df227-1e79-5d6a-a2ac-29862808b97a")
   )
   (wire (pts (xy 866.14 213.36) (xy 871.22 213.36)) (stroke (width 0) (type default)) (uuid "436681dc-f4d7-5e17-9053-666b96b7275d"))
-  (global_label "CAP_LINK"
+  (global_label "CAP_KELVIN_M"
     (shape bidirectional)
     (at 871.22 213.36 180)
     (fields_autoplaced yes)
@@ -614,9 +620,15 @@
   (wire (pts (xy 73.66 317.5) (xy 68.58 317.5)) (stroke (width 0) (type default)) (uuid "edf328a4-23fb-5321-8251-03b5e2884b89"))
   (global_label "GND" (shape bidirectional) (at 68.58 317.5 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "57e44b18-8da8-5323-a16b-b809e102fc89"))
   (wire (pts (xy 73.66 320.04) (xy 68.58 320.04)) (stroke (width 0) (type default)) (uuid "465b6ef4-58df-53d4-8174-77902d48faa3"))
-  (global_label "CAP_LINK" (shape bidirectional) (at 68.58 320.04 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "918a8353-883c-591c-96b1-3c2ab4456fc8"))
+  (global_label "CAP_KELVIN_M"
+    (shape bidirectional)
+    (at 68.58 320.04 0)
+    (fields_autoplaced yes)
+    (effects (font (size 0.8 0.8)))
+    (uuid "918a8353-883c-591c-96b1-3c2ab4456fc8")
+  )
   (wire (pts (xy 104.14 314.96) (xy 109.22 314.96)) (stroke (width 0) (type default)) (uuid "616c4983-6c8f-5ef8-9beb-f77117edfad1"))
-  (global_label "CAP_LINK_IN"
+  (global_label "CAP_KELVIN_P"
     (shape bidirectional)
     (at 109.22 314.96 180)
     (fields_autoplaced yes)
@@ -670,7 +682,13 @@
     (instances (project "robomaster_supercap" (path "/fe0d835f-f536-483b-a54a-4b6f1f4699ec/83790ed1-f3c0-5051-a35b-10c3deac3390" (reference "U18") (unit 1))))
   )
   (wire (pts (xy 378.46 313.69) (xy 373.38 313.69)) (stroke (width 0) (type default)) (uuid "2ff97b96-3e63-5932-a571-ee2a55f9cf6c"))
-  (global_label "IL_TO_L" (shape bidirectional) (at 373.38 313.69 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "879b5f6a-54b3-5299-86db-e1db74ddeeb9"))
+  (global_label "IL_KELVIN_M"
+    (shape bidirectional)
+    (at 373.38 313.69 0)
+    (fields_autoplaced yes)
+    (effects (font (size 0.8 0.8)))
+    (uuid "879b5f6a-54b3-5299-86db-e1db74ddeeb9")
+  )
   (wire (pts (xy 378.46 316.23) (xy 373.38 316.23)) (stroke (width 0) (type default)) (uuid "6b366b49-f1a9-5694-a776-739f2c54783e"))
   (global_label "GND" (shape bidirectional) (at 373.38 316.23 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "8af6005e-5159-5cdd-ac70-59149986f767"))
   (wire (pts (xy 378.46 318.77) (xy 373.38 318.77)) (stroke (width 0) (type default)) (uuid "16f47538-3a11-5651-87d0-d288f4c5a920"))
@@ -689,7 +707,7 @@
   (wire (pts (xy 408.94 318.77) (xy 414.02 318.77)) (stroke (width 0) (type default)) (uuid "b6b97707-0d1c-5642-96b0-f5be21999567"))
   (global_label "V3V3" (shape bidirectional) (at 414.02 318.77 180) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "3fbaac66-5b66-5dfe-83b4-748b5e5a38a5"))
   (wire (pts (xy 408.94 321.31) (xy 414.02 321.31)) (stroke (width 0) (type default)) (uuid "21b43565-e853-5cf7-a914-7f98d1c2c0b5"))
-  (global_label "SW_NODE_A"
+  (global_label "IL_KELVIN_P"
     (shape bidirectional)
     (at 414.02 321.31 180)
     (fields_autoplaced yes)
@@ -802,7 +820,7 @@
   (wire (pts (xy 988.06 317.5) (xy 982.98 317.5)) (stroke (width 0) (type default)) (uuid "a7311a27-4d9b-5683-afa4-e69848185b76"))
   (global_label "GND" (shape bidirectional) (at 982.98 317.5 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "370be794-2f42-54e6-8750-1f21964b2fab"))
   (wire (pts (xy 988.06 320.04) (xy 982.98 320.04)) (stroke (width 0) (type default)) (uuid "a21d15c7-164d-5479-b8b7-f05f11cf1935"))
-  (global_label "SW_NODE_A"
+  (global_label "IL_KELVIN_P"
     (shape bidirectional)
     (at 982.98 320.04 0)
     (fields_autoplaced yes)
@@ -810,7 +828,7 @@
     (uuid "16682d51-78b8-5a5d-ad27-41cb3593b4e9")
   )
   (wire (pts (xy 1018.54 314.96) (xy 1023.62 314.96)) (stroke (width 0) (type default)) (uuid "efe2445c-484e-5e3d-b813-e769a6fc4ab4"))
-  (global_label "IL_TO_L"
+  (global_label "IL_KELVIN_M"
     (shape bidirectional)
     (at 1023.62 314.96 180)
     (fields_autoplaced yes)
@@ -871,9 +889,15 @@
   (wire (pts (xy 226.06 419.1) (xy 220.98 419.1)) (stroke (width 0) (type default)) (uuid "e1b9b7ff-268f-565a-8b0f-e69af963389c"))
   (global_label "GND" (shape bidirectional) (at 220.98 419.1 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "a55ae163-aae0-5c1e-bc73-cd837685b646"))
   (wire (pts (xy 226.06 421.64) (xy 220.98 421.64)) (stroke (width 0) (type default)) (uuid "1eb63538-b72c-5f71-9bd4-e826007b5555"))
-  (global_label "IL_TO_L" (shape bidirectional) (at 220.98 421.64 0) (fields_autoplaced yes) (effects (font (size 0.8 0.8))) (uuid "becb2159-37a9-5159-8d5b-a77e6055cf72"))
+  (global_label "IL_KELVIN_M"
+    (shape bidirectional)
+    (at 220.98 421.64 0)
+    (fields_autoplaced yes)
+    (effects (font (size 0.8 0.8)))
+    (uuid "becb2159-37a9-5159-8d5b-a77e6055cf72")
+  )
   (wire (pts (xy 256.54 416.56) (xy 261.62 416.56)) (stroke (width 0) (type default)) (uuid "a94dfac6-62cd-5606-8381-399dd9dbc536"))
-  (global_label "SW_NODE_A"
+  (global_label "IL_KELVIN_P"
     (shape bidirectional)
     (at 261.62 416.56 180)
     (fields_autoplaced yes)

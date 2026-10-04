@@ -3,7 +3,7 @@
   (generator "eeschema")
   (uuid "2e007cdd-2aa3-559d-83ee-d780f4cdc19e")
   (paper "User" 1189 841)
-  (title_block (title "POWER_STAGE / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; no PCB placement"))
+  (title_block (title "POWER_STAGE / Prototype Rev A draft") (rev "RevA-draft") (comment 1 "ASSUMPTION - MUST VERIFY ON PROTOTYPE; PCB engineering authorized"))
   (lib_symbols
     (symbol "RevA:C"
       (pin_names (offset 0.5))
@@ -121,7 +121,7 @@
     (uuid "da0b647f-a1a8-57a9-9aa8-f113a37a2580")
   )
   (wire (pts (xy 73.66 115.57) (xy 68.58 115.57)) (stroke (width 0) (type default)) (uuid "8b0abd1d-0abb-5cb8-8b22-ec5506042ed8"))
-  (global_label "BUS_LINK_IN"
+  (global_label "BUS_KELVIN_P"
     (shape bidirectional)
     (at 68.58 115.57 0)
     (fields_autoplaced yes)
@@ -129,7 +129,7 @@
     (uuid "266fcb48-9901-54d6-847f-ae593a3f5078")
   )
   (wire (pts (xy 104.14 113.03) (xy 109.22 113.03)) (stroke (width 0) (type default)) (uuid "9b911d34-f25c-50ee-bb0f-6cb1f31b934e"))
-  (global_label "BUS_LINK"
+  (global_label "BUS_KELVIN_M"
     (shape bidirectional)
     (at 109.22 113.03 180)
     (fields_autoplaced yes)
@@ -172,7 +172,7 @@
     (uuid "e70f3c67-c6a5-5444-aef2-bae59663dd93")
   )
   (wire (pts (xy 226.06 115.57) (xy 220.98 115.57)) (stroke (width 0) (type default)) (uuid "c3961b5c-d3d5-5625-bf88-bb47e4b93cb1"))
-  (global_label "CAP_LINK_IN"
+  (global_label "CAP_KELVIN_P"
     (shape bidirectional)
     (at 220.98 115.57 0)
     (fields_autoplaced yes)
@@ -180,7 +180,7 @@
     (uuid "ac3133e9-e484-561f-b893-b35d3c3b12ee")
   )
   (wire (pts (xy 256.54 113.03) (xy 261.62 113.03)) (stroke (width 0) (type default)) (uuid "7c1b7a03-e481-537f-af88-83f4c050dc94"))
-  (global_label "CAP_LINK"
+  (global_label "CAP_KELVIN_M"
     (shape bidirectional)
     (at 261.62 113.03 180)
     (fields_autoplaced yes)
@@ -223,7 +223,7 @@
     (uuid "74bb3f55-c18f-52bf-84ef-e8a8d929abc9")
   )
   (wire (pts (xy 378.46 115.57) (xy 373.38 115.57)) (stroke (width 0) (type default)) (uuid "7e671239-1567-5384-97c9-5dcffcecb5b6"))
-  (global_label "SW_NODE_A"
+  (global_label "IL_KELVIN_P"
     (shape bidirectional)
     (at 373.38 115.57 0)
     (fields_autoplaced yes)
@@ -231,7 +231,7 @@
     (uuid "b1b657dd-b086-5681-9eb0-66a816fe8cda")
   )
   (wire (pts (xy 408.94 113.03) (xy 414.02 113.03)) (stroke (width 0) (type default)) (uuid "600bfba7-d37a-5dd2-855d-ef5164b84024"))
-  (global_label "IL_TO_L"
+  (global_label "IL_KELVIN_M"
     (shape bidirectional)
     (at 414.02 113.03 180)
     (fields_autoplaced yes)

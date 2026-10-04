@@ -842,8 +842,8 @@
     "typ": "WSK25123L000FEA",
     "nets": {
       "1": "BUS_LINK_IN",
-      "2": "BUS_LINK_IN",
-      "3": "BUS_LINK",
+      "2": "BUS_KELVIN_P",
+      "3": "BUS_KELVIN_M",
       "4": "BUS_LINK"
     },
     "value": "WSK25123L000FEA / 3mR 1% 1W",
@@ -857,8 +857,8 @@
     "typ": "WSK25123L000FEA",
     "nets": {
       "1": "CAP_LINK_IN",
-      "2": "CAP_LINK_IN",
-      "3": "CAP_LINK",
+      "2": "CAP_KELVIN_P",
+      "3": "CAP_KELVIN_M",
       "4": "CAP_LINK"
     },
     "value": "WSK25123L000FEA / 3mR 1% 1W",
@@ -872,8 +872,8 @@
     "typ": "WSK25123L000FEA",
     "nets": {
       "1": "SW_NODE_A",
-      "2": "SW_NODE_A",
-      "3": "IL_TO_L",
+      "2": "IL_KELVIN_P",
+      "3": "IL_KELVIN_M",
       "4": "IL_TO_L"
     },
     "value": "WSK25123L000FEA / 3mR 1% 1W",
@@ -2656,14 +2656,14 @@
     "ref": "U12",
     "typ": "INA240A2D",
     "nets": {
-      "1": "BUS_LINK",
+      "1": "BUS_KELVIN_M",
       "2": "GND",
       "3": "GND",
       "4": null,
       "5": "BUS_I_RAW",
       "6": "V3V3",
       "7": "V3V3",
-      "8": "BUS_LINK_IN"
+      "8": "BUS_KELVIN_P"
     },
     "value": "INA240A2D",
     "fp": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
@@ -2716,8 +2716,8 @@
     "nets": {
       "1": "BUS_FAST_POS",
       "2": "GND",
-      "3": "BUS_LINK_IN",
-      "4": "BUS_LINK",
+      "3": "BUS_KELVIN_P",
+      "4": "BUS_KELVIN_M",
       "5": "V3V3"
     },
     "value": "INA293A1DBVR",
@@ -2745,8 +2745,8 @@
     "nets": {
       "1": "BUS_FAST_NEG",
       "2": "GND",
-      "3": "BUS_LINK",
-      "4": "BUS_LINK_IN",
+      "3": "BUS_KELVIN_M",
+      "4": "BUS_KELVIN_P",
       "5": "V3V3"
     },
     "value": "INA293A1DBVR",
@@ -2772,14 +2772,14 @@
     "ref": "U15",
     "typ": "INA240A1D",
     "nets": {
-      "1": "CAP_LINK",
+      "1": "CAP_KELVIN_M",
       "2": "GND",
       "3": "GND",
       "4": null,
       "5": "CAP_I_RAW",
       "6": "V3V3",
       "7": "V3V3",
-      "8": "CAP_LINK_IN"
+      "8": "CAP_KELVIN_P"
     },
     "value": "INA240A1D",
     "fp": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
@@ -2832,8 +2832,8 @@
     "nets": {
       "1": "CAP_FAST_POS",
       "2": "GND",
-      "3": "CAP_LINK_IN",
-      "4": "CAP_LINK",
+      "3": "CAP_KELVIN_P",
+      "4": "CAP_KELVIN_M",
       "5": "V3V3"
     },
     "value": "INA293A1DBVR",
@@ -2861,8 +2861,8 @@
     "nets": {
       "1": "CAP_FAST_NEG",
       "2": "GND",
-      "3": "CAP_LINK",
-      "4": "CAP_LINK_IN",
+      "3": "CAP_KELVIN_M",
+      "4": "CAP_KELVIN_P",
       "5": "V3V3"
     },
     "value": "INA293A1DBVR",
@@ -2888,14 +2888,14 @@
     "ref": "U18",
     "typ": "INA240A1D",
     "nets": {
-      "1": "IL_TO_L",
+      "1": "IL_KELVIN_M",
       "2": "GND",
       "3": "GND",
       "4": null,
       "5": "IL_I_RAW",
       "6": "V3V3",
       "7": "V3V3",
-      "8": "SW_NODE_A"
+      "8": "IL_KELVIN_P"
     },
     "value": "INA240A1D",
     "fp": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
@@ -2948,8 +2948,8 @@
     "nets": {
       "1": "IL_FAST_POS",
       "2": "GND",
-      "3": "SW_NODE_A",
-      "4": "IL_TO_L",
+      "3": "IL_KELVIN_P",
+      "4": "IL_KELVIN_M",
       "5": "V3V3"
     },
     "value": "INA293A1DBVR",
@@ -2977,8 +2977,8 @@
     "nets": {
       "1": "IL_FAST_NEG",
       "2": "GND",
-      "3": "IL_TO_L",
-      "4": "SW_NODE_A",
+      "3": "IL_KELVIN_M",
+      "4": "IL_KELVIN_P",
       "5": "V3V3"
     },
     "value": "INA293A1DBVR",
@@ -7137,5 +7137,389 @@
     "fp": "Capacitor_SMD:C_0805_2012Metric",
     "dni": false,
     "mpn": "C0805C104K5RACTU"
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J19",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "ACTUATOR_12V"
+    },
+    "value": "ACTUATOR_12V / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J20",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BANK_P_RAW"
+    },
+    "value": "BANK_P_RAW / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J21",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BUS_FUSED"
+    },
+    "value": "BUS_FUSED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-2sqmm_1x01_D2mm_OD3.9mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J22",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BUS_ISO_COIL_M"
+    },
+    "value": "BUS_ISO_COIL_M / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J23",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BUS_ISO_FB"
+    },
+    "value": "BUS_ISO_FB / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J24",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BUS_LINK_IN"
+    },
+    "value": "BUS_LINK_IN / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-2sqmm_1x01_D2mm_OD3.9mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J25",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BYP_BUS_COIL_M"
+    },
+    "value": "BYP_BUS_COIL_M / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J26",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BYP_BUS_FB"
+    },
+    "value": "BYP_BUS_FB / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J27",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BYP_CAP_COIL_M"
+    },
+    "value": "BYP_CAP_COIL_M / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J28",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "BYP_CAP_FB"
+    },
+    "value": "BYP_CAP_FB / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J29",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "CAN_H"
+    },
+    "value": "CAN_H / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J30",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "CAN_L"
+    },
+    "value": "CAN_L / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J31",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "CAP_ISO_COIL_M"
+    },
+    "value": "CAP_ISO_COIL_M / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J32",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "CAP_ISO_FB"
+    },
+    "value": "CAP_ISO_FB / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J33",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "CAP_LINK_IN"
+    },
+    "value": "CAP_LINK_IN / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-2sqmm_1x01_D2mm_OD3.9mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J34",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "DUMP_DRAIN"
+    },
+    "value": "DUMP_DRAIN / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J35",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "GND"
+    },
+    "value": "GND / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-2sqmm_1x01_D2mm_OD3.9mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J36",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "PRE_BUS_LED_M"
+    },
+    "value": "PRE_BUS_LED_M / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J37",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "PRE_BUS_LED_P"
+    },
+    "value": "PRE_BUS_LED_P / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J38",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "PRE_CAP_LED_M"
+    },
+    "value": "PRE_CAP_LED_M / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J39",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "PRE_CAP_LED_P"
+    },
+    "value": "PRE_CAP_LED_P / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J40",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "REFEREE_PERMIT"
+    },
+    "value": "REFEREE_PERMIT / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J41",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP0_SOURCE_PROTECTED"
+    },
+    "value": "TAP0_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J42",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP1_SOURCE_PROTECTED"
+    },
+    "value": "TAP1_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J43",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP2_SOURCE_PROTECTED"
+    },
+    "value": "TAP2_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J44",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP3_SOURCE_PROTECTED"
+    },
+    "value": "TAP3_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J45",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP4_SOURCE_PROTECTED"
+    },
+    "value": "TAP4_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J46",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP5_SOURCE_PROTECTED"
+    },
+    "value": "TAP5_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J47",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP6_SOURCE_PROTECTED"
+    },
+    "value": "TAP6_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J48",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP7_SOURCE_PROTECTED"
+    },
+    "value": "TAP7_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J49",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP8_SOURCE_PROTECTED"
+    },
+    "value": "TAP8_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
+  },
+  {
+    "sheet": "PCB_INTERFACE",
+    "ref": "J50",
+    "typ": "J1_PAD",
+    "nets": {
+      "1": "TAP9_SOURCE_PROTECTED"
+    },
+    "value": "TAP9_SOURCE_PROTECTED / soldered harness with fixture strain relief",
+    "fp": "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm",
+    "dni": false,
+    "mpn": ""
   }
 ]
