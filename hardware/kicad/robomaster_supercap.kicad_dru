@@ -1,0 +1,3 @@
+(version 1)
+# Preserve the existing 0.20mm minimum. Fine-pitch library pads that violate
+# this remain reported defects; no rule exclusion or marker hides them.

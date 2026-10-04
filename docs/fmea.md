@@ -1,3 +1,18 @@
+# PCB engineering authorized — 2026-10-04
+
+ユーザーがsurge・OC遮断時間・fuse/接触器協調・熱・放電時間の実測前にPCB配置/配線へ進むことを明示承認した。[現行PCB記録](pcb_rev_a.md)を優先する。未実測の項目はPrototype Assumptionとして保持し、製造/通電/性能保証にはしない。以下の「PCB未承認/開始しない」は過去時点の記録として残す。
+
+## PCB-specific residual risks — 2026-10-04
+
+| Failure mode | Cause | Effect | Detection | Protection | Residual risk |
+|---|---|---|---|---|---|
+| Power copper overheating |Provisional necks/inner SW routing/via concentration |Loss,open circuit or damaged laminate |Layer/width audit,IR and temperature testing later |Current clamp and thermal shutdown retained |Partial routes are not accepted for current capacity;manual power routing required |
+| Sensing/kill noise coupling |Kelvin paths on reference layer,return cuts,large switching loops |Incorrect current estimate,spurious fault or delayed kill |Close-up route review;later low-energy waveform tests |Independent fault latch/default-OFF logic retained |935 native unconnected edges prevent functional PCB claims |
+| Harness misconnection |Unkeyed solder wire lands and external assemblies |Reverse polarity,tap fault or protection bypass |Named-net assembly map,independent continuity/polarity inspection |External tap resistors,fuses and manual disconnect retained |No assembled harness or fabrication release;fixture strain relief required |
+| Fine-pitch fabrication defect |0.15 mm library gaps versus0.20 mm project hard minimum |Copper bridge or unreliable assembly |218 retained DRC clearance errors;fabricator/package review |No DRC exclusions or minimum reduction applied |Explicit process/rule decision unresolved |
+
+## Historical records (preserved)
+
 # Prototype Rev A — 2026-10-04 delegated decisions
 
 ユーザーの委任に基づき、セル監視RAM設定・exact passive選定・外部ベンチ遮断アセンブリ・保護/熱/放電検証基準を[現行選定書](rev_a_design_freeze.md)へ確定した。選定はPrototype Assumption、実測検証は未実施。平均cap電流の初期上限9.5 A、OC約12 A、目標遮断0.5 µs、各link bulk6×470 µF、precharge timeout3 s。12 A/120 Wは後続の検証目標として保持。PCB placement/通電は開始しない。以下の2026-10-03以前の未選定表示は経緯記録であり、この選定書が優先する。

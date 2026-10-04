@@ -125,3 +125,10 @@ Manufacturer sources below retain copyright;no reuse license assumed. Only origi
 | [HS mechanical/thermal documentation,Ohmite](https://www.ohmite.com/hs-aluminium-housed-resistors/) |Body dimensions and heatsink requirements;web electrical table has shifted columns |Product choice retained;PDF retrieval403 after bounded attempts. Do not treat malformed web table as a validated thermal-rating table |
 | [6006 comparison,Blue Sea Systems](https://www.bluesea.com/products/compare/6004/6004200/6005200/6006/6006200) |48VDC/25A switching listing |Manual healthy/load-off isolation;not an emergency fault breaker |
 | [5859 specification,Alpha Wire](https://www.alphawire.com/disteAPI/SpecPDF/DownloadProductSpecPdf?productPartNumber=5859) |14AWG/PTFE electrical/temp facts |Short bench wiring choice;no bundled-current guarantee or source document reproduction |
+# PCB tool and library provenance — accessed2026-10-04
+
+| Source | Author / license | Use | Difference / copying policy |
+|---|---|---|---|
+| [KiCad library license](https://www.kicad.org/libraries/license/) |KiCad library contributors;CC-BY-SA4.0 with design-use exception |Installed KiCad10 footprints embedded in our own PCB;pad mapping from our schematic |No third-party completed board copied. Exception permits designs without imposing the library's license on the design itself;library attribution retained here |
+| [KiCad PCB format](https://dev-docs.kicad.org/en/file-formats/sexpr-pcb/) |KiCad developers;documentation factual reference |Native board/pad/zone structure |Original scripts;no vendor PCB imported |
+| [Freerouting2.4.1](https://github.com/freerouting/freerouting/releases/tag/v2.4.1) / [CLI](https://github.com/freerouting/freerouting/blob/v2.4.1/docs/command_line_arguments.md) |Freerouting contributors;GPL-3.0 tool |Offline routing of our generated DSN |Tool/runtime and source inspection files remain ignored locally;no cloud routing or copied circuit design |
