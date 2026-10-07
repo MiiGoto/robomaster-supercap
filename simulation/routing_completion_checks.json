@@ -1,0 +1,26 @@
+{
+  "board_sha256": "6d41f3989cd8532cd3654838e54a4c322754d51bcde6984e57a392c39c8e30cf",
+  "native_unconnected": 0,
+  "checked_pad_nets": 331,
+  "checked_net_assigned_pads": 1524,
+  "disconnected_pad_nets": [],
+  "drc_errors": 0,
+  "drc_warnings": 0,
+  "drc_unconnected_items": 0,
+  "schematic_parity_items": 0,
+  "reference_plane_signal_segments": 48,
+  "reference_plane_local_escape_contract": true,
+  "ground_reference_filled_outline_counts": [
+    1
+  ],
+  "required_power_nets": [
+    "BUS_LINK",
+    "BUS_LINK_IN",
+    "CAP_LINK",
+    "CAP_LINK_IN",
+    "IL_TO_L",
+    "SW_NODE_A",
+    "SW_NODE_B"
+  ],
+  "scope": "CAD connectivity/DRC only; hardware performance remains unmeasured"
+}

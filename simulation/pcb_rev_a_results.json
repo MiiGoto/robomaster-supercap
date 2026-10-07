@@ -3,14 +3,14 @@
   "mounting_holes": 4,
   "pad_net_matches": 1478,
   "copper_layers": 4,
-  "track_objects": 1304,
-  "via_objects": 632,
+  "track_objects": 12517,
+  "via_objects": 1573,
   "zones": 2,
   "keepouts": 5,
   "drc_errors": 0,
   "drc_warnings": 0,
-  "drc_unrouted_report_items": 499,
-  "unrouted": 610,
+  "drc_unrouted_report_items": 0,
+  "unrouted": 0,
   "schematic_parity": 0,
   "drc_types": {},
   "power_nets": {
@@ -67,7 +67,7 @@
       ]
     },
     "SW_NODE_B": {
-      "length_mm": 101.95638903797207,
+      "length_mm": 103.18984536918595,
       "vias": 30,
       "min_width_mm": 0.2,
       "layers": [
@@ -78,31 +78,58 @@
     }
   },
   "kelvin_nets": {
-    "IL_KELVIN_P": {
-      "length_mm": 44.235187796049956,
+    "IL_KELVIN_M": {
+      "length_mm": 45.384329159429754,
       "vias": 2,
-      "min_width_mm": 0.25,
+      "min_width_mm": 0.2,
       "layers": [
         "F.Cu",
-        "In1.Cu"
+        "In2.Cu"
+      ]
+    },
+    "IL_KELVIN_P": {
+      "length_mm": 42.80973740865255,
+      "vias": 2,
+      "min_width_mm": 0.2,
+      "layers": [
+        "F.Cu",
+        "In2.Cu"
+      ]
+    },
+    "BUS_KELVIN_M": {
+      "length_mm": 37.412056660532016,
+      "vias": 4,
+      "min_width_mm": 0.2,
+      "layers": [
+        "F.Cu",
+        "In2.Cu"
       ]
     },
     "BUS_KELVIN_P": {
-      "length_mm": 18.04274847843261,
+      "length_mm": 32.047717237346646,
       "vias": 2,
-      "min_width_mm": 0.25,
+      "min_width_mm": 0.2,
       "layers": [
         "F.Cu",
-        "In1.Cu"
+        "In2.Cu"
+      ]
+    },
+    "CAP_KELVIN_M": {
+      "length_mm": 35.30504670927565,
+      "vias": 3,
+      "min_width_mm": 0.2,
+      "layers": [
+        "F.Cu",
+        "In2.Cu"
       ]
     },
     "CAP_KELVIN_P": {
-      "length_mm": 28.968575603903982,
+      "length_mm": 35.91593445352477,
       "vias": 2,
-      "min_width_mm": 0.25,
+      "min_width_mm": 0.2,
       "layers": [
         "F.Cu",
-        "In1.Cu"
+        "In2.Cu"
       ]
     }
   },

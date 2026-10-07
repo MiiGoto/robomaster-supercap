@@ -1,3 +1,14 @@
+# Routing-stage risk update — 2026-10-07
+
+PCB CAD routing is complete;native missing0,DRC0/0,parity0,ERC0/0. See [current routing review](pcb_routing_completion.md). Protective schematic topology/netlist remain unchanged. These additions do not replace the unmeasured protection/thermal/isolation risks below.
+
+| Failure mode | Cause | Effect | Detection | Protection | Residual risk |
+|---|---|---|---|---|---|
+| Local reference return detour / switching pickup |Bounded MCU In1 signal escapes create local ground slots |ADC bias/noise,spurious supervision/fault or degraded communications |Low-energy scope/ADC/noise tests;inspect return path against actual stackup |GND plane remains one filled polygon;all GND pads connected;hardware default-OFF paths retained |CAD continuity does not qualify signal integrity or OC timing |
+| Auxiliary supply neck heating / voltage drop |0.20 mm local escapes,shared actuator current,unknown copper/plating |Supply dip,reset,contact dropout,localized heat |Rail voltage/current and temperature tests at approved coil load |Widened clear trunks0.30–0.70 mm,UVLO/window and independent kill remain |Current sharing/ampacity and repeated actuation not measured |
+
+## Historical FMEA records (preserved)
+
 # Routing checkpoint — 2026-10-04
 
 **Routing incomplete.** 保存したPCBは電力7ネットの全パッド接続と、局所GND/一部信号配線を追加したcheckpoint。native未接続 **610本**（239 nets）、寸法・間隔DRC **0 errors/0 warnings**、schematic parity0。元の935本から325本を解消したが、配線完成/製造/通電/性能保証は意味しない。
