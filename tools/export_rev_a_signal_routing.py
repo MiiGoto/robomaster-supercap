@@ -2,13 +2,18 @@
 import argparse,re
 import pcbnew as p
 from build_rev_a_pcb import ROOT,POWER
-ap=argparse.ArgumentParser();ap.add_argument('source');ap.add_argument('output');a=ap.parse_args()
+ap=argparse.ArgumentParser();ap.add_argument('source');ap.add_argument('output');ap.add_argument('--aux-width',type=float,default=.7,help='Branch width in mm; widen clear auxiliary trunks after routing');a=ap.parse_args()
+assert .2 <= a.aux_width <= .7
 b=p.LoadBoard(str(ROOT/a.source));b.BuildConnectivity();c=b.GetConnectivity()
 for net in POWER|{'GND'}:
  pads=[x for f in b.GetFootprints() for x in f.Pads() if x.GetNetname()==net]
  if not pads:continue
  linked={x.m_Uuid.AsString() for x in c.GetConnectedItems(pads[0])}|{pads[0].m_Uuid.AsString()}
  assert all(x.m_Uuid.AsString() in linked for x in pads),'Cannot exclude unconnected net '+net
+# Fixed classes must also be fixed in interchange: older ground escapes may
+# have an unlocked editing state but must not be shoved or duplicated in SES.
+for t in b.GetTracks():
+ if t.GetNetname() in POWER|{'GND'}:t.SetLocked(True)
 out=ROOT/a.output;out.parent.mkdir(parents=True,exist_ok=True)
 assert p.ExportSpecctraDSN(b,str(out));s=out.read_text(encoding='utf8')
 i=s.index('(plane GND (polygon F.Cu');depth=0
@@ -25,6 +30,6 @@ for n in POWER|aux|{'GND'}:head=re.sub(r'(?<![\w])'+re.escape(n)+r'(?![\w])','',
 s=s[:start]+head+s[end:]
 extra='\n(class FIXED_POWER '+' '.join(sorted(POWER))+' (rule (width 200) (clearance 200)))'
 extra+='\n(class GND_PLANE GND (rule (width 200) (clearance 200)))'
-extra+='\n(class AUX '+' '.join(sorted(aux))+' (circuit (use_via "Via[0-3]_600:300_um")) (rule (width 700) (clearance 200)))\n'
+extra+='\n(class AUX '+' '.join(sorted(aux))+' (circuit (use_via "Via[0-3]_600:300_um")) (rule (width '+str(round(a.aux_width*1000))+') (clearance 200)))\n'
 at=s.index('  (wiring');before=s[:at];last=before.rfind('  )');s=before[:last]+extra+before[last:]+s[at:]
 out.write_text(s,encoding='utf8');print('Excluded nets independently connected; In1 reserved for GND; signal continuation exported')

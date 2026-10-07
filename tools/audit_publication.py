@@ -26,7 +26,7 @@ def main():
             problems.append((name, 'not a regular file'))
             continue
         # JSON connectivity and KiCad symbol files are original project sources.
-        if path.suffix.lower() not in {'.md', '.py', '.json', '.kicad_sym', '.kicad_pro', '.kicad_sch', '.kicad_pcb', '.kicad_dru', ''}:
+        if path.suffix.lower() not in {'.md', '.py', '.java', '.json', '.kicad_sym', '.kicad_pro', '.kicad_sch', '.kicad_pcb', '.kicad_dru', ''}:
             problems.append((name, 'unexpected file type / provenance review required'))
         content = path.read_text(encoding='utf-8')
         for pattern in PATTERNS:
