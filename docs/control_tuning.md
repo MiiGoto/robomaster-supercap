@@ -1,0 +1,21 @@
+# Rev A control tuning
+
+Status: **PROTOTYPE_TUNING_REQUIRED**. No PWM waveform, plant response or sensor delay has been measured. Production defaults prohibit arming. This document specifies future bench work; none was performed in this task.
+
+`firmware/controller/config/rev_a_config.c` owns PWM200 kHz, ADC phase6800 HRTIM ticks (1.25 us at170 MHz×32), deadtime34 ticks at selected fDTG (~200 ns), software cap/IL targets9.5 A, provisional fast IL trip11 A, power40/80/120 W, thermal thresholds, precharge3 s, peak1 s / repeat30 s. Values are assumptions and must be reviewed together with external~12 A OC. The fast software trip is secondary and cannot replace the independent comparator/latch.
+
+`config/calibration_defaults.c` owns measured voltage/current gains and zero offsets, actual ADC reference, NTC R25/B, current-loop Kp/Ki, version/CRC and `verified`. Current shunt orientations differ: bus positive charging, cap positive assisting, IL positive charging. Do not invert a sign to hide a wiring error.
+
+1. With no high-energy bank, verify complementary polarity, startup OFF and asynchronous PA12 shutdown with a scope. Measure gate delays/deadtime/body-diode conduction, then edit `deadtime_ticks`; verify at temperature and both current directions.
+2. Sweep ADC phase away from switch edges and measure INA240 settling. ADC1 six ranks and ADC2 four ranks use12.5-cycle sample time at42.5 MHz; estimated complete sequences3.53/2.35 us. The phase must leave time before the next5 us period. Check DMA overrun and actual interrupt latency; do not infer a quiet point from the compiled tick value.
+3. Record zero-current raw codes and reference voltage; fit divider/shunt gains with an independent calibrated meter. The100 kOhm drain loading is included in factory formulas. Check powered-off behavior independently. Validate NTC open/short and temperature offsets/lag before setting calibration verified and CRC.
+4. Current PI is voltage-command PI with duty feedforward, anti-windup and signed IL. Initial Kp≈0.13823 V/A and Ki≈86.85 V/(A s) derive from22 uH, assumed1 kHz crossover and100 Hz zero: **PROVISIONAL CONTROL GAINS — BENCH TUNING REQUIRED**. Begin with reviewed smaller gains/current and verify both quadrants. Account for sensor/filter/computation delay, saturation, bootstrap limits and current ripple.
+5. Supervisor computes power-to-current demand using measured voltage, nominal efficiency0.90 and feedforward duty; current slew is100 A/s. This is an initial power-management framework, not calibrated closed-loop power accuracy. Tune measured power behavior and assess whether an outer PI is needed before claiming target power regulation.
+6. Charge is capped40 W input request and tapers near cell2.40–2.45 V. Assist80 W nominal/120 W request is bounded by cap current, IL, voltage, temperature and peak budget. Never raise a limit merely to satisfy a power request.
+7. Verify thermal derating between warning60/60/45 C and stop65/65/50 C. Rearm requires FET/L<50 C and bank<40 C; invalid NTC is a fault. Model measured lag and hot spots before changing thresholds.
+
+The fast ISR runs per ADC2 sample (~200 kHz); DWT records worst IRQ cycles and trips CONTROL_TRACKING if a powered session overruns one nominal850-cycle period. Measure actual timing and headroom; compiled code is not a timing proof. Main loop owns SPI/commands/supervisor/heartbeat. BQ transactions may delay slow-loop execution; log actual loop latency under errors and traffic.
+
+No runtime calibration write command is provided. Rev A uses reviewed compiled defaults, version+CRC and validity flags; no high-frequency Flash writes or partially atomic persistence. Before enabling a non-SAFE build, update calibration, gains and explicit commissioning/tuning permissions through a reviewed commit; CAN cannot grant them. LOW_ENERGY_COMMISSIONING is not an automatic physical low-energy guarantee: use externally limited supply and disconnected/full-bank isolation.
+
+`discharge_timeout_ms=2400000` is a provisional40 min SERVICE stop budget, not a measured discharge duration. Fresh CAN lease is required when dump is authorized. Monitor and hardware permission apply to dump; DISARM stops it. Tune/validate the external resistor and remaining energy independently.

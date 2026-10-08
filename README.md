@@ -1,3 +1,11 @@
+# Firmware implementation — 2026-10-08
+
+Current: Rev A STM32G474RET6 firmware source implemented; default SAFE_MONITOR_ONLY. Host logic tests and ARM builds are recorded in docs/firmware_validation.md. No flash, option-byte write, real PWM/contact actuation or energizing was performed. Hardware/CAD is unchanged. Calibration, control gains, timing, BQ physical behavior and power limits require bench measurement and human review before first flash/energizing.
+
+Current guides: [firmware architecture](docs/firmware_architecture.md), [operation](docs/supercap_user_guide.md), [commissioning](docs/firmware_commissioning.md), [CAN protocol](docs/can_protocol.md), [tuning](docs/control_tuning.md), [flash setup](docs/firmware_flash_setup.md).
+
+## Historical records (preserved)
+
 # PCB routing complete — 2026-10-07
 
 **Current: Prototype Rev A CAD routing complete.** KiCad10.0.6の正式PCBでnative未接続0、全DRC0 errors/0 warnings、schematic parity0、ERC0 errors/0 warningsを確認した。全331ネット／1524 net-assigned pad recordsの物理接続と、設計manifestの1478 pad/net assignmentsを照合済み。これはCAD接続・規則検証であり、製造リリース、通電許可、120 W性能、競技適合の承認ではない。

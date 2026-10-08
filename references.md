@@ -1,5 +1,17 @@
 # References and provenance
 
+## Rev A firmware sources (access 2026-10-08 JST)
+
+| Source / author | Rights / version | Use / difference |
+|---|---|---|
+| [BQ76942 TRM / TI](https://www.ti.com/lit/ug/sluuby1b/sluuby1b.pdf) | SLUUBY1B; TI copyright; URL only | SPI CRC/pipeline, RAM checksum, cell mapping, FET/status commands; project-authored driver, physical timing/polarity still unmeasured |
+| [RM0440 / ST](https://www.st.com/resource/en/reference_manual/dm00355726.pdf) | ST copyright; URL only | G474 timers/ADC/triggers/fault/boot options; project-authored initialization, no copied manual/PDF |
+| [UM2570 / ST](https://www.st.com/resource/en/user_manual/um2570-description-of-stm32g4-hal-and-lowlayer-drivers--stmicroelectronics.pdf) | ST copyright; URL only | HAL/LL API behavior; no manual assets copied |
+| [ST G4 HAL](https://github.com/STMicroelectronics/stm32g4xx-hal-driver/tree/v1.2.5) | BSD-3-Clause, v1.2.5 | External unmodified build dependency; not vendored/published here |
+| [ST CMSIS device G4](https://github.com/STMicroelectronics/cmsis-device-g4/tree/v1.2.4) | Apache-2.0, v1.2.4 | External startup/system/register headers; not vendored |
+| [Arm CMSIS5](https://github.com/ARM-software/CMSIS_5/tree/5.9.0) | Apache-2.0, 5.9.0 | External Cortex-M4 core headers; not vendored |
+
+
 ## Task 4 layout principles (access2026-10-03 JST)
 
 | Source / author | Rights / use / difference |
