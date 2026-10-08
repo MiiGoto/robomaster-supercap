@@ -34,6 +34,7 @@ static volatile uint16_t uart_head, uart_tail;
 typedef struct {
     uint16_t id;
     uint8_t data[8];
+    uint32_t received_ms;
 } can_rx_t;
 
 static can_rx_t can_ring[16];
@@ -560,6 +561,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *h, uint32_t flags) {
         r.DataLength == FDCAN_DLC_BYTES_8 && r.FDFormat == FDCAN_CLASSIC_CAN) {
         if (next != can_tail) {
             can_ring[can_head].id = (uint16_t)r.Identifier;
+            can_ring[can_head].received_ms = HAL_GetTick();
             memcpy(can_ring[can_head].data, data, 8);
             __DMB();
             can_head = next;
@@ -593,7 +595,7 @@ void board_foreground_io(uint32_t now) {
         can_rx_t r = can_ring[can_tail];
         __DMB();
         can_tail = (uint8_t)((can_tail + 1u) % 16u);
-        (void)app_can_receive(&app, r.id, r.data, 8, now);
+        (void)app_can_receive_at(&app, r.id, r.data, 8, r.received_ms, now);
     }
     while (uart_tail != uart_head) {
         char c = (char)uart_ring[uart_tail];

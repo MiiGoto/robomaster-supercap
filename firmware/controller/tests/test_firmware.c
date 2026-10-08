@@ -244,6 +244,10 @@ static int run_tests(void) {
     a.sequence = 255;
     frame(d, 0, CMD_STATUS, 0);
     CHECK(app_can_receive(&a, 0x501, d, 8, 4));
+    fixture(300);
+    frame(d, 1, CMD_STATUS, 0);
+    CHECK(!app_can_receive_at(&a, 0x501, d, 8, 0, 300));
+    CHECK(app_can_receive_at(&a, 0x501, d, 8, 250, 300) && a.command_ms == 250);
     fixture(0);
     a.state = ASSIST;
     a.power_session = true;

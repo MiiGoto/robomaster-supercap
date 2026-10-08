@@ -44,6 +44,18 @@ bool app_can_receive(app_t *a, uint16_t id, const uint8_t *d, size_t n, uint32_t
     a->command_seen = true;
     return true;
 }
+bool app_can_receive_at(app_t *a, uint16_t id, const uint8_t *data, size_t size,
+                        uint32_t received_ms, uint32_t now) {
+    if (now - received_ms > a->config.can_timeout_ms) {
+        a->command_rejects++;
+        return false;
+    }
+    if (!app_can_receive(a, id, data, size, now))
+        return false;
+    /* Lease starts at ISR receipt, never at delayed foreground processing. */
+    a->command_ms = received_ms;
+    return true;
+}
 void telemetry_pack(const app_t *a, uint8_t page, uint8_t seq, uint8_t d[8]) {
     float lo = 100, hi = 0;
     unsigned i;

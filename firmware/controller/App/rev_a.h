@@ -163,6 +163,8 @@ void app_init(app_t *a, const fw_config_t *config, uint32_t now);
 void app_step(app_t *a, uint32_t now);
 bool app_command(app_t *a, command_t command, float watts, uint32_t now);
 bool app_can_receive(app_t *a, uint16_t id, const uint8_t *data, size_t size, uint32_t now);
+bool app_can_receive_at(app_t *a, uint16_t id, const uint8_t *data, size_t size,
+                        uint32_t received_ms, uint32_t now);
 void app_fault(app_t *a, uint32_t cause, uint32_t now);
 uint32_t app_live_faults(const app_t *a, uint32_t now);
 bool app_transition(app_t *a, fw_state_t next, uint32_t now);
