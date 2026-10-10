@@ -7,16 +7,18 @@ from kisch import Sheet, Sym
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "charger.kicad_sch"
 
-R = Sym("rev:R", "R", [("1", "1", "L", "passive"), ("2", "2", "R", "passive")], small=True)
-C = Sym("rev:C", "C", [("1", "1", "L", "passive"), ("2", "2", "R", "passive")], small=True)
-L = Sym("rev:L", "L", [("1", "1", "L", "passive"), ("2", "2", "R", "passive")], small=True)
-D = Sym("rev:D", "D", [("1", "A", "L", "passive"), ("2", "K", "R", "passive")], small=True)
-F = Sym("rev:FUSE", "F", [("1", "1", "L", "passive"), ("2", "2", "R", "passive")], small=True)
-FET = [("1", "G", "L", "passive"), ("2", "D", "R", "passive"), ("3", "S", "R", "passive")]
-NMOS = Sym("rev:NMOS", "Q", FET, width=10.16)
-PMOS = Sym("rev:PMOS", "QP", FET, width=10.16)
-TP = Sym("rev:TP", "TP", [("1", "1", "R", "passive")], small=True)
-XT30 = Sym("rev:XT30", "J", [("1", "+", "R", "passive"), ("2", "-", "R", "passive")], width=10.16)
+from kisch import LibSym
+
+R = LibSym("R", "Device.kicad_sym", "R", "R")
+C = LibSym("C", "Device.kicad_sym", "C", "C")
+CP = LibSym("CP", "Device.kicad_sym", "C_Polarized", "C")
+L = LibSym("L", "Device.kicad_sym", "L", "L")
+DZ = LibSym("DZ", "Device.kicad_sym", "D_Zener", "D")
+F = LibSym("FUSE", "Device.kicad_sym", "Fuse", "F")
+NMOS = LibSym("NMOS", "Device.kicad_sym", "Q_NMOS_GDS", "Q")
+PMOS = LibSym("PMOS", "Device.kicad_sym", "Q_PMOS_GDS", "QP")
+XT30 = LibSym("XT30", "Connector_Generic.kicad_sym", "Conn_01x02", "J")
+TP = LibSym("TP", "Connector.kicad_sym", "TestPoint", "TP")
 LM5176 = Sym("rev:LM5176", "U", [
     ("1", "EN/UVLO", "L", "passive"), ("2", "VIN", "L", "passive"), ("3", "VISNS", "L", "passive"),
     ("4", "MODE", "L", "passive"), ("5", "DITH", "L", "passive"), ("6", "RT/SYNC", "L", "passive"),
@@ -30,7 +32,9 @@ LM5176 = Sym("rev:LM5176", "U", [
     ("27", "HDRV1", "R", "passive"), ("28", "SW1", "R", "passive"),
 ], width=22.86)
 
-s = Sheet("Rev B control board - charger block (plan Y, provisional)", "A1")
+GLOBALS = {"GND", "NODE", "NODE_CAP", "VIN_F", "VIN_C", "VIN_P", "CHG_INH", "PMOS_EN", "PGOOD", "3V3"}
+PATH = sys.argv[2] if len(sys.argv) > 2 else "/"
+s = Sheet("Rev B control board - charger block (plan Y, provisional)", "A1", path=PATH, ref_base=0, global_nets=GLOBALS)
 
 R06 = "Resistor_SMD:R_0603_1608Metric"
 C06 = "Capacitor_SMD:C_0603_1608Metric"
@@ -62,14 +66,14 @@ s.frame(20, 35, 165, 55, "A. Input / protection", "PM chassis output 22-26V. Fus
 x0, y0 = 40, 67
 s.place(XT30, *g(x0, y0, 0, 0), "XT30 input (PM chassis out)", {"1": "VIN_RAW", "2": "GND"}, props={"Footprint": FP_XT30})
 s.place(F, *g(x0, y0, 1, 0), "Fuse 10A", {"1": "VIN_RAW", "2": "VIN_F"}, props={"Footprint": "Fuse:Fuse_1206_3216Metric", "Note": "type undecided"})
-s.place(D, *g(x0, y0, 2, 0), "TVS SMDJ30A", {"1": "GND", "2": "VIN_F"}, props={"Footprint": "Diode_SMD:D_SMC"})
+s.place(DZ, *g(x0, y0, 2, 0), "TVS SMDJ30A (unidirectional)", {"1": "VIN_F", "2": "GND"}, props={"Footprint": "Diode_SMD:D_SMC"})
 
 # ---------------- B. series PMOS
 s.frame(200, 35, 175, 85, "B. Series PMOS (R2/R3 back-feed block)", "Default OFF. ON only when PMOS_EN=1 (Zener limits Vgs to 12V).")
 x0, y0 = 220, 67
 s.place(PMOS, *g(x0, y0, 0, 0), "AOD409 60V P-ch", {"1": "PG_GATE", "2": "VIN_F", "3": "VIN_C"}, props={"LCSC": "C36220", "Footprint": "Package_TO_SOT_SMD:TO-252-2"})
 r(*g(x0, y0, 1, 0), "100k", "PG_GATE", "VIN_C")
-s.place(D, *g(x0, y0, 2, 0), "Zener 12V", {"1": "PG_GATE", "2": "VIN_C"}, props={"Footprint": "Diode_SMD:D_SOD-123"})
+s.place(DZ, *g(x0, y0, 2, 0), "Zener 12V (Vgs clamp)", {"1": "VIN_C", "2": "PG_GATE"}, props={"Footprint": "Diode_SMD:D_SOD-123"})
 r(*g(x0, y0, 0, 1), "10k", "PG_GATE", "PG_PULL")
 s.place(NMOS, *g(x0, y0, 1, 1), "2N7002", {"1": "PMOS_EN", "2": "PG_PULL", "3": "GND"}, props={"Footprint": "Package_TO_SOT_SMD:SOT-23"})
 r(*g(x0, y0, 2, 1), "100k (default off)", "PMOS_EN", "GND")
@@ -80,15 +84,16 @@ x0, y0 = 410, 67
 r(*g(x0, y0, 0, 0), "12mR 2512 (ISNS)", "VIN_C", "VIN_P", Footprint=R25, Note="Kelvin to ISNS+/-")
 for i in range(6):
     c(*g(x0, y0, i % 3, 1 + i // 3), "4.7u/50V X7R", "VIN_P", "GND", fp=C12)
-c(*g(x0, y0, 1, 0), "100u/35V polymer", "VIN_P", "GND", fp="Capacitor_SMD:CP_Elec_8x10", Note="part undecided")
+s.place(CP, *g(x0, y0, 1, 0), "100u/35V polymer", {"1": "VIN_P", "2": "GND"}, props={"Footprint": "Capacitor_SMD:CP_Elec_8x10", "Note": "part undecided"})
 
 # ---------------- G. output
-s.frame(580, 35, 175, 80, "D. Output node (chassis + capacitor bank)", "Chassis and bank share this node. Bank via CM01.")
+s.frame(580, 35, 175, 105, "D. Output node (chassis + capacitor bank)", "Chassis and bank share this node. Bank via CM01.")
 x0, y0 = 600, 67
 s.place(XT30, *g(x0, y0, 0, 0), "XT30 chassis", {"1": "NODE", "2": "GND"}, props={"Footprint": FP_XT30})
-s.place(XT30, *g(x0, y0, 0, 1), "XT30 capacitor (to CM01)", {"1": "NODE", "2": "GND"}, props={"Footprint": FP_XT30})
+s.place(XT30, *g(x0, y0, 0, 1), "XT30 capacitor (to CM01)", {"1": "NODE_CAP", "2": "GND"}, props={"Footprint": FP_XT30})
 for i in range(4):
     c(*g(x0, y0, 1 + i % 2, i // 2), "10u/35V X7R", "NODE", "GND", fp=C12)
+r(*g(x0, y0, 0, 2), "2mR 2512 (cap-port shunt)", "NODE", "NODE_CAP", Footprint=R25, Note="Kelvin to INA240 (control sheet)")
 
 # ---------------- E. LM5176 peripherals
 s.frame(20, 155, 165, 150, "E. LM5176 settings", "UVLO ~19V, no hiccup, 248kHz, Vout 26.2V.")
@@ -96,7 +101,7 @@ x0, y0 = 40, 188
 r(*g(x0, y0, 0, 0), "249k (RUV2)", "VIN_C", "EN")
 r(*g(x0, y0, 1, 0), "17.4k (RUV1)", "EN", "GND", Note="UVLO about 19V (provisional)")
 s.place(NMOS, *g(x0, y0, 2, 0), "2N7002 (inhibit)", {"1": "CHG_INH", "2": "EN", "3": "GND"}, props={"Footprint": "Package_TO_SOT_SMD:SOT-23"})
-r(*g(x0, y0, 0, 1), "100k (default inhibit)", "CHG_INH", "VCC_LM")
+r(*g(x0, y0, 0, 1), "100k (default inhibit)", "CHG_INH", "3V3")
 r(*g(x0, y0, 1, 1), "200k (MODE, no hiccup)", "MODE", "GND", Note="93.1k = hiccup enabled; undecided")
 r(*g(x0, y0, 2, 1), "33k (RT, ~248kHz)", "RT", "GND")
 c(*g(x0, y0, 0, 2), "220p (SLOPE)", "SLOPE", "GND")
@@ -140,7 +145,6 @@ s.place(L, *g(x0, y0, 2, 0, 55, 36), "10uH MDA1360-100M", {"1": "SW1", "2": "SW2
 r(*g(x0, y0, 2, 1, 55, 36), "10mR 2512 (Rcs)", "CS_N", "GND", Footprint=R25, LCSC="C2930473", Note="Kelvin to CS and CSG")
 
 s.write(OUT)
-s.write_lib(OUT.replace("charger.kicad_sch", "rev.kicad_sym"))
 with open(OUT.replace(".kicad_sch", "_bom.csv"), "w", encoding="utf-8") as fh:
     fh.write("Ref,Value,LCSC,Footprint,Symbol\n")
     for row in s.bom:
