@@ -1,6 +1,6 @@
 # Firmware implementation — 2026-10-08
 
-Current: Rev A STM32G474RET6 firmware source implemented; default SAFE_MONITOR_ONLY. Host logic tests and ARM builds are recorded in docs/firmware_validation.md. No flash, option-byte write, real PWM/contact actuation or energizing was performed. Hardware/CAD is unchanged. Calibration, control gains, timing, BQ physical behavior and power limits require bench measurement and human review before first flash/energizing.
+Current: Rev A STM32G474RET6 firmware source implemented; default SAFE_MONITOR_ONLY. Host logic tests and ARM builds are recorded in [docs/firmware_validation.md](docs/firmware_validation.md). No flash, option-byte write, real PWM/contact actuation or energizing was performed. Hardware/CAD is unchanged. Calibration, control gains, timing, BQ physical behavior and power limits require bench measurement and human review before first flash/energizing.
 
 Current guides: [firmware architecture](docs/firmware_architecture.md), [operation](docs/supercap_user_guide.md), [commissioning](docs/firmware_commissioning.md), [CAN protocol](docs/can_protocol.md), [tuning](docs/control_tuning.md), [flash setup](docs/firmware_flash_setup.md).
 
@@ -40,7 +40,7 @@ Current guides: [firmware architecture](docs/firmware_architecture.md), [operati
 
 
 
-[Validation record](docs/rev_a_validation.md): ERC0/0 baseline; current counts in validation record. External assembly and cell-monitor RAM profile are selected;hardware programming/qualification remain unperformed.
+[Validation record](docs/rev_a_validation.md): ERC0/0 baseline; current counts in validation record. External assembly and cell-monitor RAM profile are selected; hardware programming/qualification remain unperformed.
 
 ## Historical records (preserved)
 

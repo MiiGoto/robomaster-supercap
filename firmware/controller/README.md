@@ -1,12 +1,12 @@
 # Firmware implementation — 2026-10-08
 
-Current: Rev A STM32G474RET6 firmware source implemented; default SAFE_MONITOR_ONLY. Host logic tests and ARM builds are recorded in docs/firmware_validation.md. No flash, option-byte write, real PWM/contact actuation or energizing was performed. Hardware/CAD is unchanged. Calibration, control gains, timing, BQ physical behavior and power limits require bench measurement and human review before first flash/energizing.
+Current: Rev A STM32G474RET6 firmware source implemented; default SAFE_MONITOR_ONLY. Host logic tests and ARM builds are recorded in [docs/firmware_validation.md](../../docs/firmware_validation.md). No flash, option-byte write, real PWM/contact actuation or energizing was performed. Hardware/CAD is unchanged. Calibration, control gains, timing, BQ physical behavior and power limits require bench measurement and human review before first flash/energizing.
 
 Current guides: [firmware architecture](../../docs/firmware_architecture.md), [operation](../../docs/supercap_user_guide.md), [commissioning](../../docs/firmware_commissioning.md), [CAN protocol](../../docs/can_protocol.md), [tuning](../../docs/control_tuning.md), [flash setup](../../docs/firmware_flash_setup.md).
 
 ## Build and tests
 
-Project-authored source: Core (HAL adapters), App (portable logic), config (reviewed defaults/profile), tests (host emulator). External unmodified HAL/device/CMSIS versions and licenses: Drivers/README.md. No automatic downloads, installs, flash or hardware operations exist in build targets.
+Project-authored source: Core (HAL adapters), App (portable logic), config (reviewed defaults/profile), tests (host emulator). External unmodified HAL/device/CMSIS versions and licenses: [Drivers/README.md](Drivers/README.md). No automatic downloads, installs, flash or hardware operations exist in build targets.
 
 Host (Linux/WSL GCC or another supported C11 GCC/Clang installation):
 
