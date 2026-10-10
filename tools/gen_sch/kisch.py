@@ -4,11 +4,12 @@ Self-contained: every symbol is embedded in lib_symbols. Standard-shaped
 symbols are copied from the KiCad standard libraries (Device, Connector...)
 under the library nickname "rev", so no external library is required.
 """
+import os
 import re
 import uuid
 
 FONT = "(effects (font (size 1.27 1.27)))"
-SYMDIR = "/usr/share/kicad/symbols"
+SYMDIR = os.environ.get("KISCH_SYMDIR", "/usr/share/kicad/symbols")
 
 
 def uid():
