@@ -69,9 +69,8 @@ class LibSym:
             sub = self.body[i:j + 1]
             for pm in re.finditer(r'\(pin (\w+) \w+\s+\(at ([-\d.]+) ([-\d.]+) (\d+)\) \(length ([\d.]+)\)'
                                   r'(?:\s*hide)?\s+\(name "([^"]*)".*?\(number "([^"]*)"', sub, re.S):
-                if u == 0:
-                    continue
-                self.units.setdefault(u, {})[pm.group(7)] = (float(pm.group(2)), float(pm.group(3)), int(pm.group(4)), pm.group(6), pm.group(1))
+                uu = u if u else 1
+                self.units.setdefault(uu, {})[pm.group(7)] = (float(pm.group(2)), float(pm.group(3)), int(pm.group(4)), pm.group(6), pm.group(1))
         # pins in unit 0 (shared graphics) are not expected; unit 1 default
         self.geom = {n: g[:3] for n, g in self.units.get(1, {}).items()}
         self.names = {n: g[3] for n, g in self.units.get(1, {}).items()}
