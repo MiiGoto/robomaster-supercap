@@ -107,6 +107,14 @@ class Sheet:
         s = s.replace('"', "'").replace("\n", "\\n")
         self.items.append(f'(text "{s}" (at {f(x)} {f(y)} 0) (effects (font (size {size} {size})) (justify left top)) (uuid {uid()}))')
 
+    def frame(self, x, y, w, h, title, note=""):
+        self.items.append(
+            f'(rectangle (start {f(x)} {f(y)}) (end {f(x + w)} {f(y + h)}) '
+            f'(stroke (width 0.3) (type dash)) (fill (type none)) (uuid {uid()}))')
+        self.text(x + 3, y + 3, title, 2.5)
+        if note:
+            self.text(x + 3, y + 9, note, 1.5)
+
     def write_lib(self, path):
         o = ['(kicad_symbol_lib (version 20220914) (generator "claude-kisch")']
         for sym in self.syms.values():
