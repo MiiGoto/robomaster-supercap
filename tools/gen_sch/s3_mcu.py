@@ -43,7 +43,7 @@ s.power(FLAG, (66.04, Y - 5.08))
 # switch node, bootstrap, inductor, output
 xsw = U["5"][0]
 Lx = s.add(L, 137.16, U["5"][1], "6.8uH", {"1": "AUX_SW", "2": "3V3"}, rot=90, text="above",
-           props={"Footprint": "Inductor_SMD:L_Bourns-SRN4018", "Note": ">=1A, part TBD"})
+           props={"Footprint": "Inductor_SMD:L_Wuerth_MAPI-4030", "LCSC": "C167876", "Note": "FNR4030S6R8MT 4x4: verify land"})
 s.wire(U["5"], Lx[1])
 Cb = c(124.46, U["6"][1] + 3.81, "100n", "AUX_BST", "AUX_SW")
 s.wire(U["6"], Cb[1])
@@ -53,7 +53,7 @@ s.wire(U["1"], (120.65, U["1"][1]), (120.65, yfb), (143.51, yfb), (143.51, U["5"
 xr = 167.64
 s.wire(Lx[2], (xr, U["5"][1]))
 for x in (148.59, 158.75):
-    k = c(x, U["5"][1] + 7.62, "22u 10V", "3V3", "GND", fp=C08)
+    k = c(x, U["5"][1] + 7.62, "22u 25V", "3V3", "GND", fp=C08)
     s.wire((x, U["5"][1]), k[1])
     gnd(k[2])
 v33((xr, U["5"][1]))
@@ -106,9 +106,9 @@ dx0, dy0 = 290, 105
 s.frame(285, 92, 115, 30, "MCU decoupling (one 100n per VDD pin, 1u at VDDA)")
 s.wire((dx0, dy0), (dx0 + 7.62 + 5 * 12.7, dy0))
 v33((dx0, dy0))
-for i, val in enumerate(("100n", "100n", "100n", "1u", "100n", "4.7u")):
+for i, val in enumerate(("100n", "100n", "100n", "1u", "100n", "4.7u 25V")):
     x = dx0 + 7.62 + i * 12.7
-    k = c(x, dy0 + 6.35, val, "3V3", "GND", fp=C06 if val != "4.7u" else C08)
+    k = c(x, dy0 + 6.35, val, "3V3", "GND", fp=C06 if val != "4.7u 25V" else C08)
     s.wire((x, dy0), k[1])
     gnd(k[2])
 
@@ -116,13 +116,13 @@ for i, val in enumerate(("100n", "100n", "100n", "1u", "100n", "4.7u")):
 cx0, cy0 = 290, 140
 s.frame(285, 127, 55, 45, "8 MHz crystal (FDCAN clock)")
 Y1 = s.add(XTAL, cx0 + 22.86, cy0, "8MHz", {"1": "OSC_IN", "2": "OSC_OUT"}, rot=0, text="above",
-           props={"Footprint": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm", "Note": "CL ~10pF, part TBD"})
+           props={"Footprint": "Crystal:Crystal_SMD_5032-2Pin_5.0x3.2mm", "LCSC": "C115962", "Note": "X50328MSB2GI CL 20pF"})
 s.wire(Y1[1], (cx0 + 7.62, cy0))
 s.label("OSC_IN", (cx0 + 7.62, cy0), "L")
 s.wire(Y1[2], (cx0 + 38.1, cy0))
 s.label("OSC_OUT", (cx0 + 38.1, cy0), "R")
 for x in (Y1[1][0] - 2.54, Y1[2][0] + 2.54):
-    k = c(x, cy0 + 7.62, "12p", "OSC_IN" if x < Y1[1][0] else "OSC_OUT", "GND")
+    k = c(x, cy0 + 7.62, "33p", "OSC_IN" if x < Y1[1][0] else "OSC_OUT", "GND")
     s.wire((x, cy0), k[1])
     gnd(k[2])
 
@@ -143,8 +143,8 @@ gnd(Rb[2])
 # SWD
 sx0, sy0 = 350, 190
 s.frame(345, 177, 55, 40, "SWD")
-J = s.add(CON5, sx0 + 30.48, sy0, "SWD 1.27mm", {"1": "3V3", "2": "SWDIO", "3": "SWCLK", "4": "NRST", "5": "GND"},
-          text="right", props={"Footprint": "Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical"})
+J = s.add(CON5, sx0 + 30.48, sy0, "SWD 1.27mm (DNP)", {"1": "3V3", "2": "SWDIO", "3": "SWCLK", "4": "NRST", "5": "GND"},
+          text="right", props={"Footprint": "Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical", "DNP": True})
 s.wire(J["1"], (J["1"][0] - 5.08, J["1"][1]), (J["1"][0] - 5.08, J["1"][1] - 2.54))
 v33((J["1"][0] - 5.08, J["1"][1] - 2.54))
 for p in ("2", "3", "4"):
@@ -170,28 +170,25 @@ v33((UC["3"][0], yt))
 Cc = c(UC["3"][0] + 10.16, yt + 3.81, "100n", "3V3", "GND")
 s.wire((UC["3"][0], yt), (Cc[1][0], yt), Cc[1])
 gnd(Cc[2])
-JC = s.add(CON4, kx + 76.2, UC["7"][1] + 2.54, "CAN (GH 1.25 4p)", {"1": "CANH", "2": "CANL", "3": "GND"}, text="right",
-           props={"Footprint": "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal",
-                  "Note": "pinout TBD to match robot harness"})
+JC = s.add(CON2, kx + 76.2, UC["7"][1], "CAN (GH 1.25 2p)", {"1": "CANH", "2": "CANL"}, text="right",
+           props={"Footprint": "Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal", "LCSC": "C225125",
+                  "Note": "A1257WR-S-2P (GH compatible). 1=CANH 2=CANL"})
 s.wire(UC["7"], JC["1"])
 yH = UC["7"][1]
 x1, xt, x2 = UC["6"][0] + 5.08, UC["6"][0] + 12.7, JC["2"][0] - 5.08
 s.wire(UC["6"], (x1, UC["6"][1]), (x1, yH + 7.62), (x2, yH + 7.62), (x2, JC["2"][1]), JC["2"])
-Rt = s.add(R, xt, yH + 3.81, "120R DNP", {"1": "CANH", "2": "CANL"}, props={"Footprint": R06})
-s.wire(JC["3"], (JC["3"][0] - 2.54, JC["3"][1]), (JC["3"][0] - 2.54, JC["3"][1] + 7.62))
-gnd((JC["3"][0] - 2.54, JC["3"][1] + 7.62))
-s.nc(JC["4"])
+Rt = s.add(R, xt, yH + 3.81, "120R DNP", {"1": "CANH", "2": "CANL"}, props={"Footprint": R06, "DNP": True})
 
 # ================= referee UART + LEDs
 ux, uy = 30, 170
-s.frame(15, 152, 140, 40, "Referee UART (3.3 V TTL: confirm)")
+s.frame(15, 152, 140, 40, "Referee UART (3.3 V TTL)")
 for i, (lab, net, pin) in enumerate((("UART_TX", "REF_TX", "1"), ("UART_RX", "REF_RX", "2"))):
     y = uy + i * 10.16
     rr = s.add(R, ux + 25.4, y, "100R", {"1": lab, "2": net}, rot=90, text="above", props={"Footprint": R06})
     s.wire(rr[1], (ux + 12.7, y))
     s.label(lab, (ux + 12.7, y), "L")
 JU = s.add(CON3, ux + 55.88, uy + 2.54, "Referee (GH 1.25 3p)", {"1": "REF_TX", "2": "REF_RX", "3": "GND"}, text="right",
-           props={"Footprint": "Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal"})
+           props={"Footprint": "Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal", "LCSC": "C225126"})
 r1 = s.parts[-3]
 r2 = s.parts[-2]
 s.wire(r1[2], (JU["1"][0] - 7.62, r1[2][1]), (JU["1"][0] - 7.62, JU["1"][1]), JU["1"])

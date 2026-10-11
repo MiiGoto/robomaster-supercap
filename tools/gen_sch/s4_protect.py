@@ -29,7 +29,7 @@ for i, (src, out, note) in enumerate((("NODE", "VNODE_S", "27 V -> 2.45 V"), ("V
     s.label(out, (x + 20.32, ym), "R")
     s.text(x - 5, 85, note, 1.27)
 x = 125
-nt = s.add(NTC, x, 52.07, "NTC 10k B3950", {"1": "3V3", "2": "TEMP_S"},
+nt = s.add(NTC, x, 52.07, "NTC 10k B3380", {"1": "3V3", "2": "TEMP_S"},
            props={"Footprint": R06, "Note": "place at L101 / power FETs"})
 rb = r(x, 67.31, "10k", "TEMP_S", "GND")
 v33(nt[1])
@@ -70,8 +70,8 @@ s.text(178, 97, "1.2475 V: below the LM393 input range limit (Vcc - 1.5 V).", 1.
 # ================= C. over-voltage comparators (with hysteresis)
 s.frame(15, 115, 255, 110, "Hardware over-voltage comparators (LM393, open collector)")
 specs = (
-    ("VIN_C", "4.53k", "VOV_A", "VR_A", "PMOS_EN", "Input OV 28.8 V -> PMOS_EN low (Q1 off, converter off)", 1),
-    ("NODE", "4.75k", "VOV_B", "VR_B", "NODE_OK", "Node OV 27.5 V -> NODE_OK low (converter off)", 2),
+    ("VIN_C", "6.8k", "VOV_A", "VR_A", "PMOS_EN", "Input OV 28.8 V -> PMOS_EN low (Q1 off, converter off)", 1),
+    ("NODE", "4.7k", "VOV_B", "VR_B", "NODE_OK", "Node OV 27.8 V -> NODE_OK low (converter off)", 2),
 )
 UC = None
 for i, (src, rlo, vov, vr, outn, note, unit) in enumerate(specs):
@@ -82,8 +82,8 @@ for i, (src, rlo, vov, vr, outn, note, unit) in enumerate(specs):
     pin_m, pin_p, pin_o = ("2", "3", "1") if unit == 1 else ("6", "5", "7")
     # divider to the inverting input
     xd = 60
-    ra = r(xd, U[pin_m][1] - 6.35, "100k", src, vov)
-    rb = r(xd, U[pin_m][1] + 10.16, rlo + " 1%", vov, "GND")
+    ra = r(xd, U[pin_m][1] - 6.35, "150k" if unit == 1 else "100k", src, vov)
+    rb = r(xd, U[pin_m][1] + 10.16, rlo, vov, "GND")
     s.wire(ra[1], (xd, ra[1][1] - 2.54))
     s.label(src, (xd, ra[1][1] - 2.54), "U")
     s.wire(ra[2], (xd, U[pin_m][1]), rb[1])

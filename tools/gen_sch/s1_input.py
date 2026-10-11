@@ -14,17 +14,17 @@ s.text(15, 23.5, "R4 = LM5176 input shunt (ISNS limit 50 mV -> 4.2 A). Kelvin-ro
                  "the INA240 inputs from the R4 pads.", 1.27)
 
 # ---------- input connector, fuse, TVS
-J1 = s.add(CON2, 17.78, Y, "XT30", {"1": "VIN_RAW", "2": "GND"}, mirror="y",
-           props={"Footprint": FP_XT30, "Note": "from PM chassis output"}, text="left")
+J1 = s.add(CON2, 17.78, Y + 2.54, "XT30", {"1": "GND", "2": "VIN_RAW"}, rot=180,
+           props={"Footprint": FP_XT30, "Note": "from PM chassis output. pin1 = -, pin2 = + (AMASS)"}, text="left")
 F1 = s.add(F, 38.1, Y, "10A", {"1": "VIN_RAW", "2": "VIN_F"}, rot=90,
-           props={"Footprint": "Fuse:Fuse_2920_7451Metric", "Note": "part TBD (fast, >=10A, 32V)"}, text="above")
-s.wire(J1[1], F1[1])
-gx = J1[2][0] + 2.54
-s.wire(J1[2], (gx, J1[2][1]), (gx, J1[2][1] + 5.08))
-gnd((gx, J1[2][1] + 5.08))
+           props={"Footprint": "Fuse:Fuse_1206_3216Metric", "LCSC": "C52988557", "Note": "LTC1206-2100TS 10A 32V"}, text="above")
+s.wire(J1[2], F1[1])
+gx = J1[1][0] + 2.54
+s.wire(J1[1], (gx, J1[1][1]), (gx, J1[1][1] + 5.08))
+gnd((gx, J1[1][1] + 5.08))
 
 xd = 50.8
-D1 = s.add(DZ, xd, Y + 7.62, "SMDJ30A", {"1": "VIN_F", "2": "GND"}, rot=270, props={"Footprint": "Diode_SMD:D_SMC"})
+D1 = s.add(DZ, xd, Y + 7.62, "SMBJ30A", {"1": "VIN_F", "2": "GND"}, rot=270, props={"Footprint": "Diode_SMD:D_SMB"})
 gnd(D1[2])
 
 # ---------- series PMOS Q1 (D = input side, S = converter side)
@@ -77,11 +77,11 @@ for i in range(6):
     gnd(k[2])
 cpx = xc0 + 6 * dxc
 CPa = s.add(CP, cpx, Y + 7.62, "100u", {"1": "VIN_P", "2": "GND"},
-            props={"Footprint": "Capacitor_SMD:CP_Elec_10x10.5", "Note": "hybrid polymer, part TBD"})
+            props={"Footprint": "Capacitor_SMD:CP_Elec_6.3x7.7", "LCSC": "C3151829"})
 s.wire((cpx, Y), CPa[1])
 gnd(CPa[2])
 s.label("VIN_P", (xe, Y), "R")
-s.text(xc0 - 2, Y + 20, "C1-C6: 4.7u 50V X7R 1210.  C7: 100u 50V hybrid polymer.  Place at the buck leg (Q101/Q102).", 1.27)
+s.text(xc0 - 2, Y + 20, "C1-C6: 4.7u 50V X7R 1206.  C7: 100u 50V Al electrolytic.  Place at the buck leg (Q101/Q102).", 1.27)
 
 # ---------- ISNS offset sink (dynamic input-power limit)
 fx, fy = 120.65, 95.25
@@ -146,8 +146,8 @@ s.label("IIN_S", (R9[2][0] + 12.7, R9[2][1]), "R")
 
 # ---------- power flags (input nets are driven from a connector)
 s.power(FLAG, F1[1])
-s.wire((gx, J1[2][1] + 2.54), (gx + 5.08, J1[2][1] + 2.54))
-s.power(FLAG, (gx + 5.08, J1[2][1] + 2.54))
+s.wire((gx, J1[1][1] + 2.54), (gx + 5.08, J1[1][1] + 2.54))
+s.power(FLAG, (gx + 5.08, J1[1][1] + 2.54))
 
 s.write(sys.argv[1])
 print("wrote", sys.argv[1], len(s.bom))

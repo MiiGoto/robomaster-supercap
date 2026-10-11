@@ -14,6 +14,9 @@ import sys
 from kisch import LibSym, Sym, uid, f  # noqa: F401
 
 G = 1.27
+LCSC_MAP = {}  # (symbol nick, value) -> LCSC code (0603 / other packages), filled by parts.py
+LCSC_MAP_0402 = {}
+FORCE_0603 = set()
 
 
 def snap(v):
@@ -86,7 +89,16 @@ class Sheet2:
             ref = f"{sym.ref_prefix}{n}"
         part.ref = ref
         self.syms[sym.lib] = sym
-        props = props or {}
+        props = dict(props or {})
+        dnp = "yes" if props.pop("DNP", False) else "no"
+        fpn = props.get("Footprint", "")
+        if "_0402_" in fpn and ((sym.nick, value) in FORCE_0603 or (sym.nick, value) not in LCSC_MAP_0402):
+            props["Footprint"] = fpn.replace("R_0402_1005Metric", "R_0603_1608Metric").replace("C_0402_1005Metric", "C_0603_1608Metric")
+            fpn = props["Footprint"]
+        if "LCSC" not in props:
+            m = LCSC_MAP_0402 if "_0402_" in fpn else LCSC_MAP
+            if (sym.nick, value) in m:
+                props["LCSC"] = m[(sym.nick, value)]
         # text placement
         xs = [part.p(n)[0] for n in part.geom] + [x]
         ys = [part.p(n)[1] for n in part.geom] + [y]
@@ -121,7 +133,7 @@ class Sheet2:
         eff = '(effects (font (size 1.27 1.27)) (justify %s))' % just if just else "(effects (font (size 1.27 1.27)))"
         tang = 90 if rot in (90, 270) else 0
         inbom = "yes" if bom else "no"
-        o = [f'(symbol (lib_id "{sym.lib}") (at {f(x)} {f(y)} {rot}){' (mirror %s)' % mirror if mirror else ''} (unit {unit}) (in_bom {inbom}) (on_board {inbom}) (dnp no)',
+        o = [f'(symbol (lib_id "{sym.lib}") (at {f(x)} {f(y)} {rot}){' (mirror %s)' % mirror if mirror else ''} (unit {unit}) (in_bom {inbom}) (on_board {inbom}) (dnp {dnp})',
              f'(uuid {uid()})',
              f'(property "Reference" "{ref}" (at {f(rpos[0])} {f(rpos[1])} {tang}) {eff})',
              f'(property "Value" "{value}" (at {f(vpos[0])} {f(vpos[1])} {tang}) {eff})',
@@ -137,7 +149,7 @@ class Sheet2:
         for num in part.geom:
             self.conn_pts.append(part.p(num))
         if bom and unit == 1:
-            self.bom.append((ref, value, props.get("LCSC", ""), props.get("Footprint", ""), sym.lib))
+            self.bom.append((ref, value, props.get("LCSC", "") if dnp == "no" else "", props.get("Footprint", ""), sym.lib))
         if bom:
             self.parts.append(part)
         return part
