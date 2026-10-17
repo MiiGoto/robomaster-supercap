@@ -48,6 +48,7 @@ static volatile float    can_limit_w;         /* written by the FDCAN RX interru
 static volatile uint32_t can_limit_ms;
 static volatile uint8_t  can_have_limit;
 static volatile uint32_t tick_ms;
+static bool              chg_on_prev;         /* EN_CHG as driven in the previous tick */
 static uint16_t vrefint_cal;
 static sc_telemetry_t tel;                    /* written by the tick */
 
@@ -154,6 +155,7 @@ void sc_app_tick_1khz(void)
     in.pmos_en_rb = HAL_GPIO_ReadPin(PMOS_EN_RB_GPIO_Port, PMOS_EN_RB_Pin) == GPIO_PIN_SET;
     in.node_ok = HAL_GPIO_ReadPin(NODE_OK_GPIO_Port, NODE_OK_Pin) == GPIO_PIN_SET;
     in.pgood = HAL_GPIO_ReadPin(PGOOD_GPIO_Port, PGOOD_Pin) == GPIO_PIN_SET;
+    in.chg_on = chg_on_prev;
 
     bool can_fresh = can_have_limit && (uint32_t)(now - can_limit_ms) < SC_SRC_TIMEOUT_MS;
     sc_target_t tgt;
@@ -165,6 +167,7 @@ void sc_app_tick_1khz(void)
 
     (void)HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, pwr.dac_code);
     set_outputs(sup.en_pmos, sup.en_chg && pwr.gate);
+    chg_on_prev = sup.en_chg && pwr.gate;
 
     uint8_t flags = 0u;
     flags |= (tgt.src == SC_SRC_REFEREE) ? SC_FLAG_REFEREE_OK : 0u;

@@ -72,6 +72,17 @@
 #define SC_RETRY_MS             2000u     /* auto retry delay after a non-latched fault */
 #define SC_BOOT_MS              100u      /* ADC settling */
 
+/* ---------------- short / stall detection (LM5176 hiccup is disabled: MODE 200k)
+ * With the node shorted the converter sits in buck valley current limit (~5.5-7.9 A) and the
+ * hardware does not stop.  A healthy empty 5 F bank rises >= ~1 V/s at the minimum valley limit.
+ * While the node is below SC_SHORT_V_CHECK, every SC_SHORT_WIN_MS of switching (EN_CHG actually
+ * on) must raise it by SC_SHORT_DV_MIN, otherwise the charger stops (fault 0x40). */
+#define SC_SHORT_V_CHECK        10.0f     /* V, check only below this node voltage */
+#define SC_SHORT_WIN_MS         1000u     /* accumulated switching time per check */
+#define SC_SHORT_DV_MIN         0.3f      /* V, minimum rise per window */
+#define SC_SHORT_RETRY_MS       5000u     /* retry delay after a short trip */
+#define SC_SHORT_MAX_TRIPS      3u        /* consecutive trips -> latched until power cycle */
+
 /* ---------------- CAN */
 #define SC_CAN_ID_CMD           0x210u    /* robot -> board: power limit (Taobao board compatible) */
 #define SC_CAN_ID_STATUS        0x211u    /* board -> robot: Vin, Vcap, Iin, Ptarget (Taobao compatible) */

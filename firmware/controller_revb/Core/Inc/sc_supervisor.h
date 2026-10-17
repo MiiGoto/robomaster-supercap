@@ -26,12 +26,14 @@ typedef enum {
 #define SC_F_IN_OC      0x08u   /* input over-current - latched until reset */
 #define SC_F_SENSOR     0x10u   /* VDDA or NTC implausible */
 #define SC_F_START      0x20u   /* PMOS_EN readback did not follow EN_PMOS */
+#define SC_F_SHORT      0x40u   /* node did not rise while charging (short); latched after SC_SHORT_MAX_TRIPS */
 #define SC_F_LATCHED    (SC_F_IN_OC)
 
 typedef struct {
     bool pmos_en_rb;    /* PB13: PMOS_EN net after the comparator wired-AND */
     bool node_ok;       /* PB12 */
     bool pgood;         /* PB2 (telemetry only) */
+    bool chg_on;        /* EN_CHG pin state of the previous tick (after sc_power gating) */
 } sc_inputs_t;
 
 typedef struct {
@@ -43,6 +45,10 @@ typedef struct {
     uint32_t   oc_ms;
     uint32_t   now_ms;
     bool       hot;         /* over-temperature hysteresis */
+    uint32_t   short_win_ms;  /* switching time accumulated in the current check window */
+    float      short_v0;      /* node voltage at the start of the window */
+    uint8_t    short_trips;   /* consecutive short trips */
+    bool       short_latched;
     /* outputs */
     bool       en_pmos;
     bool       en_chg;      /* before gating by sc_power */

@@ -56,10 +56,44 @@ static uint8_t check_run(sc_super_t *s, const sc_meas_t *m, const sc_inputs_t *i
     return f;
 }
 
+/* short / stall: while the node is low, each SC_SHORT_WIN_MS of switching must raise it */
+static uint8_t check_short(sc_super_t *s, const sc_meas_t *m, const sc_inputs_t *in, uint32_t dt_ms)
+{
+    if (m->vnode >= SC_SHORT_V_CHECK) {
+        s->short_win_ms = 0u;
+        s->short_trips = 0u;          /* the node came up: earlier trips were not a hard short */
+        return 0u;
+    }
+    if (!in->chg_on) {
+        return 0u;                    /* gated off by sc_power: pause the window */
+    }
+    if (s->short_win_ms == 0u) {
+        s->short_v0 = m->vnode;
+    }
+    s->short_win_ms += dt_ms;
+    if (s->short_win_ms < SC_SHORT_WIN_MS) {
+        return 0u;
+    }
+    s->short_win_ms = 0u;
+    if (m->vnode - s->short_v0 >= SC_SHORT_DV_MIN) {
+        return 0u;
+    }
+    if (s->short_trips < 255u) {
+        s->short_trips++;
+    }
+    if (s->short_trips >= SC_SHORT_MAX_TRIPS) {
+        s->short_latched = true;
+    }
+    return SC_F_SHORT;
+}
+
 /* conditions that keep a fault active (except latched ones) */
 static uint8_t still_bad(sc_super_t *s, const sc_meas_t *m, const sc_inputs_t *in)
 {
     uint8_t f = s->faults & SC_F_LATCHED;
+    if (s->short_latched) {
+        f |= SC_F_SHORT;
+    }
     if (!m->valid) {
         f |= SC_F_SENSOR;
     }
@@ -111,6 +145,7 @@ void sc_super_step(sc_super_t *s, const sc_meas_t *m, const sc_inputs_t *in, flo
                 fault(s, SC_F_START);
             } else {
                 s->oc_ms = 0u;
+                s->short_win_ms = 0u;
                 enter(s, SC_ST_CHARGE);
             }
         }
@@ -121,6 +156,7 @@ void sc_super_step(sc_super_t *s, const sc_meas_t *m, const sc_inputs_t *in, flo
         if (!in->pmos_en_rb) {
             f |= SC_F_IN_OV;   /* comparator A pulled PMOS_EN low */
         }
+        f |= check_short(s, m, in, dt_ms);
         if (f) {
             fault(s, f);
             break;
@@ -134,7 +170,8 @@ void sc_super_step(sc_super_t *s, const sc_meas_t *m, const sc_inputs_t *in, flo
     case SC_ST_FAULT: {
         uint8_t f = still_bad(s, m, in);
         s->faults = f | (s->faults & SC_F_LATCHED);
-        if (s->faults == 0u && s->t_state_ms >= SC_RETRY_MS) {
+        uint32_t retry = (s->last_fault & SC_F_SHORT) ? SC_SHORT_RETRY_MS : SC_RETRY_MS;
+        if (s->faults == 0u && s->t_state_ms >= retry) {
             enter(s, SC_ST_IDLE);
         } else if (f) {
             s->t_state_ms = 0u;     /* retry delay restarts while the cause persists */

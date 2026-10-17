@@ -259,6 +259,84 @@ static void test_supervisor(void)
     CHECK(s.state == SC_ST_IDLE && !s.en_pmos, "no permission %d", s.state);
 }
 
+/* ---------- short / stall detection: node must rise while the charger switches */
+static void test_short(void)
+{
+    sc_super_t s;
+    sc_meas_t m = {.vdda = 3.3f, .vnode = 0.2f, .vin = 24.0f, .iin = 0.3f, .icap = 0, .temp_c = 30, .pin = 7, .valid = true};
+    sc_inputs_t in = {.pmos_en_rb = true, .node_ok = true, .pgood = true, .chg_on = true};
+
+    /* 1. healthy empty bank: 5 F at 5.5 A (lowest valley limit) = 1.1 V/s -> no trip, charges to 12 V */
+    sc_super_init(&s);
+    CHECK(run_until(&s, &m, &in, 40.0f, SC_ST_CHARGE, 2000) > 0, "to charge %d", s.state);
+    int tripped = 0;
+    for (int i = 0; i < 12000; i++) {
+        m.vnode += 5.5f / 5.0f / 1000.0f;
+        sc_super_step(&s, &m, &in, 40.0f, 1);
+        if (s.state != SC_ST_CHARGE) { tripped = 1; break; }
+    }
+    CHECK(!tripped && m.vnode > 12.0f, "healthy bank tripped (state %d, %.2f V)", s.state, m.vnode);
+
+    /* 2. gated (low power, 30%% on-time): rise only while switching -> still no trip */
+    sc_super_init(&s);
+    m.vnode = 0.5f;
+    run_until(&s, &m, &in, 40.0f, SC_ST_CHARGE, 2000);
+    tripped = 0;
+    for (int i = 0; i < 20000 && m.vnode < SC_SHORT_V_CHECK; i++) {
+        in.chg_on = (i % 100) < 30;
+        if (in.chg_on) m.vnode += 5.5f / 5.0f / 1000.0f;
+        else m.vnode -= 0.05f / 5.0f / 1000.0f;        /* small standby drain */
+        sc_super_step(&s, &m, &in, 40.0f, 1);
+        if (s.state != SC_ST_CHARGE) { tripped = 1; break; }
+    }
+    CHECK(!tripped, "gated charging tripped (state %d, %.2f V)", s.state, m.vnode);
+    in.chg_on = true;
+
+    /* 3. hard short at 0.1 V: trips after one window, retries after SC_SHORT_RETRY_MS */
+    sc_super_init(&s);
+    m.vnode = 0.1f;
+    run_until(&s, &m, &in, 40.0f, SC_ST_CHARGE, 2000);
+    int t = run_until(&s, &m, &in, 40.0f, SC_ST_FAULT, 3000);
+    CHECK(t >= (int)SC_SHORT_WIN_MS - 1 && t <= (int)SC_SHORT_WIN_MS + 1 && (s.last_fault & SC_F_SHORT) && !s.en_chg && !s.en_pmos,
+          "short trip after %d ms fault %02x", t, s.last_fault);
+    run(&s, &m, &in, 40.0f, SC_RETRY_MS + 100);
+    CHECK(s.state == SC_ST_FAULT, "short uses the longer retry delay %d", s.state);
+    run(&s, &m, &in, 40.0f, SC_SHORT_RETRY_MS - SC_RETRY_MS);
+    CHECK(s.state != SC_ST_FAULT, "short retry %d", s.state);
+
+    /* 4. short stays: 3 consecutive trips -> latched */
+    for (int k = 0; k < 3; k++) {
+        run_until(&s, &m, &in, 40.0f, SC_ST_FAULT, SC_SHORT_RETRY_MS + SC_VIN_OK_MS + SC_SHORT_WIN_MS + 100);
+        run_until(&s, &m, &in, 40.0f, SC_ST_IDLE, SC_SHORT_RETRY_MS + 100);
+    }
+    CHECK(s.short_trips >= SC_SHORT_MAX_TRIPS && s.state == SC_ST_FAULT && (s.faults & SC_F_SHORT),
+          "latched after %u trips, state %d faults %02x", s.short_trips, s.state, s.faults);
+    run(&s, &m, &in, 40.0f, 3 * SC_SHORT_RETRY_MS);
+    CHECK(s.state == SC_ST_FAULT && !s.en_pmos, "short latched %d", s.state);
+
+    /* 5. a single trip then a good charge resets the trip counter */
+    sc_super_init(&s);
+    m.vnode = 0.1f;
+    run_until(&s, &m, &in, 40.0f, SC_ST_CHARGE, 2000);
+    run_until(&s, &m, &in, 40.0f, SC_ST_FAULT, 3000);
+    run_until(&s, &m, &in, 40.0f, SC_ST_CHARGE, SC_SHORT_RETRY_MS + SC_VIN_OK_MS + 100);
+    for (int i = 0; i < 12000 && s.state == SC_ST_CHARGE; i++) {
+        m.vnode += 1.1f / 1000.0f;
+        sc_super_step(&s, &m, &in, 40.0f, 1);
+    }
+    CHECK(s.state == SC_ST_CHARGE && s.short_trips == 0u, "trip counter reset %u state %d", s.short_trips, s.state);
+
+    /* 6. node collapses while running from 24 V: detected once it is below the check voltage */
+    sc_super_init(&s);
+    m.vnode = 24.0f;
+    run_until(&s, &m, &in, 40.0f, SC_ST_CHARGE, 2000);
+    run(&s, &m, &in, 40.0f, 3000);
+    CHECK(s.state == SC_ST_CHARGE, "normal at 24 V %d", s.state);
+    m.vnode = 0.3f;
+    t = run_until(&s, &m, &in, 40.0f, SC_ST_FAULT, 3000);
+    CHECK(t > 0 && t <= (int)SC_SHORT_WIN_MS + 1 && (s.last_fault & SC_F_SHORT), "collapse trip %d", t);
+}
+
 /* ---------- closed loop with a crude converter model */
 static float plant_ilim(float dac_v, float err)
 {
@@ -347,6 +425,7 @@ int main(void)
     test_sensing();
     test_power_target();
     test_supervisor();
+    test_short();
     test_power_loop();
     test_can();
     printf("%d checks, %d failures\n", checks, fails);
